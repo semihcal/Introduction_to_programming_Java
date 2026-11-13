@@ -1,0 +1,24 @@
+{
+  "name": "slidev-theme-comp1600",
+  "version": "1.0.0",
+  "private": true,
+  "keywords": ["slidev-theme", "slidev"],
+  "engines": {
+    "slidev": ">=0.48.0"
+  },
+  "slidev": {
+    "colorSchema": "light",
+    "defaults": {
+      "transition": "fade",
+      "lineNumbers": false,
+      "fonts": {
+        "sans": "Lexend",
+        "mono": "JetBrains Mono",
+        "provider": "none"
+      },
+      "htmlAttrs": {
+        "lang": "en"
+      }
+    }
+  }
+}

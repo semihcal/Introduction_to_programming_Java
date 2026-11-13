@@ -1,0 +1,20 @@
+{
+  "name": "comp1600-slides",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "slidev --open",
+    "build": "slidev build",
+    "build:all": "node scripts/build-all.mjs",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "@fontsource/lexend": "^5.3.0",
+    "@slidev/cli": "latest",
+    "vue": "latest"
+  },
+  "devDependencies": {
+    "playwright-chromium": "^1.65.0"
+  }
+}

@@ -1,0 +1,404 @@
+/* COMP 1600 course theme: light, high-contrast, blue/orange (color-blind-safe).
+   Sizes follow the 24pt body / 18pt minimum rule on the 980px canvas.
+   Change the colors once here and every deck follows. */
+:root {
+  --c-accent: #3730a3;
+  --c-on-accent: #ffffff;
+  --c-accent-soft: #eef2ff;
+  --c-accent-2: #c2410c;
+  --c-accent-2-soft: #fff7ed;
+  --c-ink: #0f172a;
+  --c-muted: #475569;
+  --c-paper: #ffffff;
+  --c-line: #94a3b8;
+  --c-alive: #0f172a;
+  --c-dead: #ffffff;
+}
+
+/* Lines dimmed by click-highlighting must stay readable. */
+.slidev-code .slidev-code-line.dishonored,
+.slidev-code .dishonored {
+  opacity: 0.6 !important;
+}
+
+.slidev-layout.slidev-layout {
+  --slidev-code-font-size: 22px;
+  --slidev-code-line-height: 1.45;
+  --slidev-code-padding: 14px 18px;
+  --slidev-code-radius: 14px;
+  --slidev-code-background: #ffffff;
+  background: #f8fafc;
+  color: var(--c-ink);
+  font-size: 24px;
+  line-height: 1.4;
+  padding: 36px 56px 44px;
+}
+
+.slidev-layout.slidev-layout h1 {
+  font-size: 36px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--c-accent);
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
+}
+
+.slidev-layout.slidev-layout p {
+  margin: 0.4em 0;
+  line-height: 1.4;
+}
+
+.slidev-layout.slidev-layout ul,
+.slidev-layout.slidev-layout ol {
+  padding-left: 1.2em;
+}
+
+.slidev-layout.slidev-layout ul {
+  list-style: disc;
+}
+
+.slidev-layout.slidev-layout li {
+  margin: 0.3em 0;
+  line-height: 1.4;
+}
+
+.slidev-layout.slidev-layout li::marker {
+  color: var(--c-accent-2);
+  font-weight: 700;
+}
+
+.slidev-layout.slidev-layout td,
+.slidev-layout.slidev-layout th {
+  padding: 5px 12px 5px 0;
+  font-weight: 400;
+}
+
+.slidev-layout.slidev-layout th {
+  font-weight: 700;
+}
+
+.slidev-layout.slidev-layout li li {
+  font-size: 1em;
+  opacity: 1;
+}
+
+.slidev-layout.slidev-layout .slidev-code,
+.slidev-layout.slidev-layout .shiki-magic-move-container {
+  border: 1px solid #cbd5e1;
+}
+
+.slidev-layout.slidev-layout :not(pre) > code {
+  font-size: 0.92em;
+  font-weight: 600;
+  padding: 0.05em 0.3em;
+  border-radius: 6px;
+  background: var(--c-accent-soft);
+  color: var(--c-accent);
+}
+
+.slidev-layout.slidev-layout table {
+  font-size: 22px;
+}
+
+.slidev-layout.slidev-layout th {
+  text-align: left;
+  color: var(--c-accent);
+}
+
+/* Cover: white, with the lecture's key picture on the right. */
+.slidev-layout.slidev-layout.cover {
+  background:
+    radial-gradient(circle at 1px 1px, #cbd5e1 1.5px, transparent 0) 0 0 / 28px 28px,
+    #ffffff;
+  color: var(--c-ink);
+  padding: 0 64px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.slidev-layout.slidev-layout.cover > * {
+  position: relative;
+  z-index: 1;
+}
+
+.slidev-layout.slidev-layout.cover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #ffffff 0%, #ffffff 52%, rgba(255, 255, 255, 0.2) 100%);
+}
+
+.slidev-layout.slidev-layout.cover::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 8px;
+  background: linear-gradient(90deg, var(--c-accent) 0 70%, var(--c-accent-2) 70% 100%);
+}
+
+.cover-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+  gap: 24px;
+  align-items: center;
+  width: 100%;
+}
+
+.cover-pill {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 4px 16px;
+  border-radius: 999px;
+  background: var(--c-accent);
+  color: #ffffff;
+}
+
+.slidev-layout.slidev-layout.cover h1 {
+  color: var(--c-ink);
+  font-size: 54px;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 22px 0 14px;
+}
+
+.slidev-layout.cover h1 .hl {
+  color: var(--c-accent);
+  white-space: nowrap;
+}
+
+.slidev-layout.slidev-layout.cover .cover-course {
+  font-size: 26px;
+  color: var(--c-muted);
+  margin: 0 0 22px;
+}
+
+.cover-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cover-topics span {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 3px 14px;
+  border-radius: 999px;
+  border: 2px solid #cbd5e1;
+  background: #ffffff;
+  color: var(--c-ink);
+}
+
+.cover-art svg {
+  width: 100%;
+  max-height: 340px;
+}
+
+.cover-art-name {
+  font-family: var(--slidev-font-mono, monospace);
+  font-size: 22px;
+  font-weight: 700;
+  fill: #0f172a;
+}
+
+.cover-art-obj {
+  font-size: 26px;
+  font-weight: 700;
+  fill: #0f172a;
+}
+
+/* Section dividers */
+.slidev-layout.slidev-layout.section {
+  background: var(--c-accent-soft);
+}
+
+.slidev-layout.slidev-layout.section h1 {
+  font-size: 50px;
+  margin-bottom: 8px;
+}
+
+.kicker {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-accent-2);
+}
+
+/* Layout helpers */
+.cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.cols.wide-left {
+  grid-template-columns: 1.25fr 1fr;
+}
+
+.cols.center {
+  align-items: center;
+}
+
+.card {
+  background: var(--c-paper);
+  border: 1px solid #cbd5e1;
+  border-radius: 16px;
+  padding: 14px 22px;
+}
+
+.card.blue {
+  border: 3px solid var(--c-accent);
+}
+
+.card.orange {
+  border: 3px solid var(--c-accent-2);
+}
+
+.card h3 {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 2px solid var(--c-accent-2);
+  color: var(--c-accent-2);
+  background: var(--c-paper);
+  white-space: nowrap;
+}
+
+.callout {
+  margin-top: 16px;
+  padding: 10px 18px;
+  border-left: 6px solid var(--c-accent-2);
+  border-radius: 8px;
+  background: var(--c-accent-2-soft);
+}
+
+.small {
+  font-size: 20px;
+  color: var(--c-muted);
+}
+
+/* Static memory diagrams */
+.mem {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mem-row {
+  display: flex;
+  align-items: center;
+}
+
+.mem-name {
+  font-family: var(--slidev-font-mono, monospace);
+  font-weight: 700;
+  font-size: 22px;
+  min-width: 90px;
+  text-align: center;
+  padding: 8px 12px;
+  border: 3px solid var(--c-accent);
+  border-radius: 10px;
+  background: var(--c-accent-soft);
+}
+
+.mem-value {
+  font-family: var(--slidev-font-mono, monospace);
+  font-weight: 700;
+  font-size: 30px;
+  min-width: 110px;
+  text-align: center;
+  padding: 12px;
+  border: 3px solid var(--c-accent);
+  border-radius: 10px;
+  background: var(--c-accent-soft);
+}
+
+.mem-label {
+  font-family: var(--slidev-font-mono, monospace);
+  font-weight: 700;
+  font-size: 22px;
+  margin-right: 14px;
+}
+
+.mem-arrow {
+  position: relative;
+  flex: 1;
+  min-width: 60px;
+  height: 4px;
+  background: var(--c-accent);
+  margin-right: 14px;
+}
+
+.mem-arrow::after {
+  content: '';
+  position: absolute;
+  right: -12px;
+  top: -8px;
+  border-left: 14px solid var(--c-accent);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+.mem-obj {
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+  padding: 10px 18px;
+  border: 3px solid var(--c-accent-2);
+  border-radius: 14px;
+  background: var(--c-accent-2-soft);
+}
+
+.mem-obj code {
+  white-space: nowrap;
+}
+
+.mem-null {
+  font-family: var(--slidev-font-mono, monospace);
+  font-size: 22px;
+  font-weight: 700;
+  padding: 6px 18px;
+  border: 3px dashed var(--c-muted);
+  border-radius: 10px;
+  color: var(--c-muted);
+}
+
+.qr {
+  height: 300px;
+}
+
+/* Older decks use .note for the same thing as .callout. */
+.note {
+  margin-top: 16px;
+  padding: 10px 18px;
+  border-left: 6px solid var(--c-accent-2);
+  border-radius: 8px;
+  background: var(--c-accent-2-soft);
+}
+
+/* Show operators such as != and >= exactly as students must type them. */
+.slidev-layout code,
+.slidev-layout pre,
+.slidev-layout button {
+  font-variant-ligatures: none;
+  font-feature-settings: 'liga' 0, 'calt' 0;
+}
