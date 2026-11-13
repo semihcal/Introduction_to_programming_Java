@@ -3,6 +3,7 @@ dist
 .slidev
 *.local
 components.d.ts
+*.pptx
 .agents/
 .claude/
 skills-lock.json
