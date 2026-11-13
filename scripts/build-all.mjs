@@ -1,30 +1,41 @@
-// Builds every deck in lectures/ into dist/<deck-name>/ as a static site.
+// Builds every deck, or one selected deck, as a static site.
 import { execSync } from 'node:child_process'
-import { existsSync, mkdirSync, readdirSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readdirSync, rmSync, writeFileSync } from 'node:fs'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const lectures = join(root, 'lectures')
 const output = join(root, 'dist')
-const prefix = `/${(process.env.BASE_PATH || '').replace(/^\/+|\/+$/g, '')}`
+const basePath = (process.env.BASE_PATH || '').replace(/^\/+|\/+$/g, '')
+const prefix = basePath ? `/${basePath}` : ''
+const selectedDeck = process.env.DECK?.trim()
 const decks = []
 
-for (const name of readdirSync(lectures).sort()) {
+rmSync(output, { recursive: true, force: true })
+
+const names = selectedDeck ? [selectedDeck] : readdirSync(lectures).sort()
+for (const name of names) {
   const entry = join(lectures, name, 'slides.md')
-  if (!existsSync(entry))
+  if (!existsSync(entry)) {
+    if (selectedDeck)
+      throw new Error(`Deck not found: ${selectedDeck}`)
     continue
+  }
   decks.push(name)
   console.log(`\n=== ${name} ===`)
+  const deckOutput = selectedDeck ? output : join(output, name)
+  const deckBase = selectedDeck ? `${prefix}/` : `${prefix}/${name}/`
   execSync(
-    `npx slidev build "${entry}" --base "${prefix}/${name}/" --out "${join(output, name)}"`,
+    `npx slidev build "${entry}" --base "${deckBase}" --out "${deckOutput}"`,
     { cwd: root, stdio: 'inherit' },
   )
 }
 
 mkdirSync(output, { recursive: true })
-const links = decks.map(name => `      <li><a href="./${name}/">${name}</a></li>`).join('\n')
-writeFileSync(join(output, 'index.html'), `<!doctype html>
+if (!selectedDeck) {
+  const links = decks.map(name => `      <li><a href="./${name}/">${name}</a></li>`).join('\n')
+  writeFileSync(join(output, 'index.html'), `<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -45,4 +56,5 @@ ${links}
     </ul>
   </body>
 </html>\n`)
+}
 writeFileSync(join(output, '.nojekyll'), '')
