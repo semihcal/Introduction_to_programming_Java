@@ -1051,7 +1051,7 @@ class: text-center
 
 # Exit ticket: scan before you leave
 
-<img src="/exit-ticket.png" class="qr mx-auto" alt="QR code that opens today's exit ticket form." />
+<img src="../../public/exit-ticket.png" class="qr mx-auto" alt="QR code that opens today's exit ticket form." />
 
 <p class="small">If you cannot scan the code, ask for the link.</p>
 
