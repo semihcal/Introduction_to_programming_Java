@@ -11,3 +11,11 @@ Thumbs.db
 .agents/
 .claude/
 skills-lock.json
+
+# Publish only week 12-3 for now; keep the other lecture sources local.
+lectures/*
+!lectures/week12-3/
+!lectures/week12-3/**
+lectures/week12-3/node_modules/
+lectures/week12-3/dist/
+.slidev/
