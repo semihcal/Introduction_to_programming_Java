@@ -1,9 +1,13 @@
 node_modules
 dist
 .slidev
+.vite
 *.local
+*.log
 components.d.ts
 *.pptx
+.DS_Store
+Thumbs.db
 .agents/
 .claude/
 skills-lock.json
