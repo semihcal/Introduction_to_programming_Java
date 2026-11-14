@@ -675,6 +675,8 @@ Timing: skip, or 30 seconds.
 </div>
 </div>
 
+<Credit />
+
 <!--
 Next time we cover mirroring and rotation on images, which use the same loop pattern but move pixels to new positions. Reminders: read Chapter 11, and keep reading Chapter 9.
 
@@ -688,7 +690,7 @@ class: text-center
 
 # Exit ticket: scan before you leave
 
-<img src="../../public/exit-ticket.png" class="qr mx-auto" alt="QR code that opens today's exit ticket form." />
+<ExitTicket />
 
 <p class="small">If you cannot scan the code, ask for the link.</p>
 

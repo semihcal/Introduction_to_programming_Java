@@ -32,12 +32,14 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+        env:
+          # The browser is only needed for PDF export, not for building the site.
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
-      - name: Build week 12-3
+      - name: Build every deck in lectures/
         run: npm run build:all
         env:
           BASE_PATH: ${{ github.event.repository.name }}
-          DECK: week12-3
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

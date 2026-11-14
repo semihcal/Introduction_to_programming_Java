@@ -12,6 +12,7 @@
       "transition": "fade",
       "lineNumbers": false,
       "favicon": "data:,",
+      "routerMode": "hash",
       "fonts": {
         "sans": "Lexend",
         "mono": "JetBrains Mono",

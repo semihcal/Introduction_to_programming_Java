@@ -1,6 +1,6 @@
 // Builds every deck, or one selected deck, as a static site.
 import { execSync } from 'node:child_process'
-import { existsSync, mkdirSync, readdirSync, rmSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -14,7 +14,10 @@ const decks = []
 
 rmSync(output, { recursive: true, force: true })
 
-const names = selectedDeck ? [selectedDeck] : readdirSync(lectures).sort()
+// Folders whose name starts with "_" are drafts and are not published.
+const names = selectedDeck
+  ? [selectedDeck]
+  : readdirSync(lectures).filter(name => !name.startsWith('_')).sort()
 for (const name of names) {
   const entry = join(lectures, name, 'slides.md')
   if (!existsSync(entry)) {
@@ -22,7 +25,9 @@ for (const name of names) {
       throw new Error(`Deck not found: ${selectedDeck}`)
     continue
   }
-  decks.push(name)
+  // The deck's title comes from the "title:" line at the top of slides.md.
+  const title = readFileSync(entry, 'utf8').match(/^title:\s*(.+)$/m)?.[1].trim() || name
+  decks.push({ name, title })
   console.log(`\n=== ${name} ===`)
   const deckOutput = selectedDeck ? output : join(output, name)
   const deckBase = selectedDeck ? `${prefix}/` : `${prefix}/${name}/`
@@ -34,7 +39,8 @@ for (const name of names) {
 
 mkdirSync(output, { recursive: true })
 if (!selectedDeck) {
-  const links = decks.map(name => `      <li><a href="./${name}/">${name}</a></li>`).join('\n')
+  const escape = text => text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+  const links = decks.map(({ name, title }) => `      <li><a href="./${name}/">${escape(title)}</a></li>`).join('\n')
   writeFileSync(join(output, 'index.html'), `<!doctype html>
 <html lang="en">
   <head>
