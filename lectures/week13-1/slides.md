@@ -2,9 +2,9 @@
 theme: ../../theme
 title: COMP 1600 – Week 13, Lecture 1 – Mirroring, Rotation, Resizing, Big Oh Classes and Memory
 info: |
-  COMP 1600 – Introduction to Programming. Week 13, Monday.
-  Mirroring, rotating and resizing images, a comparison of Big Oh classes,
-  and how much memory Java types use.
+  We mirror, rotate and resize images, each with a single index formula that
+  moves every pixel. Then we compare the Big Oh classes from constant to
+  factorial, and estimate how much memory Java arrays and Strings use.
 layout: cover
 ---
 

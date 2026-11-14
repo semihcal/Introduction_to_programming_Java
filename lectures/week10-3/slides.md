@@ -2,9 +2,10 @@
 theme: ../../theme
 title: COMP 1600 – Week 10, Friday – Game of Life, Types and References
 info: |
-  COMP 1600 – Introduction to Programming. Week 10, Friday.
-  Conway's Game of Life implementation, primitive and object types,
-  references and aliases, null, and constructors.
+  We finish Conway's Game of Life, then look at how Java stores data. A
+  primitive variable holds its own value, while an object variable is a
+  reference that points to an object, so two names can share one object. We
+  also create objects with new and see what null means.
 layout: cover
 ---
 

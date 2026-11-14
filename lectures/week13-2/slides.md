@@ -2,9 +2,9 @@
 theme: ../../theme
 title: COMP 1600 – Week 13, Lecture 2 – Searching, Sorting and the Idea of Inheritance
 info: |
-  COMP 1600 – Introduction to Programming. Week 13, Wednesday.
-  Linear search, binary search, a weighing puzzle, bubble sort,
-  selection sort, and the concept of inheritance.
+  How do you find a value in an array? We compare linear search with binary
+  search, solve a classic balance puzzle, and trace bubble sort and selection
+  sort step by step. We end with a first look at inheritance.
 layout: cover
 ---
 

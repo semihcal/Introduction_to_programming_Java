@@ -2,9 +2,9 @@
 theme: ../../theme
 title: COMP 1600 – Week 13, Lecture 3 – Inheritance Mechanics and Overriding
 info: |
-  COMP 1600 – Introduction to Programming. Week 13, Friday.
-  Writing a subclass with extends, overriding methods, a vehicle cost
-  example, getClass() and instanceof.
+  We write subclasses in Java with extends and see how a child class can
+  override a method it inherits. A vehicle cost calculator puts it all
+  together, along with getClass() and instanceof.
 layout: cover
 ---
 

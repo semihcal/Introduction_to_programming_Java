@@ -2,9 +2,10 @@
 theme: ../../theme
 title: COMP 1600 – Week 12, Lecture 2 – Big Oh Examples, Color and Pictures
 info: |
-  COMP 1600 – Introduction to Programming. Week 12, Lecture 2.
-  Big Oh examples, RGB and CMYK color, the Color class, image formats,
-  and the Picture class.
+  More Big Oh practice with finding the largest value and bubble sort. Then we
+  see how a computer stores a color as red, green and blue numbers, why JPEG
+  and PNG compress images differently, and how the Picture class lets Java
+  read and change pixels.
 layout: cover
 ---
 

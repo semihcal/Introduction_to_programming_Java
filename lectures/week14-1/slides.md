@@ -2,9 +2,9 @@
 theme: ../../theme
 title: COMP 1600 – Week 14, Lecture 1 – instanceof, Files and Exceptions
 info: |
-  COMP 1600 – Introduction to Programming. Week 14, Monday.
-  The instanceof keyword, reading and writing text files, checked and
-  unchecked exceptions, and closing files.
+  Files let data outlive the program. We read text files with Scanner, write
+  them with PrintWriter, and meet exceptions, Java's way of reporting errors
+  such as a missing file.
 layout: cover
 ---
 

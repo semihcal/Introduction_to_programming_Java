@@ -2,9 +2,9 @@
 theme: ../../theme
 title: COMP 1600 – Week 12, Lecture 3 – Working with the Picture Class
 info: |
-  COMP 1600 – Introduction to Programming. Week 12, Friday.
-  Picture class review, two image examples (fill with blue, darken by 50%),
-  and work time.
+  A hands-on lecture on the Picture class. We plan two programs together,
+  filling a picture with blue and darkening a photo by 50%, using nested loops
+  that visit every pixel, then spend class time writing them.
 layout: cover
 ---
 
