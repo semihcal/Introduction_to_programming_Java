@@ -11,6 +11,7 @@
     "defaults": {
       "transition": "fade",
       "lineNumbers": false,
+      "favicon": "data:,",
       "fonts": {
         "sans": "Lexend",
         "mono": "JetBrains Mono",

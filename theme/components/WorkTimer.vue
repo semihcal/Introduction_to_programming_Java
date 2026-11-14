@@ -12,7 +12,7 @@ const timer = useSyncedState('worktimer', {
   running: false,
   endsAt: 0,
   left: props.minutes * 60_000,
-})
+}, { persist: true })
 
 const now = ref(Date.now())
 const tick = setInterval(() => {
