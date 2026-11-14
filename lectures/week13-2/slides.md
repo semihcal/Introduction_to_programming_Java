@@ -862,7 +862,7 @@ Part 6 of 6. A change of topic for the last few minutes: a first look at inherit
 <div>
 <svg viewBox="0 0 300 250" class="inh" role="img" aria-label="Two boxes joined by an arrow. The top box is the parent class, Vehicle. The bottom box is the child class, Car. The arrow points from Car up to Vehicle and is labeled: is a kind of.">
   <defs>
-    <marker id="inh-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+    <marker id="inh-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto">
       <path d="M0,0 L10,5 L0,10 z" fill="#3730a3" />
     </marker>
   </defs>

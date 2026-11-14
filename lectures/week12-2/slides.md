@@ -29,7 +29,7 @@ layout: cover
 <div class="cover-art" aria-hidden="true">
   <svg viewBox="0 0 320 320">
     <defs>
-      <marker id="cover-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <marker id="cover-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto">
         <path d="M0,0 L10,5 L0,10 z" fill="#3730a3" />
       </marker>
     </defs>

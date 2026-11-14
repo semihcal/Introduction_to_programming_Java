@@ -202,7 +202,6 @@ function writeHomePage() {
       .text p { margin: 0; font-size: 16px; line-height: 1.55; color: var(--muted); flex: 1; }
       .open { margin-top: 6px; font-size: 16px; font-weight: 600; color: var(--accent); }
       .card:hover .open span { margin-left: 4px; }
-      footer { text-align: center; color: var(--muted); font-size: 14px; padding: 0 24px 40px; }
       @media (max-width: 520px) {
         header { padding-top: 40px; }
         ul.grid { grid-template-columns: 1fr; }
@@ -219,7 +218,6 @@ function writeHomePage() {
       <ul class="grid">${cards}
       </ul>
     </main>
-    <footer>Slides prepared from Dr. Barry Wittman's notes.</footer>
   </body>
 </html>
 `)

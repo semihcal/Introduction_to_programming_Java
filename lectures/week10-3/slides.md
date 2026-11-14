@@ -29,7 +29,7 @@ layout: cover
 <div class="cover-art" aria-hidden="true">
   <svg viewBox="0 0 320 320">
     <defs>
-      <marker id="cover-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <marker id="cover-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto">
         <path d="M0,0 L10,5 L0,10 z" fill="#3730a3" />
       </marker>
     </defs>
@@ -618,7 +618,7 @@ System.out.println(a[0]);  // 99
   :aria-label="`Memory diagram. ${$clicks >= 1 ? 'References a and b both point' : 'Reference a points'} to one array object holding ${$clicks >= 2 ? '99, 2, 3' : '1, 2, 3'}.${$clicks >= 3 ? ' The program prints 99.' : ''}`"
 >
   <defs>
-    <marker id="trace-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+    <marker id="trace-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto">
       <path d="M0,0 L10,5 L0,10 z" class="trace-head" />
     </marker>
   </defs>

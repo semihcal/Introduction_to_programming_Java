@@ -39,7 +39,7 @@ const summary = computed(() =>
 
     <svg viewBox="0 0 640 230" class="stage" role="img" :aria-label="`Memory diagram. ${summary} Every reference arrow points at the same single Ham object.`">
       <defs>
-        <marker id="ham-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <marker id="ham-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto-start-reverse">
           <path d="M0,0 L10,5 L0,10 z" class="head" />
         </marker>
       </defs>

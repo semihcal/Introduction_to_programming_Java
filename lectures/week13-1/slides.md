@@ -29,7 +29,7 @@ layout: cover
 <div class="cover-art" aria-hidden="true">
   <svg viewBox="0 0 320 320">
     <defs>
-      <marker id="cover-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <marker id="cover-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto">
         <path d="M0,0 L10,5 L0,10 z" fill="#3730a3" />
       </marker>
     </defs>
@@ -352,7 +352,7 @@ Part 2 of 5. Rotation is the first transform where the new picture has a differe
 <div>
 <svg viewBox="0 0 390 230" class="rot" role="img" aria-label="A wide rectangle labeled 4 wide, 3 high, an arrow labeled rotate 90 degrees right, and a tall rectangle labeled 3 wide, 4 high.">
   <defs>
-    <marker id="rot-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <marker id="rot-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto">
       <path d="M0,0 L10,5 L0,10 z" fill="#3730a3" />
     </marker>
   </defs>
@@ -718,7 +718,7 @@ Part 5 of 5. Programs use memory as well as time. This part covers where data li
 
 <svg viewBox="0 0 860 250" class="memlv" role="img" aria-label="Three levels of memory in a row. Cache, inside the processor, is the smallest and fastest. RAM is about 500 times larger and 500 times slower than cache. The hard drive is about 500 times larger and 500 times slower than RAM.">
   <defs>
-    <marker id="mem-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <marker id="mem-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto">
       <path d="M0,0 L10,5 L0,10 z" fill="#3730a3" />
     </marker>
   </defs>
