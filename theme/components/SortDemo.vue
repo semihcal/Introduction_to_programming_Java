@@ -39,11 +39,13 @@ function build(): Frame[] {
       for (let j = 0; j < n - 1; j++) {
         comps++
         if (a[j] > a[j + 1]) {
-          const text = `${a[j]} > ${a[j + 1]}: swap.`
+          // Two steps, so the picture always matches the sentence: first
+          // show the pair as it is, then show it after the swap.
+          push([j, j + 1], -1, `${a[j]} > ${a[j + 1]}: out of order, so swap them.`, pass)
           ;[a[j], a[j + 1]] = [a[j + 1], a[j]]
           swaps++
           swapped = true
-          push([j, j + 1], -1, text, pass)
+          push([j, j + 1], -1, `Swapped: ${a[j]} is now before ${a[j + 1]}.`, pass)
         }
         else {
           push([j, j + 1], -1, `${a[j]} and ${a[j + 1]} are in order: no swap.`, pass)
@@ -82,11 +84,12 @@ function build(): Frame[] {
       }
     }
     if (min !== i) {
-      const text = `Swap ${a[min]} into index ${i}.`
+      // Two steps here as well: show the pair before and after the swap.
+      push([i, min], min, `End of pass: the smallest is ${a[min]}. Swap it with ${a[i]} at index ${i}.`, i + 1)
       ;[a[i], a[min]] = [a[min], a[i]]
       swaps++
       settled.push(i)
-      push([i, min], -1, text, i + 1)
+      push([i, min], -1, `Swapped: ${a[i]} is now at index ${i}.`, i + 1)
     }
     else {
       settled.push(i)
