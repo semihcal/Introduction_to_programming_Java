@@ -442,7 +442,9 @@ Give students two minutes in pairs to propose a strategy before showing the inte
 <BallsDemo />
 
 <!--
-This interactive is the puzzle. Nine numbered balls start on the table, in the middle. Click a ball to move it to the left pan; click again to move it to the right pan; click again to put it back on the table. Press Weigh to compare the pans: the text reports whether the left pan is heavier, the right pan is heavier, or the pans balance. The counter shows how many weighings you have used. Reveal answer shows which ball is heavy, and New puzzle picks a different one.
+This interactive is the puzzle. Nine numbered balls start on the table, in the middle. To move a ball, click it to pick it up (it gets an orange outline), then click where it should go: the left pan, the table, or the right pan, each marked "put here". Any ball can go straight to any place. Click a picked-up ball again to put it down where it was.
+
+Press Weigh when both pans hold the same number of balls. The heavier pan drops and is labeled "heavier", the other "lighter", or both say "balanced". Each weighing is added to the list underneath, for example "Weighing 1: 1, 2, 3 against 4, 5, 6: right pan heavier", and the counter shows how many weighings you have used. Moving any ball clears the tilt, ready for the next weighing. Reveal answer shows which ball is heavy, and New puzzle picks a different one.
 
 Let students direct you. Most classes first try halving: 4 against 4, leaving one out. If those balance, it is the one left out; otherwise take the heavier 4 and weigh 2 against 2, then 1 against 1. That is up to 3 weighings.
 
