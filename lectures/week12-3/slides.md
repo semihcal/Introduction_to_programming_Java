@@ -6,6 +6,7 @@ info: |
   filling a picture with blue and darkening a photo by 50%, using nested loops
   that visit every pixel, then spend class time writing them.
 layout: cover
+minutes: 1
 ---
 
 <div class="cover-grid">
@@ -61,10 +62,10 @@ Welcome. Today is a hands-on day. We review the Picture class, plan two programs
 CS2023 mapping (indicative, introductory coverage): the primary knowledge area is Software Development Fundamentals (SDF); secondary are Algorithmic Foundations (AL) for nested loops and Graphics and Interactive Techniques (GIT) for images, with one Society, Ethics, and Professionalism (SEP) touchpoint on changing someone's image file.
 
 See also: Week 12 Lecture 2 (color, image formats, and the first look at Picture), Week 10 (objects, constructors, and methods), and Week 9 (2D arrays and nested loops).
-
-Delivery reminders: read on-screen text aloud, describe each diagram in words, repeat student questions, and turn on live captions. Timing: 1 minute.
 -->
 
+---
+minutes: 1
 ---
 
 # By the end of today, you can do three things
@@ -78,13 +79,13 @@ Delivery reminders: read on-screen text aloud, describe each diagram in words, r
 </div>
 
 <!--
-Read the three objectives aloud. The tags are CS2023 knowledge area codes: SDF is Software Development Fundamentals, AL is Algorithmic Foundations, and GIT is Graphics and Interactive Techniques.
+By the end of today you can choose the right Picture method for a task, write nested loops that visit every pixel of a picture, and change a pixel's color with get, the Color getters, and set. The tags are CS2023 knowledge area codes: SDF is Software Development Fundamentals, AL is Algorithmic Foundations, and GIT is Graphics and Interactive Techniques.
 
-The second and third objectives are apply-level: by the end of work time each student has written both example programs and seen them run.
-
-Likely question: "Is this graded?" Say how today's work connects to the next project or lab. Timing: 1 minute.
+The second and third objectives are apply-level: by the end of work time you will have written both example programs and seen them run.
 -->
 
+---
+minutes: 3
 ---
 
 # Predict first: where is the bottom-right pixel?
@@ -112,13 +113,13 @@ Picture picture = new Picture(4, 3);
 </div>
 
 <!--
-Hook and think-pair-share. Give 45 seconds with a neighbor before anyone clicks. Low-tech alternative: one, two, or three fingers for A, B, or C.
-
 The code creates a blank Picture that is 4 pixels wide and 3 pixels high. Which coordinates are the bottom-right corner? The answer is x 3, y 2, because counting starts at zero: x runs from 0 to 3 and y runs from 0 to 2.
 
-Answer A, 4 comma 3, is the most common mistake and it is exactly the bug that crashes picture programs: there is no column 4. Keep this in mind when we write the loop conditions. Disposition practiced: collaborative. Timing: 3 minutes.
+Answer A, 4 comma 3, is the most common mistake and it is exactly the bug that crashes picture programs: there is no column 4. This matters when we write the loop conditions.
 -->
 
+---
+minutes: 2
 ---
 
 # Last time: a Color is three numbers, and a Picture is a grid of Colors
@@ -145,26 +146,28 @@ Answer A, 4 comma 3, is the most common mistake and it is exactly the bug that c
 </div>
 
 <!--
-What did we talk about last time? The Color and Picture classes.
+Last time we met the Color and Picture classes.
 
 A Color object stores three numbers, red, green, and blue, each from 0 to 255. We create one with new, for example new Color 255, 165, 0 for orange, and read the values back with getRed, getGreen, and getBlue.
 
-A Picture is a grid of pixels. Each pixel has an x, y address, and each pixel holds one Color. Today we combine the two classes. Likely question: "Where is x 0, y 0?" The top-left corner; x grows to the right and y grows downward. Timing: 2 minutes.
+A Picture is a grid of pixels. Each pixel has an x, y address, and each pixel holds one Color. Today we combine the two classes. The pixel at x 0, y 0 is the top-left corner; x grows to the right and y grows downward.
 -->
 
 ---
 layout: center
 class: text-center
+minutes: 2
 ---
 
 # Questions before we start coding?
 
 <!--
-Pause for questions about color, image formats, or the Picture class. Repeat each student question aloud before answering so everyone, and the captions, can follow. Timing: 2 minutes.
+A chance to ask questions about color, image formats, or the Picture class before we start coding.
 -->
 
 ---
 layout: section
+minutes: 0.5
 ---
 
 <div class="kicker">Part 1</div>
@@ -174,9 +177,11 @@ layout: section
 A quick review of the tool we use today.
 
 <!--
-Part 1 of 3. A short review of what the Picture class is for and which methods it gives us. Timing: under 1 minute.
+Part 1 of 3: a short review of what the Picture class is for and which methods it gives us.
 -->
 
+---
+minutes: 2
 ---
 
 # Picture lets us use images without knowing the file format
@@ -206,9 +211,11 @@ Because JPEGs and PNGs are complex file types using compression, the authors of 
 
 It is an easy interface for doing routine things with an image: loading or saving an image, getting the height and width of an image, changing the pixels of an image, and showing the image.
 
-We never deal with the compression ourselves; Picture reads the file and hands us a simple grid of colors. Likely question: "Is Picture part of Java?" No. Like StdDraw, it is a file you add to your project. Timing: 2 minutes.
+We never deal with the compression ourselves; Picture reads the file and hands us a simple grid of colors. Picture is not part of Java: like StdDraw, it is a file you add to your project.
 -->
 
+---
+minutes: 3
 ---
 
 # Eight Picture methods cover everything we need
@@ -230,13 +237,15 @@ td, th { padding-top: 3px !important; padding-bottom: 3px !important; }
 </style>
 
 <!--
-Everything you would want a picture to do, in eight methods. Keep this slide open during work time.
+Everything you would want a picture to do, in eight methods. This table is a useful reference during work time.
 
 There are two constructors: Picture with a String creates a Picture from a file, and Picture with two ints creates a blank Picture with width w and height h. The methods width and height return the size of the image. The method get takes x and y and returns the Color of the pixel at that position. The method set takes x, y, and a Color, and sets that pixel to that Color. The method show displays the image, and save takes a file name and saves the Picture to a file.
 
-Ask the class: which methods will the blue picture need? The second constructor, set, and show. Which will the darken program need? The first constructor, width, height, get, set, and show. Timing: 3 minutes.
+The blue picture program needs the second constructor, set, and show. The darken program needs the first constructor, width, height, get, set, and show.
 -->
 
+---
+minutes: 3
 ---
 
 # Try it: get reads one pixel and set changes it
@@ -244,15 +253,16 @@ Ask the class: which methods will the blue picture need? The second constructor,
 <PixelPainter />
 
 <!--
-This is a tiny picture, 16 pixels wide and 10 pixels high, showing a simple sunset: a sky that fades from blue to orange, a yellow sun, and green ground. Click any pixel and the panel shows the call picture.get with that x and y, and the Color it returns as three numbers.
+This is a tiny picture, 16 pixels wide and 10 pixels high, showing a simple sunset: a sky that fades from blue to orange, a yellow sun, and green ground. Clicking any pixel shows, in the panel, the call picture.get with that x and y, and the Color it returns as three numbers.
 
-Click the top-left pixel: x 0, y 0. Click the bottom-right: x 15, y 9, not 16, 10. That is the same idea as the opening question.
+The top-left pixel is x 0, y 0. The bottom-right is x 15, y 9, not 16, 10. That is the same idea as the opening question.
 
-The buttons do to every pixel what today's programs will do. Fill blue is Example 1. Darken 50 percent is Example 2: click one pixel before and after and compare the numbers. Reset restores the picture. The line of text under the color always says what was just done. Timing: 3 minutes.
+The buttons do to every pixel what today's programs will do. Fill blue is Example 1. Darken 50 percent is Example 2: clicking one pixel before and after shows its numbers halve. Reset restores the picture. The line of text under the color always says what was just done.
 -->
 
 ---
 layout: section
+minutes: 0.5
 ---
 
 <div class="kicker">Part 2</div>
@@ -262,9 +272,11 @@ layout: section
 Plan each program in steps before writing any code.
 
 <!--
-Part 2 of 3. We plan two programs together. Students write them during work time, so the slides give the steps and the pattern, not the finished code. Timing: under 1 minute.
+Part 2 of 3: we plan two programs together. You write them during work time, so the slides give the steps and the pattern, not the finished code.
 -->
 
+---
+minutes: 3
 ---
 
 # Every picture program uses the same loop pattern
@@ -288,9 +300,11 @@ Almost every program that changes an image has this shape. The highlighted line 
 
 The outer loop goes through every x, from 0 up to but not including the width. For each x, the inner loop goes through every y, from 0 up to but not including the height. Inside both loops we have one pixel, at x, y, and we get it, change it, or set it.
 
-The callout is the lesson of the opening question: use less than, not less than or equal. The last column is width minus 1. With less than or equal, the program asks for a column that does not exist and stops with an error. Likely question: "Can y be the outer loop?" Yes, the next slide shows both orders. Timing: 3 minutes.
+The callout is the lesson of the opening question: use less than, not less than or equal. The last column is width minus 1. With less than or equal, the program asks for a column that does not exist and stops with an error. y can also be the outer loop; the next slide shows both orders.
 -->
 
+---
+minutes: 4
 ---
 
 # Try it: nested loops visit every pixel in order
@@ -300,11 +314,13 @@ The callout is the lesson of the opening question: use less than, not less than 
 <!--
 This interactive traces the loop pattern on a small picture, 8 pixels wide and 5 pixels high. The numbers along the top are x values and the numbers down the side are y values.
 
-Press Step to set one pixel at a time. Each pixel that has been set turns blue and shows the order in which it was set; the next pixel has an orange outline. The code box shows the current x and y, and the text under it says how many times set has run. Press Play to run it automatically, about two pixels per second.
+The Step button sets one pixel at a time. Each pixel that has been set turns blue and shows the order in which it was set; the next pixel has an orange outline. The code box shows the current x and y, and the text under it says how many times set has run. The Play button runs it automatically, about two pixels per second.
 
-With x as the outer loop, the picture fills one column at a time, top to bottom. Press Swap loops to make y the outer loop: now it fills one row at a time. Either way set runs 40 times, 8 times 5. Ask students to predict which pixel is tenth before you step to it. Timing: 4 minutes.
+With x as the outer loop, the picture fills one column at a time, top to bottom. The Swap loops button makes y the outer loop: then it fills one row at a time. Either way set runs 40 times, 8 times 5.
 -->
 
+---
+minutes: 3
 ---
 
 # Example 1: fill a new picture with blue
@@ -330,9 +346,9 @@ With x as the outer loop, the picture fills one column at a time, top to bottom.
 </div>
 
 <!--
-Write code that will read user input for width and height, then make an image that is completely filled with the color blue with the specified width and height.
+The task: write code that reads user input for width and height, then makes an image of that width and height completely filled with the color blue.
 
-Walk through the four steps and ask which method each one needs. Students write this in work time. One solution, for the instructor:
+The four steps each map to a method on the card: the constructor for step 2, set for step 3, and show for step 4. You write this in work time. One solution:
 
 ```java
 Scanner in = new Scanner(System.in);
@@ -346,9 +362,11 @@ for (int x = 0; x < width; x++)
 picture.show();
 ```
 
-Point out that one Color object can be created before the loops and reused for every pixel. Likely question: "What numbers make blue?" 0, 0, 255. Timing: 3 minutes.
+One Color object can be created before the loops and reused for every pixel. Blue is 0, 0, 255.
 -->
 
+---
+minutes: 3
 ---
 
 # Example 2: darken a picture by 50%
@@ -376,9 +394,9 @@ Point out that one Color object can be created before the loops and reused for e
 </div>
 
 <!--
-Read in the name of an image file from the user, then darken the colors in it by 50 percent.
+The task: read in the name of an image file from the user, then darken the colors in it by 50 percent.
 
-Walk through the five steps. The new part compared with Example 1 is that we read each pixel before we write it. One solution, for the instructor:
+The slide lists five steps. The new part compared with Example 1 is that we read each pixel before we write it. One solution:
 
 ```java
 Scanner in = new Scanner(System.in);
@@ -393,9 +411,11 @@ for (int x = 0; x < picture.width(); x++)
 picture.show();
 ```
 
-Likely question: "Why does halving make it darker?" Every value moves toward 0, 0, 0, which is black. Timing: 3 minutes.
+Halving makes the picture darker because every value moves toward 0, 0, 0, which is black.
 -->
 
+---
+minutes: 3
 ---
 
 # Changing one pixel takes three moves: get, compute, set
@@ -448,9 +468,11 @@ Inside the loops, darkening one pixel takes three moves. The diagram shows them 
 
 Move 1, get: call picture.get with x and y. In the example it returns the Color 200, 120, 40, a warm orange-brown. Move 2, compute: take half of each value, giving 100, 60, 20, and build a new Color from those numbers. Move 3, set: call picture.set with the same x and y and the darker Color, which stores it back in the same pixel.
 
-The callout is the key point: a Color object cannot be changed. There is no setRed. To darken a pixel you build a new Color and set it. Likely question: "Do I need three separate variables?" No, but naming the red, green, and blue values makes the code easier to read and debug. Timing: 3 minutes.
+The callout is the key point: a Color object cannot be changed. There is no setRed. To darken a pixel you build a new Color and set it. You do not need three separate variables for red, green, and blue, but naming the red, green, and blue values makes the code easier to read and debug.
 -->
 
+---
+minutes: 2
 ---
 
 # Check: what is half of 75 in Java?
@@ -480,13 +502,13 @@ int red = c.getRed() / 2;
 </div>
 
 <!--
-Check for understanding. The pixel's red value is 75. What does 75 divided by 2 give in Java, when both are int values?
+The pixel's red value is 75. In Java, 75 divided by 2, when both are int values, gives 37. Integer division drops the fraction; it does not round, so 38 is wrong, and 37.5 is wrong because an int cannot hold a fraction.
 
-Give 30 seconds, then vote with fingers for A, B, or C. The answer is 37. Integer division drops the fraction; it does not round.
-
-This is convenient here, because the Color constructor needs whole numbers from 0 to 255. If students multiply by 0.5 instead, they get a double and the code will not compile until they cast it back to int. Disposition practiced: meticulous. Timing: 2 minutes.
+This is convenient here, because the Color constructor needs whole numbers from 0 to 255. If you multiply by 0.5 instead, you get a double and the code will not compile until you cast it back to int.
 -->
 
+---
+minutes: 3
 ---
 
 # Three mistakes stop most picture programs
@@ -535,9 +557,11 @@ Three mistakes account for most of the problems you will hit in work time.
 
 First, running off the edge: writing x less than or equal to picture.width. There is no column with that number, so the program stops with an error. Use less than. Second, a value out of range: new Color with 300 for red. Each value must be from 0 to 255, or the program stops with an error. This matters when you brighten an image. Third, nothing appears: the loops ran, but you never called picture.show, so the result is never displayed.
 
-The callout is the professional habit: test on a tiny picture first, such as 4 by 3, where you can check every pixel by eye. Dispositions practiced: meticulous and persistent. Timing: 3 minutes.
+The callout is the professional habit: test on a tiny picture first, such as 4 by 3, where you can check every pixel by eye.
 -->
 
+---
+minutes: 3
 ---
 
 # Saving over a file destroys the original
@@ -567,11 +591,12 @@ Society, ethics, and professionalism touchpoint. The save method writes the pict
 
 That matters for two reasons. The original may be the only copy. And the photo may belong to someone else, or show someone else. The professional habit is to save your result under a new name, as in the code: the picture loaded from beach.png is saved as beach-dark.png, and beach.png is unchanged.
 
-Discussion prompt, 90 seconds in pairs: when is it wrong to edit a photo without saying so? Listen for news photos, evidence, product photos, and pictures of other people. Editing is a normal tool; presenting an edited image as the original is where the harm starts. Dispositions practiced: responsible and collaborative. Timing: 3 minutes.
+The discussion question is: when is it wrong to edit a photo without saying so? Examples include news photos, evidence, product photos, and pictures of other people. Editing is a normal tool; presenting an edited image as the original is where the harm starts.
 -->
 
 ---
 layout: section
+minutes: 0.5
 ---
 
 <div class="kicker">Part 3</div>
@@ -581,9 +606,11 @@ layout: section
 Write both programs. Ask for help early.
 
 <!--
-Part 3 of 3. The rest of class is work time. Timing: under 1 minute.
+Part 3 of 3: the rest of class is work time for writing both programs.
 -->
 
+---
+minutes: 20
 ---
 
 # Work time: write both examples and see them run
@@ -606,13 +633,13 @@ Part 3 of 3. The rest of class is work time. Timing: under 1 minute.
 <p class="small">Stuck for more than five minutes? Compare with a neighbor, then raise your hand.</p>
 
 <!--
-Work time. Students write both example programs. The slide lists the three tasks: first the blue picture, which reads a width and height, fills the picture with blue, and shows it; second the darken program, which reads a file name, darkens the picture by 50 percent, and shows it; third, for anyone who finishes early, saving the darker picture under a new name.
+Work time: write both example programs. The slide lists the three tasks: first the blue picture, which reads a width and height, fills the picture with blue, and shows it; second the darken program, which reads a file name, darkens the picture by 50 percent, and shows it; third, if you finish early, save the darker picture under a new name.
 
-The timer on the right starts at 20 minutes. Press Start to begin, and use the plus and minus buttons to adjust the time. It shows the same time in the presenter window and the projector window. Say aloud when time starts, at the halfway point, and when two minutes remain, since not everyone can see the clock.
-
-Circulate. The most common problems are the three from the earlier slide. If many students are stuck on the same thing, pause the timer and go back to the loop pattern slide. Dispositions practiced: persistent and collaborative. Timing: 20 minutes or more.
+The timer on the right counts down from 20 minutes: its Start button begins the countdown, and the plus and minus buttons adjust the time. If you are stuck for more than five minutes, compare with a neighbor, then raise your hand. The most common problems are the three mistakes from the earlier slide, and the loop pattern slide shows the shape every program here uses.
 -->
 
+---
+minutes: 2
 ---
 
 # Four things to remember from today
@@ -623,11 +650,12 @@ Circulate. The most common problems are the three from the earlier slide. If man
 - Test on a tiny picture, and save under a new name
 
 <!--
-Summarize. One: the Picture class gives us eight methods, and get and set do most of the work. Two: the loop pattern is for every x, for every y, using less than, not less than or equal. Three: changing a pixel takes three moves, get, compute, and set, and the compute step builds a new Color. Four: test on a tiny picture first, and save your result under a new name so the original survives.
-
-Timing: 2 minutes.
+Four things to remember. One: the Picture class gives us eight methods, and get and set do most of the work. Two: the loop pattern is for every x, for every y, using less than, not less than or equal. Three: changing a pixel takes three moves, get, compute, and set, and the compute step builds a new Color. Four: test on a tiny picture first, and save your result under a new name so the original survives.
 -->
 
+---
+hide: true
+minutes: 0
 ---
 
 # How this lecture connects to CS2023
@@ -646,13 +674,13 @@ Timing: 2 minutes.
 <p class="small">Indicative mapping. Introductory coverage; not full CS Core or KA Core treatment.</p>
 
 <!--
-Instructor-facing slide; skip it in class if short on time. It records how this lecture maps to Computer Science Curricula 2023 (CS2023), the ACM, IEEE Computer Society, and AAAI curricular guidelines.
+This slide records how this lecture maps to Computer Science Curricula 2023 (CS2023), the ACM, IEEE Computer Society, and AAAI curricular guidelines.
 
 The knowledge area mapping is indicative and has not been checked against the official Body of Knowledge at csed.acm.org. This lecture is introductory coverage and does not claim to satisfy CS Core or KA Core.
-
-Timing: skip, or 30 seconds.
 -->
 
+---
+minutes: 1
 ---
 
 # Next time: mirroring and rotating images
@@ -680,12 +708,13 @@ Timing: skip, or 30 seconds.
 <!--
 Next time we cover mirroring and rotation on images, which use the same loop pattern but move pixels to new positions. Reminders: read Chapter 11, and keep reading Chapter 9.
 
-See also: Week 12 Lecture 2 on color and image formats. Timing: 1 minute.
+See also: Week 12 Lecture 2 on color and image formats.
 -->
 
 ---
 layout: center
 class: text-center
+minutes: 3
 ---
 
 # Exit ticket: scan before you leave
@@ -695,7 +724,5 @@ class: text-center
 <p class="small">If you cannot scan the code, ask for the link.</p>
 
 <!--
-Exit ticket. Students scan the QR code to open today's exit ticket form. Read the instruction aloud and offer the link directly to anyone who cannot scan the code; paste the form's address here in the notes before class so you can share it in the chat or on the board.
-
-Timing: 3 minutes.
+Exit ticket: scan the QR code to open today's exit ticket form and answer its questions before leaving. If you cannot scan the code, ask for the link.
 -->

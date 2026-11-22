@@ -7,6 +7,7 @@ info: |
   and PNG compress images differently, and how the Picture class lets Java
   read and change pixels.
 layout: cover
+minutes: 1
 ---
 
 <div class="cover-grid">
@@ -54,10 +55,10 @@ Welcome. Today has four parts: two more Big Oh examples, how computers represent
 CS2023 mapping (indicative, introductory coverage): primary knowledge areas are Software Development Fundamentals (SDF) and Algorithmic Foundations (AL); secondary are Graphics and Interactive Techniques (GIT) for color and images and Architecture and Organization (AR) for data representation, with one Society, Ethics, and Professionalism (SEP) touchpoint on who owns a file format.
 
 See also: Week 12 Lecture 1 (Big Oh notation), Week 10 (objects, constructors, and calling methods, which Color and Picture rely on), and Week 9 (2D arrays, the model for a grid of pixels).
-
-Delivery reminders: read on-screen text aloud, describe each diagram and color in words, repeat student questions, and turn on live captions. Timing: 1 minute.
 -->
 
+---
+minutes: 1
 ---
 
 # By the end of today, you can do four things
@@ -72,13 +73,15 @@ Delivery reminders: read on-screen text aloud, describe each diagram and color i
 </div>
 
 <!--
-Read the four objectives aloud. The tags are CS2023 knowledge area codes: AL is Algorithmic Foundations, GIT is Graphics and Interactive Techniques, AR is Architecture and Organization, SEP is Society, Ethics, and Professionalism, and SDF is Software Development Fundamentals.
+By the end of today you can determine the Big Oh running time of a short loop, explain how red, green, and blue values make a color, choose between JPEG and PNG for an image, and write loops that read and change pixels with Picture. The tags are CS2023 knowledge area codes: AL is Algorithmic Foundations, GIT is Graphics and Interactive Techniques, AR is Architecture and Organization, SEP is Society, Ethics, and Professionalism, and SDF is Software Development Fundamentals.
 
-The last objective is the apply-level skill: by the end of class students write nested loops that change every pixel of a picture.
+The last objective is the apply-level skill: by the end of class you write nested loops that change every pixel of a picture.
 
-Likely question: "Do we need to memorize color numbers?" No. You need to know how the three values work, not a table. Timing: 1 minute.
+You do not need to memorize color numbers; you need to know how the three values work, not a table.
 -->
 
+---
+minutes: 3
 ---
 
 # Predict first: what color does this make?
@@ -105,13 +108,13 @@ Color c = new Color(255, 255, 0);
 </div>
 
 <!--
-Hook and think-pair-share. Give 60 seconds with a neighbor before anyone clicks. Low-tech alternative: one, two, or three fingers for A, B, or C.
+The code creates a Color with red 255, green 255, and blue 0. Many people expect brown, because that is what red and green paint make. On a screen the answer is yellow, because screens add light instead of mixing pigment.
 
-The code creates a Color with red 255, green 255, and blue 0. Many students expect brown, because that is what red and green paint make. On a screen the answer is yellow, because screens add light instead of mixing pigment.
-
-Do not explain fully yet; say that by the middle of class they will be able to predict any color from its three numbers. Disposition practiced: collaborative. Timing: 3 minutes.
+Part 2 explains this fully; by then you will be able to predict any color from its three numbers.
 -->
 
+---
+minutes: 2
 ---
 
 # Last time: Big Oh keeps only the fastest-growing term
@@ -134,26 +137,28 @@ $15n^2 + 6n + 145$ is $O(n^2)$
 </div>
 
 <!--
-What did we talk about last time? We finished the hunters and prey example, and we introduced Big Oh notation.
+Last time we finished the hunters and prey example, and we introduced Big Oh notation.
 
 Big Oh describes how the running time grows in the worst case as the input gets larger. All constant coefficients are ignored and all low-order terms are ignored. So 3n plus 3 is O of n, and 15 n squared plus 6n plus 145 is O of n squared.
 
-Likely question: "Why ignore the constants?" Because for large inputs the fastest-growing term decides everything, as the interactive in a few slides shows. Timing: 2 minutes.
+We ignore the constants because for large inputs the fastest-growing term decides everything, as the interactive in a few slides shows.
 -->
 
 ---
 layout: center
 class: text-center
+minutes: 2
 ---
 
 # Questions before we continue?
 
 <!--
-Pause for questions about last time. Repeat each student question aloud before answering so everyone, and the captions, can follow. Timing: 2 minutes.
+A chance to ask questions about last time before the new material starts.
 -->
 
 ---
 layout: section
+minutes: 0.5
 ---
 
 <div class="kicker">Part 1</div>
@@ -163,9 +168,11 @@ layout: section
 Count the steps in three short pieces of code.
 
 <!--
-Part 1 of 4. We apply Big Oh to code students already know how to write: finding the largest element of an array, and sorting an array. Timing: under 1 minute.
+Part 1 of 4: we apply Big Oh to code you already know how to write: finding the largest element of an array, and sorting an array.
 -->
 
+---
+minutes: 3
 ---
 
 # Finding the largest element looks at every item: O(n)
@@ -189,9 +196,11 @@ How do we find the largest element in an array? Start by assuming the first elem
 
 The loop body runs once for each of the other elements, so the work grows in step with the array: the running time is O of n, where n is the length of the array.
 
-Likely question: "What if the largest is first?" We still have to look at every element to be sure, so it is still O of n. Timing: 3 minutes.
+Even if the largest element happens to be first, we still have to look at every element to be sure, so it is still O of n.
 -->
 
+---
+minutes: 2
 ---
 
 # If the array is sorted, the largest is simply the last: O(1)
@@ -222,9 +231,11 @@ What if the array is sorted in ascending order? Then the largest element must be
 
 That takes the same amount of time whether the array has ten elements or ten million. We call that constant time, written O of 1.
 
-The two cards compare the cases: for any array we look at every element, O of n; for a sorted array we do one lookup, O of 1. Knowing something about your data can change the running time. Likely question: "Does sorting first make it faster overall?" No, because sorting itself costs time, as the next slide shows. Timing: 2 minutes.
+The two cards compare the cases: for any array we look at every element, O of n; for a sorted array we do one lookup, O of 1. Knowing something about your data can change the running time. Sorting first does not make it faster overall, because sorting itself costs time, as the next slide shows.
 -->
 
+---
+minutes: 4
 ---
 
 # Bubble sort compares neighbors again and again: O(n²)
@@ -246,13 +257,15 @@ Running time: $O(n^2)$. A loop of $n$ inside a loop of $n$.
 </div>
 
 <!--
-Here is some code that sorts an array in ascending order. It is called bubble sort. What is its running time? Ask the class before revealing the answer.
+Here is some code that sorts an array in ascending order. It is called bubble sort. What is its running time?
 
 The outer loop runs n times. For each of those, the inner loop runs n minus 1 times. Inside, we compare two neighbors and swap them if they are out of order, using a temporary variable. So the comparison happens n times n minus 1 times, which is n squared minus n.
 
-Ignoring the low-order term, the running time is O of n squared. The answer appears after the code has been stepped through. Rule of thumb: a loop inside a loop, both depending on n, is usually n squared. Timing: 4 minutes.
+Ignoring the low-order term, the running time is O of n squared. The answer appears after the code has been stepped through. Rule of thumb: a loop inside a loop, both depending on n, is usually n squared.
 -->
 
+---
+minutes: 3
 ---
 
 # Try it: n² pulls away from n very quickly
@@ -260,15 +273,16 @@ Ignoring the low-order term, the running time is O of n squared. The answer appe
 <GrowthCompare />
 
 <!--
-This interactive compares the three pieces of code we just saw. Drag the slider to change the array length n from 1 to 100.
+This interactive compares the three pieces of code we just saw. The slider changes the array length n from 1 to 100.
 
 Each row gives the Big Oh, the exact number of steps, and a bar. The sorted-array lookup is always 1 step. Finding the largest takes n minus 1 comparisons. Bubble sort takes n times n minus 1 comparisons.
 
-Start at n equals 10: 1, 9, and 90. Move to 100: 1, 99, and 9,900. The bar for n is barely visible next to n squared. That is why Big Oh only keeps the fastest-growing term. Ask students to predict the bubble sort count for n equals 50 before you drag: it is 2,450. Timing: 3 minutes.
+At n equals 10 the counts are 1, 9, and 90. At 50, bubble sort takes 2,450. At 100: 1, 99, and 9,900. The bar for n is barely visible next to n squared. That is why Big Oh only keeps the fastest-growing term.
 -->
 
 ---
 layout: section
+minutes: 0.5
 ---
 
 <div class="kicker">Part 2</div>
@@ -278,9 +292,11 @@ layout: section
 How a computer stores a color as numbers.
 
 <!--
-Part 2 of 4. To work with images we first need a way to store a color in a variable. Timing: under 1 minute.
+Part 2 of 4: to work with images we first need a way to store a color in a variable.
 -->
 
+---
+minutes: 2
 ---
 
 # Visible light is a narrow band of wavelengths
@@ -315,9 +331,11 @@ Visible light is a form of electromagnetic radiation. We could think of it as a 
 
 Thinking in frequencies is a useful way to think about sound. It seems cumbersome for light, because most colors we see are mixtures of many frequencies.
 
-Color theorists have discovered that we can represent most visible colors as a combination of a small number of set colors. That is the idea behind the two systems on the next slides. Likely question: "Why three colors?" Human eyes have three kinds of color receptors. Timing: 2 minutes.
+Color theorists have discovered that we can represent most visible colors as a combination of a small number of set colors. That is the idea behind the two systems on the next slides. Three set colors are enough because human eyes have three kinds of color receptors.
 -->
 
+---
+minutes: 3
 ---
 
 # RGB adds light: red, green, and blue together make white
@@ -359,9 +377,11 @@ One system for representing color is RGB. With red, green, and blue components, 
 
 Combining colors in RGB is an additive process. With no colors, the background is black. Adding colors never makes a darker color. Pure red added to pure green added to pure blue makes white. RGB is a good model for computer screens, because a screen is a black surface that emits red, green, and blue light.
 
-The diagram shows three overlapping circles of light on black, labeled red, green, and blue. Where red and green overlap you see yellow, which answers the opening question. Green and blue make cyan, red and blue make magenta, and the center where all three overlap is white. Timing: 3 minutes.
+The diagram shows three overlapping circles of light on black, labeled red, green, and blue. Where red and green overlap you see yellow, which answers the opening question. Green and blue make cyan, red and blue make magenta, and the center where all three overlap is white.
 -->
 
+---
+minutes: 3
 ---
 
 # Try it: any screen color is three numbers from 0 to 255
@@ -371,11 +391,13 @@ The diagram shows three overlapping circles of light on black, labeled red, gree
 <!--
 This is a color mixer. Three sliders set the red, green, and blue values, each from 0 to 255. The swatch shows the resulting color and the text under it shows the Java code that creates it.
 
-It starts on orange: red 255, green 165, blue 0. Use the preset buttons to jump to black, red, green, blue, orange, yellow, or white, and say the three numbers aloud each time, since the color itself is not visible to everyone.
+It starts on orange: red 255, green 165, blue 0. The preset buttons jump to black, red, green, blue, orange, yellow, or white, and the three numbers for each are shown with the swatch.
 
-Ask students to predict before you drag: what happens to yellow if you raise blue to 255? It becomes white. What is 128, 128, 128? Gray. Likely question: "Why 255?" Each value is stored in one byte, and a byte holds 0 to 255. Timing: 3 minutes.
+If you start from yellow and raise blue to 255, it becomes white. 128, 128, 128 is gray. The maximum is 255 because each value is stored in one byte, and a byte holds 0 to 255.
 -->
 
+---
+minutes: 2
 ---
 
 # CMYK subtracts light: inks on white paper build up to black
@@ -417,9 +439,11 @@ CMYK stands for cyan, magenta, yellow, and key, which means black. CMYK is anoth
 
 With no colors, the background is white, because it is paper. Adding colors never makes a lighter color, because each ink absorbs some of the light. Pure cyan added to pure magenta added to pure yellow makes black. CMYK is useful for printing, not for computer screens.
 
-The diagram shows three overlapping circles of ink on white, labeled cyan, magenta, and yellow, with black in the center where all three overlap. It is the mirror image of the RGB diagram. Likely question: "Why have a separate black ink?" Mixing three inks gives a muddy dark brown and wastes ink; real black is sharper and cheaper. Timing: 2 minutes.
+The diagram shows three overlapping circles of ink on white, labeled cyan, magenta, and yellow, with black in the center where all three overlap. It is the mirror image of the RGB diagram. There is a separate black ink because mixing three inks gives a muddy dark brown and wastes ink; real black is sharper and cheaper.
 -->
 
+---
+minutes: 2
 ---
 
 # Java's Color class stores one RGB color
@@ -448,13 +472,15 @@ public class Painter {
 </div>
 
 <!--
-The Color class is how Java keeps track of colors, using an RGB model. To use it, you need to type "import java.awt.Color;" at the top of your program, before the class declaration, as in the code on the right.
+The Color class is how Java keeps track of colors, using an RGB model. To use it, you need to write "import java.awt.Color;" at the top of your program, before the class declaration, as in the code on the right.
 
 Each Color object represents one of 16,777,216 different colors, with a value between 0 and 255 for each of red, green, and blue. That number is 256 times 256 times 256.
 
-Color is an object type, so everything from Week 10 applies: a Color variable is a reference, and we create Color objects with new. Likely question: "What happens with a value like 300?" The constructor throws an exception, so the program stops with an error. Timing: 2 minutes.
+Color is an object type, so everything from Week 10 applies: a Color variable is a reference, and we create Color objects with new. If you pass a value outside the range, like 300, the constructor throws an exception, so the program stops with an error.
 -->
 
+---
+minutes: 2
 ---
 
 # Ten common colors, written as red, green, blue
@@ -505,9 +531,11 @@ Here are ten example colors with their red, green, and blue values. Each row has
 
 Left table: black is 0, 0, 0. Red is 255, 0, 0. Green is 0, 255, 0. Blue is 0, 0, 255. Orange is 255, 165, 0. Right table: gray is 128, 128, 128. Cyan is 0, 255, 255. Magenta is 255, 0, 255. Yellow is 255, 255, 0. White is 255, 255, 255.
 
-Point out the patterns: the three pure colors have one value at 255; cyan, magenta, and yellow have two; black is nothing and white is everything. Likely question: "Do I need to memorize these?" No, but you should be able to explain why yellow is 255, 255, 0. Timing: 2 minutes.
+There are patterns: the three pure colors have one value at 255; cyan, magenta, and yellow have two; black is nothing and white is everything. You do not need to memorize these, but you should be able to explain why yellow is 255, 255, 0.
 -->
 
+---
+minutes: 2
 ---
 
 # A Color is created with new and read with three getters
@@ -540,9 +568,11 @@ To create a custom color, use the constructor to specify the red, green, and blu
 
 To get the individual values back out of a Color, use the methods getRed, getGreen, and getBlue. In the example, c dot getGreen returns 165 and we store it in an int called green.
 
-This is the same pattern as last week: new calls a constructor, and we use methods instead of operators to work with the object. Likely question: "Is there a setRed?" No. A Color cannot be changed once created; to get a different color you create a new Color. Timing: 2 minutes.
+This is the same pattern as last week: new calls a constructor, and we use methods instead of operators to work with the object. There is no setRed: a Color cannot be changed once created; to get a different color you create a new Color.
 -->
 
+---
+minutes: 3
 ---
 
 # Equal red, green, and blue values make a shade of gray
@@ -588,9 +618,11 @@ If the red, green, and blue values happen to be the same, the color is a shade o
 
 To convert a color to a shade of gray, use this formula: Value equals 0.3 times R, plus 0.59 times G, plus 0.11 times B. The gray color then has that Value for all three components.
 
-The weights are based on the way the human eye perceives colors as light intensities: we are most sensitive to green and least sensitive to blue, so green counts the most. Likely question: "Why not just average the three?" An average makes pure blue and pure green the same gray, but green looks much brighter to us. Timing: 3 minutes.
+The weights are based on the way the human eye perceives colors as light intensities: we are most sensitive to green and least sensitive to blue, so green counts the most. A plain average of the three would not work as well: it makes pure blue and pure green the same gray, but green looks much brighter to us.
 -->
 
+---
+minutes: 3
 ---
 
 # Try it: luminance turns any color into its gray
@@ -600,13 +632,14 @@ The weights are based on the way the human eye perceives colors as light intensi
 <!--
 The same mixer, now with a second swatch that shows the luminance gray of the chosen color, and the formula worked out with the current numbers underneath.
 
-Try pure green: 0, 255, 0 gives a Value of 150, a fairly light gray. Try pure blue: 0, 0, 255 gives 28, almost black. Try pure red: 77. Even though all three are "fully on", they do not look equally bright, and the formula captures that.
+Pure green, 0, 255, 0, gives a Value of 150, a fairly light gray. Pure blue, 0, 0, 255, gives 28, almost black. Pure red gives 77. Even though all three are "fully on", they do not look equally bright, and the formula captures that.
 
-Ask students to compute orange by hand first: 0.3 times 255 is 76.5, plus 0.59 times 165 is 97.35, plus zero, which rounds to 174. Disposition practiced: meticulous. Timing: 3 minutes.
+Orange worked by hand: 0.3 times 255 is 76.5, plus 0.59 times 165 is 97.35, plus zero, which rounds to 174.
 -->
 
 ---
 layout: section
+minutes: 0.5
 ---
 
 <div class="kicker">Part 3</div>
@@ -616,9 +649,11 @@ layout: section
 How millions of pixels fit in a small file.
 
 <!--
-Part 3 of 4. Now that one color is three numbers, an image is just a lot of colors. This part looks at how real image files store them. Timing: under 1 minute.
+Part 3 of 4: now that one color is three numbers, an image is just a lot of colors. This part looks at how real image files store them.
 -->
 
+---
+minutes: 2
 ---
 
 # An image is a 2D grid of pixels, each one a Color
@@ -649,9 +684,11 @@ We will be thinking of images as 2D arrays, or rectangular grids of pixels, each
 
 Bitmaps, which are .bmp files, are almost that simple. Most common image formats, .jpg, .png, and .gif files, are more complex. They use different forms of compression to keep the image size small.
 
-Otherwise the files would be large. The card works it out: an 800 by 600 image at 3 bytes per pixel is 3 times 800 times 600, which is 1,440,000 bytes, more than 1 megabyte, and that is a small image by today's standards. Likely question: "Why 3 bytes?" One byte each for red, green, and blue. See also: Week 9 on 2D arrays. Timing: 2 minutes.
+Otherwise the files would be large. The card works it out: an 800 by 600 image at 3 bytes per pixel is 3 times 800 times 600, which is 1,440,000 bytes, more than 1 megabyte, and that is a small image by today's standards. It is 3 bytes per pixel because there is one byte each for red, green, and blue. See also: Week 9 on 2D arrays.
 -->
 
+---
+minutes: 3
 ---
 
 # JPEG shrinks photos by throwing away detail
@@ -676,9 +713,11 @@ JPEG, or JPG, stands for Joint Photographic Experts Group. It is good for images
 
 JPEG uses some serious math, called the discrete cosine transform, to reduce the amount of data needed. It is lossy compression: some of the original information is thrown away and cannot be recovered.
 
-The three pictures show the same photo of a stone engraved with the letters J, P, G lying in autumn leaves. At high quality it is sharp. At medium quality it is slightly blurred. At low quality you can see large square blocks and washed-out color: that is the lost detail. Likely question: "Can I get the quality back by saving again at high quality?" No. Once the detail is gone it is gone. Timing: 3 minutes.
+The three pictures show the same photo of a stone engraved with the letters J, P, G lying in autumn leaves. At high quality it is sharp. At medium quality it is slightly blurred. At low quality you can see large square blocks and washed-out color: that is the lost detail. Saving again at high quality does not bring the quality back: once the detail is gone it is gone.
 -->
 
+---
+minutes: 2
 ---
 
 # PNG keeps every pixel exactly
@@ -708,9 +747,11 @@ PNG images are good for images with low numbers of colors and high contrast diff
 
 PNG is similar to the older GIF images. GIFs are unpopular now because they only support 256 colors. GIFs also suffered from legal battles over the algorithm used for compression, which is the next slide.
 
-The picture is the flag of Australia: large flat areas of blue, red, and white with sharp edges. That is exactly what PNG compresses well, and exactly what JPEG smears. Likely question: "Why not use PNG for photos too?" It works, but the file is much larger, because photos have millions of slightly different colors. Timing: 2 minutes.
+The picture is the flag of Australia: large flat areas of blue, red, and white with sharp edges. That is exactly what PNG compresses well, and exactly what JPEG smears. PNG also works for photos, but the file is much larger, because photos have millions of slightly different colors.
 -->
 
+---
+minutes: 4
 ---
 
 # The GIF patent: algorithms can have owners
@@ -743,13 +784,14 @@ In the 1990s, the owner of GIF's compression patent began charging fees. Develop
 <!--
 Society, ethics, and professionalism touchpoint. GIF compresses with an algorithm called LZW, which was patented. In the mid-1990s the patent holder, Unisys, began requiring license fees from software that created GIFs. In response, developers designed PNG as a replacement that anyone could use freely.
 
-Discussion prompt, 90 seconds in pairs: should a file format that everyone uses be owned by one company? Push for both sides: inventors deserve credit and payment for their work; but when a format is everywhere, one owner can charge or block everyone. Professionals need to know the license of the tools and formats they build on. Dispositions practiced: responsible and collaborative.
+The discussion question is: should a file format that everyone uses be owned by one company? There are two sides: inventors deserve credit and payment for their work; but when a format is everywhere, one owner can charge or block everyone. Professionals need to know the license of the tools and formats they build on.
 
-Then the quick check on the right: which format would you choose for a company logo, JPEG or PNG? PNG, because a logo has few colors and sharp edges. Timing: 4 minutes.
+The quick check on the right asks which format you would choose for a company logo, JPEG or PNG. The answer is PNG, because a logo has few colors and sharp edges, and lossless compression keeps them crisp.
 -->
 
 ---
 layout: section
+minutes: 0.5
 ---
 
 <div class="kicker">Part 4</div>
@@ -759,9 +801,11 @@ layout: section
 Loading, changing, and showing images from Java.
 
 <!--
-Part 4 of 4. We now put everything together: a class that lets our loops read and change the pixels of a real image. Timing: under 1 minute.
+Part 4 of 4: we now put everything together: a class that lets our loops read and change the pixels of a real image.
 -->
 
+---
+minutes: 2
 ---
 
 # The Picture class hides the compression details
@@ -791,9 +835,11 @@ Because JPEGs and PNGs are complex file types using compression, the authors of 
 
 It is an easy interface for doing routine things with an image: loading or saving an image, getting the height and width of an image, changing the pixels of an image, and showing the image.
 
-We do not need to know how JPEG compression works to use it. That is the point of a class: it hides the details behind a few methods. Likely question: "Is Picture built into Java?" No. Like StdDraw, it is a file you add to your project. Timing: 2 minutes.
+We do not need to know how JPEG compression works to use it. That is the point of a class: it hides the details behind a few methods. Picture is not built into Java: like StdDraw, it is a file you add to your project.
 -->
 
+---
+minutes: 3
 ---
 
 # Eight Picture methods cover everything we need
@@ -819,9 +865,11 @@ Everything you would want a picture to do, in eight methods.
 
 There are two constructors: Picture with a String creates a Picture from a file, and Picture with two ints creates a blank Picture with width w and height h. The methods width and height return the size of the image. The method get takes x and y and returns the Color of the pixel at that position. The method set takes x, y, and a Color, and sets that pixel to that Color. The method show displays the image, and save takes a file name and saves the Picture to a file.
 
-Notice that get returns a Color and set takes a Color; that is why we learned the Color class first. Likely question: "Where is (0, 0)?" The top-left corner; x grows to the right and y grows downward. Timing: 3 minutes.
+Notice that get returns a Color and set takes a Color; that is why we learned the Color class first. The pixel (0, 0) is the top-left corner; x grows to the right and y grows downward.
 -->
 
+---
+minutes: 4
 ---
 
 # Try it: every pixel has an (x, y) address and a Color
@@ -829,13 +877,15 @@ Notice that get returns a Color and set takes a Color; that is why we learned th
 <PixelPainter />
 
 <!--
-This is a tiny picture, 16 pixels wide and 10 pixels high, showing a simple sunset: a sky that fades from blue to orange, a yellow sun, and green ground. Click any pixel and the panel shows the call picture.get with that x and y, and the Color it returns as three numbers.
+This is a tiny picture, 16 pixels wide and 10 pixels high, showing a simple sunset: a sky that fades from blue to orange, a yellow sun, and green ground. Clicking any pixel shows, in the panel, the call picture.get with that x and y, and the Color it returns as three numbers.
 
-Click the top-left pixel to show that it is x 0, y 0, and the bottom-right to show x 15, y 9.
+The top-left pixel is x 0, y 0, and the bottom-right is x 15, y 9.
 
-The buttons change every pixel, the way a nested loop with set would. Fill blue sets every pixel to 0, 0, 255: that is Example 1. Darken 50 percent halves each value: that is Example 2; click a pixel before and after to compare the numbers. Gray applies the luminance formula. Reset restores the picture. The line of text under the color always says what was just done. Timing: 4 minutes.
+The buttons change every pixel, the way a nested loop with set would. Fill blue sets every pixel to 0, 0, 255: that is Example 1. Darken 50 percent halves each value: that is Example 2; clicking a pixel before and after shows the numbers halve. Gray applies the luminance formula. Reset restores the picture. The line of text under the color always says what was just done.
 -->
 
+---
+minutes: 5
 ---
 
 # Example 1: fill a new picture with blue
@@ -861,9 +911,9 @@ The buttons change every pixel, the way a nested loop with set would. Fill blue 
 </div>
 
 <!--
-Live coding. Write code that will read user input for width and height, then make an image that is completely filled with the color blue with the specified width and height.
+The task: write code that reads user input for width and height, then makes an image of that width and height completely filled with the color blue.
 
-Let students propose each step before you type it. One solution:
+One solution:
 
 ```java
 Scanner in = new Scanner(System.in);
@@ -877,9 +927,11 @@ for (int x = 0; x < width; x++)
 picture.show();
 ```
 
-Point out that one Color object is created before the loops and reused for every pixel. Likely question: "Does the order of the two loops matter?" Not for the result here. Timing: 5 minutes.
+One Color object is created before the loops and reused for every pixel. The order of the two loops does not matter for the result here.
 -->
 
+---
+minutes: 6
 ---
 
 # Example 2: darken a picture by 50%
@@ -908,7 +960,7 @@ becomes
 </div>
 
 <!--
-Live coding. Read in the name of an image file from the user, then darken the colors in it by 50 percent.
+The task: read in the name of an image file from the user, then darken the colors in it by 50 percent.
 
 One solution:
 
@@ -925,9 +977,11 @@ for (int x = 0; x < picture.width(); x++)
 picture.show();
 ```
 
-The card shows one pixel: 200, 120, 40 becomes 100, 60, 20. Halving every value moves every color toward black, which is 0, 0, 0. Likely question: "How would we brighten instead?" Multiply, but then you must make sure no value goes above 255. Disposition practiced: meticulous. Timing: 6 minutes.
+The card shows one pixel: 200, 120, 40 becomes 100, 60, 20. Halving every value moves every color toward black, which is 0, 0, 0. To brighten instead, multiply, but then you must make sure no value goes above 255.
 -->
 
+---
+minutes: 3
 ---
 
 # Check: how many times does set run?
@@ -957,11 +1011,9 @@ for (int x = 0; x < p.width(); x++)
 </div>
 
 <!--
-Check for understanding that ties both halves of the lecture together. The code creates an 800 by 600 picture and uses nested loops to set every pixel. How many times does set run?
+This check ties both halves of the lecture together. The code creates an 800 by 600 picture and uses nested loops to set every pixel. set runs 480,000 times: the inner loop runs 600 times for each of the 800 values of x, so 800 times 600.
 
-Give 45 seconds, then vote with fingers for A, B, or C. The answer is 480,000: the inner loop runs 600 times for each of the 800 values of x, so 800 times 600.
-
-Common wrong answers: 1,400 adds the two numbers instead of multiplying; 1,440,000 is the number of bytes from the earlier slide, three per pixel. In Big Oh terms, processing an image is O of width times height. Timing: 3 minutes.
+Common wrong answers: 1,400 adds the two numbers instead of multiplying; 1,440,000 is the number of bytes from the earlier slide, three per pixel. In Big Oh terms, processing an image is O of width times height.
 -->
 
 ---
@@ -974,9 +1026,11 @@ class: text-center
 <p class="small">Put away your notes. Work on your own.</p>
 
 <!--
-In-class quiz. Hand out or open the quiz and give students the planned amount of time. Read the instructions aloud and say when the time starts and ends. Timing: as planned for the quiz.
+In-class quiz: put away your notes and work on the quiz on your own.
 -->
 
+---
+minutes: 2
 ---
 
 # Five things to remember from today
@@ -988,11 +1042,12 @@ In-class quiz. Hand out or open the quiz and give students the planned amount of
 - `Picture` lets loops `get` and `set` every pixel
 
 <!--
-Summarize. One: a single loop over n items is O of n, and a loop inside a loop is O of n squared. Two: a screen color is three numbers from 0 to 255 for red, green, and blue. Three: RGB adds light, starting from black, and CMYK subtracts light, starting from white. Four: JPEG is lossy and suits photographs; PNG is lossless and suits images with few colors and sharp edges. Five: the Picture class lets our loops get and set every pixel of an image.
-
-Timing: 2 minutes.
+Five things to remember. One: a single loop over n items is O of n, and a loop inside a loop is O of n squared. Two: a screen color is three numbers from 0 to 255 for red, green, and blue. Three: RGB adds light, starting from black, and CMYK subtracts light, starting from white. Four: JPEG is lossy and suits photographs; PNG is lossless and suits images with few colors and sharp edges. Five: the Picture class lets our loops get and set every pixel of an image.
 -->
 
+---
+hide: true
+minutes: 0
 ---
 
 # How this lecture connects to CS2023
@@ -1011,13 +1066,13 @@ Timing: 2 minutes.
 <p class="small">Indicative mapping. Introductory coverage; not full CS Core or KA Core treatment.</p>
 
 <!--
-Instructor-facing slide; skip it in class if short on time. It records how this lecture maps to Computer Science Curricula 2023 (CS2023), the ACM, IEEE Computer Society, and AAAI curricular guidelines.
+This slide records how this lecture maps to Computer Science Curricula 2023 (CS2023), the ACM, IEEE Computer Society, and AAAI curricular guidelines.
 
 The knowledge area mapping is indicative and has not been checked against the official Body of Knowledge at csed.acm.org. This lecture is introductory coverage and does not claim to satisfy CS Core or KA Core.
-
-Timing: skip, or 30 seconds.
 -->
 
+---
+minutes: 1
 ---
 
 # Next time: more image manipulation
@@ -1044,12 +1099,13 @@ Timing: skip, or 30 seconds.
 <!--
 Next time we continue with more image manipulation using the Picture class. Reminder: keep reading Chapter 9.
 
-See also: Week 12 Lecture 1 on Big Oh notation and Week 10 on objects and constructors. Timing: 1 minute.
+See also: Week 12 Lecture 1 on Big Oh notation and Week 10 on objects and constructors.
 -->
 
 ---
 layout: center
 class: text-center
+minutes: 3
 ---
 
 # Exit ticket: scan before you leave
@@ -1059,7 +1115,5 @@ class: text-center
 <p class="small">If you cannot scan the code, ask for the link.</p>
 
 <!--
-Exit ticket. Students scan the QR code to open today's exit ticket form. Read the instruction aloud and offer the link directly to anyone who cannot scan the code; paste the form's address here in the notes before class so you can share it in the chat or on the board.
-
-Timing: 3 minutes.
+Exit ticket: scan the QR code to open today's exit ticket form and answer its questions before leaving. If you cannot scan the code, ask for the link.
 -->

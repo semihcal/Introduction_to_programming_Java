@@ -6,6 +6,7 @@ info: |
   == and equals() can disagree. Then we write our own classes, with private
   members, constructors, accessors and mutators, and build a Student roster.
 layout: cover
+minutes: 1
 ---
 
 <div class="cover-grid">
@@ -52,10 +53,10 @@ Welcome. Today has four parts. We start by calling methods on objects, which you
 CS2023 mapping (indicative, introductory coverage): primary knowledge areas are Software Development Fundamentals (SDF) and Foundations of Programming Languages (FPL); secondary is Software Engineering (SE) for reading API documentation and hiding data, with one Society, Ethics, and Professionalism (SEP) touchpoint on keeping personal data private.
 
 See also: Week 10 Lecture 1 (objects and references), Week 10 Lecture 3 (references, aliases, and null in depth), and Week 11 Lecture 1 (members, methods, static, and constants, which revisits today's class material).
-
-Delivery reminders: read on-screen text aloud, describe each diagram in words, repeat student questions, and turn on live captions. Timing: 1 minute.
 -->
 
+---
+minutes: 1
 ---
 
 # By the end of today, you can do four things
@@ -70,13 +71,15 @@ Delivery reminders: read on-screen text aloud, describe each diagram in words, r
 </div>
 
 <!--
-Read the four objectives aloud. The tags are CS2023 knowledge area codes: SDF is Software Development Fundamentals and FPL is Foundations of Programming Languages.
+These are the four objectives for today. The tags are CS2023 knowledge area codes: SDF is Software Development Fundamentals and FPL is Foundations of Programming Languages.
 
 The second and third objectives are the apply-level skills. Predicting the result of == and equals is a standard exam question, and writing a small class is the core of Project 4.
 
-Likely question: "Is this a lot at once?" Yes; Week 11 comes back to classes, so today is a first pass. Timing: 1 minute.
+This is a lot at once, but Week 11 comes back to classes, so today is a first pass.
 -->
 
+---
+minutes: 3
 ---
 
 # Predict first: what does this print?
@@ -106,13 +109,13 @@ else
 </div>
 
 <!--
-Hook and think-pair-share. Give 60 seconds with a neighbor before anyone clicks. Low-tech alternative: one, two, or three fingers for A, B, or C.
-
 The code creates two Strings with new, both containing the text "identical", and compares them with ==. What does it print? Most people expect "Same!", because the text is the same. It prints "Different!". For objects, == asks whether the two references point to the same object, and these are two separate objects.
 
-Do not explain the fix yet; Part 2 shows the right way to compare. Disposition practiced: collaborative. Timing: 3 minutes.
+Part 2 shows the right way to compare the contents of two objects.
 -->
 
+---
+minutes: 2
 ---
 
 # Last time: objects live elsewhere, and variables point to them
@@ -139,22 +142,24 @@ What did we talk about last time? Objects.
 
 A primitive variable, such as an int, double, boolean, or char, holds its value directly. An object variable holds a reference: an arrow to an object stored somewhere else, created with the new keyword and a constructor.
 
-Keep the arrow picture in mind today. It is the key to the opening question, and it is what a method call follows to find its object. Timing: 2 minutes.
+Keep the arrow picture in mind today. It is the key to the opening question, and it is what a method call follows to find its object.
 -->
 
 ---
 layout: center
 class: text-center
+minutes: 2
 ---
 
 # Questions before we start?
 
 <!--
-Pause for questions about objects and references. Repeat each student question aloud before answering so everyone, and the captions, can follow. Timing: 2 minutes.
+A chance for questions about objects and references before the new material.
 -->
 
 ---
 layout: section
+minutes: 0.5
 ---
 
 <div class="kicker">Part 1</div>
@@ -164,9 +169,11 @@ layout: section
 Asking an object a question, or telling it to do something.
 
 <!--
-Part 1 of 4. You have called methods on Strings all semester. Now we look at what is really going on, and apply it to any object. Timing: under 1 minute.
+Part 1 of 4. You have called methods on Strings all semester. Now we look at what is really going on, and apply it to any object.
 -->
 
+---
+minutes: 2
 ---
 
 # An object method can use the data inside its object
@@ -205,9 +212,11 @@ Previously we talked about static methods. Object methods are those methods call
 
 Think of them as asking an object a question, for value-returning methods, or telling an object to do something, for void methods. The two cards give an example of each with a Ham object: getWeight asks the ham how heavy it is, and bite tells the ham to lose a bite.
 
-Likely question: "Can one method do both?" It can, but well-designed methods usually do one or the other. Timing: 2 minutes.
+One method can do both, but well-designed methods usually do one or the other.
 -->
 
+---
+minutes: 2
 ---
 
 # A method call is: object, dot, method name, arguments
@@ -236,9 +245,11 @@ You are already familiar with calling methods on Strings, and applying this know
 
 In the example, s is a String containing "Help me!". s dot charAt with argument 3 asks s for the character at index 3, which is the letter p. The callout counts it out: H is index 0, e is 1, l is 2, and p is 3.
 
-The dot follows the arrow from the variable to its object, and runs the method on that object. Likely question: "What if s is null?" Then there is no object to follow the arrow to, and the program stops with a NullPointerException. Timing: 2 minutes.
+The dot follows the arrow from the variable to its object, and runs the method on that object. If s is null, there is no object to follow the arrow to, and the program stops with a NullPointerException.
 -->
 
+---
+minutes: 2
 ---
 
 # Every kind of object has its own methods
@@ -258,9 +269,11 @@ It is exactly the same for non-String objects. The example creates a Ham that we
 
 You have learned lots of methods that work on String objects. Every kind of object has its own methods, and you will have to learn them, or look them up, if you want to use them. The next slide shows where to look.
 
-Likely question: "Where does the Ham class come from?" Someone has to write it; by the end of today you will be able to. Timing: 2 minutes.
+The Ham class itself has to be written by someone; by the end of today you will be able to write classes like it.
 -->
 
+---
+minutes: 3
 ---
 
 # The Java API documents thousands of ready-made classes
@@ -288,9 +301,11 @@ It is possible to create your own classes and define your own methods for object
 
 You can find them listed in the Java API, the application programming interface documentation. The link on the slide is the Java API documentation for Java 26; its address is docs.oracle.com/en/java/javase/26/docs/api/index.html. Other versions of Java have their own pages with the same layout. Or you can type the name of the class you are interested in, like String, into a search engine; the API page is usually the first result.
 
-Show the String page live if you have internet access: the method summary table lists every method, what it takes, and what it returns. Reading documentation is a skill every programmer uses daily. Disposition practiced: self-directed. Timing: 3 minutes.
+On the String page, the method summary table lists every method, what it takes, and what it returns. Reading documentation is a skill every programmer uses daily.
 -->
 
+---
+minutes: 2
 ---
 
 # Check: which call asks the ham a question?
@@ -317,15 +332,14 @@ double w = h.getWeight();
 </div>
 
 <!--
-Check for understanding. The code creates a ham, calls bite, and then calls getWeight and stores the result. Which call asks the ham a question?
+The code creates a ham, calls bite, and then calls getWeight and stores the result. The call that asks the ham a question is getWeight: it returns a value, the weight. bite is a void method; it returns nothing and tells the ham to do something.
 
-Give 30 seconds, then vote with fingers for A, B, or C. The answer is getWeight: it returns a value, the weight. bite is a void method; it returns nothing and tells the ham to do something.
-
-A quick test: if you can store the call's result in a variable, it asks a question. Timing: 2 minutes.
+A quick test: if you can store a call's result in a variable, it asks a question.
 -->
 
 ---
 layout: section
+minutes: 0.5
 ---
 
 <div class="kicker">Part 2</div>
@@ -335,9 +349,11 @@ layout: section
 When are two objects "the same"?
 
 <!--
-Part 2 of 4. Back to the opening question. Timing: under 1 minute.
+Part 2 of 4. Back to the opening question.
 -->
 
+---
+minutes: 2
 ---
 
 # == on objects only asks: same object?
@@ -370,9 +386,11 @@ How do you tell if two objects are the same? If you have two primitive variables
 
 However, with objects, == only gives you back true if the two references are pointing at exactly the same object. It compares the arrows, not what they point to.
 
-Sometimes you need to know that, but objects can be equivalent in other ways too: two different String objects can hold exactly the same text. Timing: 2 minutes.
+Sometimes you need to know that, but objects can be equivalent in other ways too: two different String objects can hold exactly the same text.
 -->
 
+---
+minutes: 3
 ---
 
 # equals() compares what is inside the objects
@@ -401,9 +419,11 @@ In this example, the == operator will say they are different, but the equals met
 
 Lines 1 and 2 create two separate String objects, both containing "identical". Lines 3 to 6 compare them with ==; they are different objects, so "Different!" is printed. Lines 7 to 10 compare them with equals, which for Strings compares the characters; the text matches, so "Same!" is printed.
 
-Every object has an equals method. For Strings it compares the text. The rule to remember: to compare the contents of two objects, use equals, not ==. Likely question: "Why did == work for me with Strings before?" Two string literals with the same text, written in quotes without new, may share one object, so == can happen to say true. Never rely on it. Timing: 3 minutes.
+Every object has an equals method. For Strings it compares the text. The rule to remember: to compare the contents of two objects, use equals, not ==. You may have seen == appear to work with Strings before: two string literals with the same text, written in quotes without new, may share one object, so == can happen to say true. Never rely on it.
 -->
 
+---
+minutes: 3
 ---
 
 # Try it: == and equals() can disagree
@@ -414,10 +434,10 @@ Every object has an equals method. For Strings it compares the text. The rule to
 This interactive keeps s1 fixed as a new String containing "identical", and lets you choose how s2 is created with the three buttons. The memory diagram on the left shows where each reference points. On the right, two rows show the result of s1 == s2, which asks "same object?", and s1.equals(s2), which asks "same text?". The sentence underneath summarizes the result.
 
 First button, s2 is a new String containing "identical": two separate objects with the same text, so == is false and equals is true. That is the opening question. Second button, s2 equals s1: one object with two names, so both tests are true. Third button, s2 is a new String containing "different": both are false.
-
-Ask students to call out both answers before each click. Timing: 3 minutes.
 -->
 
+---
+minutes: 2
 ---
 
 # Check: what do == and equals() say now?
@@ -445,15 +465,16 @@ String b = a;
 </div>
 
 <!--
-Check for understanding. a is a new String containing "cat", and b is assigned a. What are a == b and a.equals(b)?
+a is a new String containing "cat", and b is assigned a. What are a == b and a.equals(b)?
 
-Give 30 seconds, then vote with fingers for A, B, or C. The answer is both true. b equals a copies the reference, so a and b point to the same object: == is true. And an object always has the same contents as itself, so equals is true too.
+The answer is both true. b equals a copies the reference, so a and b point to the same object: == is true. And an object always has the same contents as itself, so equals is true too.
 
-If something is == another, it is also equal; the reverse is not always true, as the previous slide showed. Timing: 2 minutes.
+If something is == another, it is also equal; the reverse is not always true, as the previous slide showed.
 -->
 
 ---
 layout: section
+minutes: 0.5
 ---
 
 <div class="kicker">Part 3</div>
@@ -463,9 +484,11 @@ layout: section
 Writing the template for our own objects.
 
 <!--
-Part 3 of 4. So far we have used classes other people wrote. Now we write our own. Timing: under 1 minute.
+Part 3 of 4. So far we have used classes other people wrote. Now we write our own.
 -->
 
+---
+minutes: 2
 ---
 
 # A class is a template for creating objects
@@ -495,9 +518,11 @@ An object is the actual data that you can use in your code. A class is a templat
 
 The table gives two analogies. The class is Car, and an object is one particular car, a Mitsubishi Lancer Evolution X. Just like int is a type and 34 is an instance of that type.
 
-A key difference is that you can define new classes: Java gives you a fixed set of primitive types, but you can write as many classes as you need. Likely question: "Is a class an object?" No. The class is the blueprint; objects are built from it with new. Timing: 2 minutes.
+A key difference is that you can define new classes: Java gives you a fixed set of primitive types, but you can write as many classes as you need. A class is not itself an object: the class is the blueprint, and objects are built from it with new.
 -->
 
+---
+minutes: 3
 ---
 
 # A class definition holds members, constructors, and methods
@@ -537,9 +562,11 @@ When designing classes, they contain two kinds of elements: members and methods.
 
 Lines 1 and 11 are the class definition: public class, the class name, and braces around everything. Lines 2 to 4 are member declarations: data the object holds, here an int, a double, and an object type, a Hedgehog. Lines 5 to 7 are the constructor definition: it has the same name as the class and no return type. Lines 8 to 10 are a method definition: here a method called method1 that takes a double and returns an int.
 
-The card on the right lists the same four parts. Likely question: "Does the order matter?" Not to Java, but this order is the usual convention and makes classes easy to read. Timing: 3 minutes.
+The card on the right lists the same four parts. The order does not matter to Java, but this order is the usual convention and makes classes easy to read.
 -->
 
+---
+minutes: 2
 ---
 
 # Members are the data inside an object
@@ -569,9 +596,11 @@ Members are the actual data inside an object. They can be primitive types or oth
 
 The code shows a Point class with two members: a private double called x and a private double called y. Every Point object gets its own x and its own y.
 
-The next slide explains what private actually means. Timing: 2 minutes.
+The next slide explains what private actually means.
 -->
 
+---
+minutes: 2
 ---
 
 # private and public decide who can use a member or method
@@ -589,9 +618,11 @@ What do private and public mean? These keywords let you specify the scope, or pe
 
 private means that only methods from the same class can access an item. public means that any method can access the item. Later, the modifier protected will come into play when you create child classes, which we will see with inheritance.
 
-The callout is the usual pattern: keep members private and make methods public, so other code works with an object through its methods instead of reaching into its data. Likely question: "Then how does anyone read a private member?" Through a public method, an accessor, in a few slides. Timing: 2 minutes.
+The callout is the usual pattern: keep members private and make methods public, so other code works with an object through its methods instead of reaching into its data. Other code reads a private member through a public method, an accessor, which comes in a few slides.
 -->
 
+---
+minutes: 2
 ---
 
 # Only non-static methods can use an object's members
@@ -620,9 +651,11 @@ Methods allow you to do things. Object methods usually allow you to manipulate t
 
 Methods can be static or non-static. Only non-static methods can interact with the members of an object. A static method belongs to the class as a whole, so it has no particular object whose members it could use.
 
-Every method you wrote before today, including main, was static. Most methods inside our classes will now be non-static. Timing: 2 minutes.
+Every method you wrote before today, including main, was static. Most methods inside our classes will now be non-static.
 -->
 
+---
+minutes: 2
 ---
 
 # A constructor sets up an object when it is created
@@ -650,9 +683,11 @@ Constructors are a special kind of method. They allow you to customize an object
 
 The highlighted lines are the constructor for Point. It is public, it is named Point, the same as the class, and it takes two doubles, newX and newY. Inside, it stores them in the members x and y.
 
-The callout gives the two ways to recognize a constructor: it has the same name as the class, and it has no return type, not even void. Timing: 2 minutes.
+The callout gives the two ways to recognize a constructor: it has the same name as the class, and it has no return type, not even void.
 -->
 
+---
+minutes: 2
 ---
 
 # A constructor runs once, when new creates the object
@@ -681,9 +716,11 @@ Constructors are almost always public; otherwise you could not create an object.
 
 The example creates a Point with new Point 0.5, 0.25. Java creates the object and runs the constructor once, which sets x to 0.5 and y to 0.25.
 
-Likely question: "Can I call the constructor again to reset an object?" No. To get a fresh object you call new again, which makes a new object. Timing: 2 minutes.
+You cannot call the constructor again to reset an object. To get a fresh object you call new again, which makes a new object.
 -->
 
+---
+minutes: 3
 ---
 
 # Accessors read a member; mutators change one
@@ -726,9 +763,11 @@ Because members are usually private, it is common to use methods specifically ju
 
 Again, because members are usually private, it is common to use methods specifically just to change their values. A method that just changes the value of a member variable is called a mutator. The right column shows setX, which stores its parameter newX in x, and setY, which does the same for y.
 
-By convention, accessors start with "get" and mutators with "set". Accessors return a value and take no parameters; mutators take a parameter and return void. Timing: 3 minutes.
+By convention, accessors start with "get" and mutators with "set". Accessors return a value and take no parameters; mutators take a parameter and return void.
 -->
 
+---
+minutes: 3
 ---
 
 # Try it: the methods are the only way in
@@ -738,11 +777,13 @@ By convention, accessors start with "get" and mutators with "set". Accessors ret
 <!--
 This interactive shows one Point object, called p. The orange box is the object; inside it, a dashed box holds the private members x and y with their current values, and below that is the list of public methods. The buttons along the top are statements you can run, and the box on the right shows the last statement and its result.
 
-Press p.getX: the accessor returns 3, and nothing changes. Press p.setX: the mutator changes x to 8, and the value in the object updates. Press new Point 3, 4 to start again with the constructor.
+The p.getX button runs the accessor: it returns 3, and nothing changes. The p.setX button runs the mutator: it changes x to 8, and the value in the object updates. The new Point 3, 4 button starts again with the constructor.
 
-Now press the last button, p.x = 10, which has a dashed border. The compiler refuses it: x has private access in Point. Outside the class, the only way to reach the members is through the public methods. Timing: 3 minutes.
+The last button, p.x = 10, has a dashed border. The compiler refuses it: x has private access in Point. Outside the class, the only way to reach the members is through the public methods.
 -->
 
+---
+minutes: 3
 ---
 
 # A static method needs only the class name, not an object
@@ -771,9 +812,11 @@ Remember, you need an object to call a non-static method, but you only need to k
 
 The method is public static, returns a double, and takes four doubles: the x and y of two points. It computes the difference in x and the difference in y, and returns the square root of the sum of their squares: the distance formula.
 
-The second block calls it with the class name: Point.distance with 0.4, 0.5, 0.3, and 2.2. No Point object is needed. The result is the square root of 0.1 squared plus 1.7 squared, which is the square root of 2.9, about 1.70. Likely question: "Why make it static?" It works only on the numbers it is given and never looks at an object's members. Timing: 3 minutes.
+The second block calls it with the class name: Point.distance with 0.4, 0.5, 0.3, and 2.2. No Point object is needed. The result is the square root of 0.1 squared plus 1.7 squared, which is the square root of 2.9, about 1.70. It makes sense for this method to be static because it works only on the numbers it is given and never looks at an object's members.
 -->
 
+---
+minutes: 2
 ---
 
 # Check: which call needs an object?
@@ -800,15 +843,16 @@ Point p = new Point(0.5, 0.25);
 </div>
 
 <!--
-Check for understanding. p is a Point. Which of the three calls needs an object? A is Point.distance with 0, 0, 3, 4. B is p.getX. C is Math.sqrt of 16.
+p is a Point. Which of the three calls needs an object? A is Point.distance with 0, 0, 3, 4. B is p.getX. C is Math.sqrt of 16.
 
-Give 30 seconds, then vote with fingers for A, B, or C. The answer is B. getX is a non-static method: it returns the x of a particular point, so it must be called on a Point object. A and C are static methods, called with a class name: Point and Math.
+The answer is B. getX is a non-static method: it returns the x of a particular point, so it must be called on a Point object. A and C are static methods, called with a class name: Point and Math.
 
-Bonus question: what do A and C return? A returns 5.0, the classic 3, 4, 5 triangle, and C returns 4.0. Timing: 2 minutes.
+As for what A and C return: A returns 5.0, the classic 3, 4, 5 triangle, and C returns 4.0.
 -->
 
 ---
 layout: section
+minutes: 0.5
 ---
 
 <div class="kicker">Part 4</div>
@@ -818,9 +862,11 @@ layout: section
 A Student class and a class roster.
 
 <!--
-Part 4 of 4. We put everything from Part 3 together in one useful class. Timing: under 1 minute.
+Part 4 of 4. We put everything from Part 3 together in one useful class.
 -->
 
+---
+minutes: 6
 ---
 
 # A Student class groups four pieces of data
@@ -852,9 +898,11 @@ Let's create a Student class. Each Student will contain a first name, a String; 
 
 We need a constructor specifying each of these things, accessors to read them later, and mutators to change the GPA and the ID.
 
-Write this class together as live coding if time allows. Ask the class why there are mutators for GPA and ID but not for the names: the design decides which data outside code may change. Timing: 6 minutes with live coding.
+There are mutators for GPA and ID but not for the names: the design decides which data outside code may change.
 -->
 
+---
+minutes: 3
 ---
 
 # A roster is an array of Student objects
@@ -883,9 +931,11 @@ Using the Student class, we can create a roster of students. The roster is just 
 
 Then, with our array, we can do some operations: print out a nicely formatted roster, find the average GPA of all students, and determine the valedictorian, the student with the highest GPA.
 
-Each operation is a loop over the array that calls accessors on each Student. Timing: 3 minutes.
+Each operation is a loop over the array that calls accessors on each Student.
 -->
 
+---
+minutes: 3
 ---
 
 # Try it: three loops over the same array
@@ -897,9 +947,11 @@ This interactive is a roster of five students. The table has one row per Student
 
 Print roster lists the students. Average GPA highlights the GPA column and shows the sum of the five GPAs divided by 5, which is 3.40. Valedictorian outlines the row with the highest GPA, Cara Diaz with 3.9.
 
-Ask before each click: which accessor does this loop call? The average and the valedictorian both call getGPA on every Student. The names and numbers are made up for the example. Timing: 3 minutes.
+The average and the valedictorian both call the accessor getGPA on every Student. The names and numbers are made up for the example.
 -->
 
+---
+minutes: 3
 ---
 
 # Private data in code mirrors private data about people
@@ -926,9 +978,11 @@ Society, ethics, and professionalism touchpoint. Real programs are full of objec
 
 private limits which code can read a member; a public accessor opens a deliberate, controlled door. Leaving everything public is like giving every part of a company access to every customer record.
 
-Discussion prompt, 90 seconds in pairs: an app stores your location in an object; which parts of the app should be able to read it, and why? Listen for: the map feature needs it, the advertising code should not without permission, and users should be told. Dispositions practiced: responsible and collaborative. Timing: 3 minutes.
+A question to consider: an app stores your location in an object; which parts of the app should be able to read it, and why? Good answers include: the map feature needs it, the advertising code should not without permission, and users should be told.
 -->
 
+---
+minutes: 2
 ---
 
 # Five things to remember from today
@@ -940,11 +994,12 @@ Discussion prompt, 90 seconds in pairs: an app stores your location in an object
 - Constructors create, accessors read, mutators change
 
 <!--
-Summarize. One: call a method by writing the object, a dot, the method name, and the arguments in parentheses. Two: for objects, == asks whether two references point to the same object, while equals asks whether the contents are the same. Three: a class is a template, and objects are made from it with new. Four: members are usually private and methods usually public. Five: constructors create objects, accessors read members, and mutators change them.
-
-Timing: 2 minutes.
+In summary. One: call a method by writing the object, a dot, the method name, and the arguments in parentheses. Two: for objects, == asks whether two references point to the same object, while equals asks whether the contents are the same. Three: a class is a template, and objects are made from it with new. Four: members are usually private and methods usually public. Five: constructors create objects, accessors read members, and mutators change them.
 -->
 
+---
+hide: true
+minutes: 0
 ---
 
 # How this lecture connects to CS2023
@@ -963,13 +1018,13 @@ Timing: 2 minutes.
 <p class="small">Indicative mapping. Introductory coverage; not full CS Core or KA Core treatment.</p>
 
 <!--
-Instructor-facing slide; skip it in class if short on time. It records how this lecture maps to Computer Science Curricula 2023 (CS2023), the ACM, IEEE Computer Society, and AAAI curricular guidelines.
+This slide records how this lecture maps to Computer Science Curricula 2023 (CS2023), the ACM, IEEE Computer Society, and AAAI curricular guidelines.
 
 The knowledge area mapping is indicative and has not been checked against the official Body of Knowledge at csed.acm.org. This lecture is introductory coverage and does not claim to satisfy CS Core or KA Core.
-
-Timing: skip, or 30 seconds.
 -->
 
+---
+minutes: 1
 ---
 
 # Next time: a class example
@@ -996,12 +1051,13 @@ Timing: skip, or 30 seconds.
 <!--
 Next time we work through a class example. Reminder: keep reading Chapter 9.
 
-See also: Week 10 Lecture 3 for more on references, aliases, and null. Timing: 1 minute.
+See also: Week 10 Lecture 3 for more on references, aliases, and null.
 -->
 
 ---
 layout: center
 class: text-center
+minutes: 3
 ---
 
 # Exit ticket: scan before you leave
@@ -1011,7 +1067,5 @@ class: text-center
 <p class="small">If you cannot scan the code, ask for the link.</p>
 
 <!--
-Exit ticket. Students scan the QR code to open today's exit ticket form. Read the instruction aloud and offer the link directly to anyone who cannot scan the code; paste the form's address here in the notes before class so you can share it in the chat or on the board.
-
-Timing: 3 minutes.
+The exit ticket: scanning the QR code opens today's exit ticket form. If you cannot scan the code, ask for the link.
 -->

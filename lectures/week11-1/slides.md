@@ -6,6 +6,7 @@ info: |
   the public methods that let other code use it. Then we build a Student
   roster, and meet static members and constants declared with final.
 layout: cover
+minutes: 1
 ---
 
 <div class="cover-grid">
@@ -55,10 +56,10 @@ Welcome. Today we look inside a class. We separate the two things a class contai
 CS2023 mapping (indicative, introductory coverage): primary knowledge areas are Software Development Fundamentals (SDF) and Foundations of Programming Languages (FPL); secondary is Software Engineering (SE) for encapsulation as a design habit, with one Society, Ethics, and Professionalism (SEP) touchpoint on protecting records such as grades.
 
 See also: Week 10 (objects, references, and constructors from the outside) and Week 13 (inheritance, which builds on today's classes).
-
-Delivery reminders: read on-screen text aloud, describe each diagram in words, repeat student questions, and turn on live captions. Timing: 1 minute.
 -->
 
+---
+minutes: 1
 ---
 
 # By the end of today, you can do four things
@@ -73,13 +74,15 @@ Delivery reminders: read on-screen text aloud, describe each diagram in words, r
 </div>
 
 <!--
-Read the four objectives aloud. The tags are CS2023 knowledge area codes: SDF is Software Development Fundamentals and FPL is Foundations of Programming Languages.
+These are the four objectives for today. The tags are CS2023 knowledge area codes: SDF is Software Development Fundamentals and FPL is Foundations of Programming Languages.
 
 The first two objectives are the apply-level skills: by the end of class we have written a Student class and used an array of Student objects. Project 4 uses the same pattern.
 
-Likely question: "Is this different from last week?" Last week we used classes other people wrote. This week we write our own. Timing: 1 minute.
+The difference from last week: last week we used classes other people wrote. This week we write our own.
 -->
 
+---
+minutes: 2
 ---
 
 # Predict first: what happens on the second line?
@@ -107,13 +110,13 @@ p.x = 10;
 </div>
 
 <!--
-Hook and think-pair-share. Give 45 seconds with a neighbor before anyone clicks. Low-tech alternative: one, two, or three fingers for A, B, or C.
-
 The first line creates a Point with x 3 and y 4. The second line tries to set p.x to 10 from outside the class. In the Point class, x is declared private. What happens? The answer is a compile error: x has private access in Point, so code outside the class cannot read or change it directly.
 
-Do not explain why this is a good thing yet; that is today's first half. Disposition practiced: collaborative. Timing: 2 minutes.
+Why this is a good thing is the subject of today's first half.
 -->
 
+---
+minutes: 2
 ---
 
 # Last time: a class is the blueprint for its objects
@@ -143,12 +146,13 @@ What did we talk about last time? Classes, and methods: constructors, accessors,
 
 A class describes a kind of object, and each object is one instance of that class. We met three kinds of methods: constructors create objects, accessors read their data, and mutators change it.
 
-Today we go through each of those again, slowly, with the code for a complete class in front of us. Timing: 2 minutes.
+Today we go through each of those again, slowly, with the code for a complete class in front of us.
 -->
 
 ---
 layout: center
 class: text-center
+minutes: 4
 ---
 
 # Project 4: where are you, and what is unclear?
@@ -156,13 +160,12 @@ class: text-center
 <p class="small">Questions about the project or about last time are welcome now.</p>
 
 <!--
-Project 4 check-in and questions. Ask for a show of hands on progress, and take questions about the project and about last lecture. Repeat each student question aloud before answering so everyone, and the captions, can follow.
-
-Fill in any project details you want to announce here, such as the due date. Timing: 4 minutes.
+A check-in on Project 4 and questions about last lecture.
 -->
 
 ---
 layout: section
+minutes: 0.5
 ---
 
 <div class="kicker">Part 1</div>
@@ -172,9 +175,11 @@ layout: section
 The data inside an object.
 
 <!--
-Part 1 of 5. A class has two kinds of contents. We start with the data. Timing: under 1 minute.
+Part 1 of 5. A class has two kinds of contents. We start with the data.
 -->
 
+---
+minutes: 3
 ---
 
 # Members are the data inside an object
@@ -204,11 +209,12 @@ Members are the actual data inside an object. They can be primitive types or oth
 
 The code shows a class called Point with two members: a private double called x and a private double called y. They are also called member variables. Every Point object gets its own x and its own y.
 
-Likely question: "Why hide them?" So that the class controls how its data is read and changed. If x could be changed from anywhere, a bug anywhere could corrupt a Point. That is the reason the opening example did not compile. Timing: 3 minutes.
+They are hidden so that the class controls how its data is read and changed. If x could be changed from anywhere, a bug anywhere could corrupt a Point. That is the reason the opening example did not compile.
 -->
 
 ---
 layout: section
+minutes: 0.5
 ---
 
 <div class="kicker">Part 2</div>
@@ -218,9 +224,11 @@ layout: section
 The ways to interact with an object.
 
 <!--
-Part 2 of 5. The second kind of content in a class: what you can do with it. Timing: under 1 minute.
+Part 2 of 5. The second kind of content in a class: what you can do with it.
 -->
 
+---
+minutes: 3
 ---
 
 # Methods are the ways to interact with an object
@@ -249,9 +257,11 @@ Methods allow you to do things. Object methods usually allow you to manipulate t
 
 Methods can be static or non-static. Only non-static methods can interact with the members of an object. A static method belongs to the class and is not called on any particular object, so it has no object's members to work with.
 
-Likely question: "Which have we been writing all semester?" Static methods, such as main. From now on, most methods inside our classes will be non-static. Timing: 3 minutes.
+The methods we have been writing all semester, such as main, are static. From now on, most methods inside our classes will be non-static.
 -->
 
+---
+minutes: 3
 ---
 
 # A constructor sets up an object when it is created
@@ -279,9 +289,11 @@ Constructors are a special kind of method. They allow you to customize an object
 
 Lines 1 to 3 are the class and its two members, as before. Lines 4 to 8 are the constructor: it is public, it is called Point, the same as the class, and it takes two doubles, newX and newY. Inside, it stores them in the members x and y.
 
-So writing new Point 3, 4 creates an object whose x is 3 and whose y is 4. The callout gives the two ways to recognize a constructor: it has the same name as the class, and it has no return type, not even void. Timing: 3 minutes.
+So writing new Point 3, 4 creates an object whose x is 3 and whose y is 4. The callout gives the two ways to recognize a constructor: it has the same name as the class, and it has no return type, not even void.
 -->
 
+---
+minutes: 2
 ---
 
 # An accessor returns the value of a member
@@ -303,9 +315,11 @@ Because members are usually private, it is common to use methods specifically ju
 
 The code shows two accessors. getX is public, returns a double, and returns x. getY does the same for y. By convention, accessor names start with "get".
 
-Accessors are also called getters. Likely question: "Does getX let other code change x?" No. It hands back a copy of the value; x itself stays private. Timing: 2 minutes.
+Accessors are also called getters. getX does not let other code change x: it hands back a copy of the value, and x itself stays private.
 -->
 
+---
+minutes: 3
 ---
 
 # A mutator changes the value of a member
@@ -327,9 +341,11 @@ Again, because members are usually private, it is common to use methods specific
 
 The code shows two mutators. setX is public, returns nothing, takes a double called newX, and stores it in x. setY does the same for y. By convention, mutator names start with "set", and they are also called setters.
 
-The callout is the reason to bother: a mutator is the one place where the class can check a new value before accepting it. These two accept anything, but a setGPA method could refuse a negative number. Likely question: "Must every member have a mutator?" No. Only provide one if outside code should be allowed to change that member. Timing: 3 minutes.
+The callout is the reason to bother: a mutator is the one place where the class can check a new value before accepting it. These two accept anything, but a setGPA method could refuse a negative number. Not every member needs a mutator: only provide one if outside code should be allowed to change that member.
 -->
 
+---
+minutes: 4
 ---
 
 # Try it: the methods are the only way in
@@ -339,11 +355,13 @@ The callout is the reason to bother: a mutator is the one place where the class 
 <!--
 This interactive shows one Point object, called p. The orange box is the object. Inside it, a dashed box holds the private members x and y with their current values, and below that is the list of public methods. The buttons along the top are statements you can run, and the box on the right shows the last statement and its result.
 
-Press p.getX: the accessor returns 3, and nothing changes. Press p.setX: the mutator changes x to 8, and the value in the object updates. Press new Point 3, 4 to start again.
+The p.getX button runs the accessor: it returns 3, and nothing changes. The p.setX button runs the mutator: it changes x to 8, and the value in the object updates. The new Point 3, 4 button starts again.
 
-Now press the last button, p.x = 10, which has a dashed border. The compiler refuses: x has private access in Point. That is the opening question. The only way to reach the members is through the public methods. Timing: 4 minutes.
+The last button, p.x = 10, has a dashed border. The compiler refuses it: x has private access in Point. That is the opening question. The only way to reach the members is through the public methods.
 -->
 
+---
+minutes: 2
 ---
 
 # Check: which kind of method is this?
@@ -372,15 +390,14 @@ public String getName() {
 </div>
 
 <!--
-Check for understanding. The method is public, returns a String, is called getName, and returns the private member name. Which kind of method is it?
+The method is public, returns a String, is called getName, and returns the private member name. Which kind of method is it? The answer is an accessor: it only returns the value of a member and changes nothing.
 
-Give 30 seconds, then vote with fingers for A, B, or C. The answer is an accessor: it only returns the value of a member and changes nothing.
-
-How to tell them apart: a constructor has the class's name and no return type. An accessor returns a member. A mutator takes a parameter and stores it in a member, and usually returns void. Timing: 2 minutes.
+How to tell them apart: a constructor has the class's name and no return type. An accessor returns a member. A mutator takes a parameter and stores it in a member, and usually returns void.
 -->
 
 ---
 layout: section
+minutes: 0.5
 ---
 
 <div class="kicker">Part 3</div>
@@ -390,9 +407,11 @@ layout: section
 A Student class and a class roster.
 
 <!--
-Part 3 of 5. We put members, a constructor, accessors, and mutators together in one useful class. Timing: under 1 minute.
+Part 3 of 5. We put members, a constructor, accessors, and mutators together in one useful class.
 -->
 
+---
+minutes: 8
 ---
 
 # A Student class groups four pieces of data
@@ -424,9 +443,11 @@ Let's create a Student class. Each Student will contain a first name, which is a
 
 We need a constructor specifying each of these things, accessors to read them later, and mutators to change the GPA and the ID.
 
-Write this class together as live coding. Ask the class why there are mutators for GPA and ID but not for the names: the design says which data outside code is allowed to change. One possible start, for the instructor: public class Student, four private members, a constructor with four parameters, getFirstName, getLastName, getGPA, getID, setGPA, and setID. Timing: 8 minutes with live coding.
+There are mutators for GPA and ID but not for the names: the design says which data outside code is allowed to change. One possible outline: public class Student, four private members, a constructor with four parameters, getFirstName, getLastName, getGPA, getID, setGPA, and setID.
 -->
 
+---
+minutes: 6
 ---
 
 # A roster is an array of Student objects
@@ -455,9 +476,11 @@ Using the Student class, we can create a roster of students. The roster is just 
 
 Then, with our array, we can do some operations: print out a nicely formatted roster, find the average GPA of all students, and determine the valedictorian, the student with the highest GPA.
 
-Each of the three is a loop over the array that calls accessors: a loop that prints, a loop that sums and divides, and the find-the-largest loop. Continue the live coding here if time allows. Timing: 6 minutes with live coding.
+Each of the three is a loop over the array that calls accessors: a loop that prints, a loop that sums and divides, and the find-the-largest loop.
 -->
 
+---
+minutes: 3
 ---
 
 # Try it: three loops over the same array
@@ -469,9 +492,11 @@ This interactive is a roster of five students. The table has one row per Student
 
 Print roster just lists the students. Average GPA highlights the GPA column and shows the sum of the five GPAs divided by 5, which is 3.40. Valedictorian outlines the row with the highest GPA, Cara Diaz with 3.9, and labels it "highest GPA".
 
-Ask students before each click: which accessor does this loop call? The average and the valedictorian both call getGPA on every Student. The names and numbers are made up for the example. Timing: 3 minutes.
+The average and the valedictorian both call the accessor getGPA on every Student. The names and numbers are made up for the example.
 -->
 
+---
+minutes: 3
 ---
 
 # Private members protect records such as grades
@@ -496,13 +521,12 @@ Who should be allowed to change a student's GPA in a real system? How would the 
 <!--
 Society, ethics, and professionalism touchpoint. A GPA is a record about a person, and people's opportunities depend on it. If the gpa member were public, any line of code anywhere in the program could change it, by accident or on purpose. With a private member and a mutator, the class decides what is allowed: setGPA can refuse a value outside 0 to 4, and it is the one place to add a check or keep a log.
 
-Discussion prompt, 90 seconds in pairs: who should be allowed to change a student's GPA in a real system, and how would the software enforce that? Listen for: only certain roles, a record of who changed what, and the student's right to see their own data. Private members are a small technical habit that supports those larger protections.
-
-Dispositions practiced: responsible and collaborative. Timing: 3 minutes.
+A question to consider: who should be allowed to change a student's GPA in a real system, and how would the software enforce that? Good answers include: only certain roles, a record of who changed what, and the student's right to see their own data. Private members are a small technical habit that supports those larger protections.
 -->
 
 ---
 layout: section
+minutes: 0.5
 ---
 
 <div class="kicker">Part 4</div>
@@ -512,9 +536,11 @@ layout: section
 Data that belongs to the class as a whole.
 
 <!--
-Part 4 of 5. So far every piece of data lived inside one object. Now we meet data shared by all objects of a class. Timing: under 1 minute.
+Part 4 of 5. So far every piece of data lived inside one object. Now we meet data shared by all objects of a class.
 -->
 
+---
+minutes: 2
 ---
 
 # Some data belongs to the whole class, not to one object
@@ -539,11 +565,13 @@ Where would you store a count of every `Item` ever created?
 <!--
 Objects have members: members are the data inside objects. But sometimes, wouldn't it be nice if some data were linked to the class as a whole, rather than just to one object?
 
-What if you wanted to keep track of the total number of a particular kind of object you create? The card asks the question: where would you store a count of every Item ever created? Give students 30 seconds to think.
+What if you wanted to keep track of the total number of a particular kind of object you create? The card asks the question: where would you store a count of every Item ever created?
 
-It cannot live in one Item object: which one, and what happens before the first one exists? It has to live with the class. Timing: 2 minutes.
+It cannot live in one Item object: which one, and what happens before the first one exists? It has to live with the class.
 -->
 
+---
+minutes: 4
 ---
 
 # A static member is stored once, with the class
@@ -572,9 +600,11 @@ Static members are stored with the class, not with the object. The highlighted l
 
 Line 2: count is declared private static int and starts at 0. There is one copy in total, however many Item objects exist. Line 3: name is a normal member, so there is one copy per object. Lines 4 to 7 are the constructor: it stores the name in the new object, and it adds one to count, updating the shared counter. Line 8 is an ordinary accessor for name. Lines 9 to 11 are a static method, getItemsInUniverse, which returns count.
 
-Because that last method is static, we call it on the class: Item.getItemsInUniverse, with no object needed. Timing: 4 minutes.
+Because that last method is static, we call it on the class: Item.getItemsInUniverse, with no object needed.
 -->
 
+---
+minutes: 3
 ---
 
 # Try it: one count for the class, one name per object
@@ -584,11 +614,13 @@ Because that last method is static, we call it on the class: Item.getItemsInUniv
 <!--
 This interactive runs the Item class. On the left, a blue box is the Item class, holding the single static member count. On the right is the space for Item objects, each of which will hold its own name. The box at the bottom describes what the last statement did.
 
-Press new Item three times. Each press adds one orange object with its own name, Sword, Shield, Potion, and the count in the class box goes up by one each time. There is always exactly one count, however many objects there are.
+Pressing new Item three times adds three orange objects, each with its own name, Sword, Shield, Potion, and the count in the class box goes up by one each time. There is always exactly one count, however many objects there are. After a fourth press there would be four names and one count.
 
-Press Item.getItemsInUniverse: it returns the count, and the text points out that it is a static method called on the class itself. Press Reset to start over. Ask before the fourth press: how many name members will exist, and how many count members? Four names, one count. Timing: 3 minutes.
+The Item.getItemsInUniverse button returns the count, and the text points out that it is a static method called on the class itself. Reset starts over.
 -->
 
+---
+minutes: 3
 ---
 
 # Static members follow three rules, and one warning
@@ -619,9 +651,11 @@ Static members are also called class variables. Static members can be accessed b
 
 The warning on the right: in general, static variables should not be used. A static variable is shared by the whole program, so any code that can reach it can change it, and that makes programs hard to reason about and to test. The counter is a reasonable use; most data belongs in objects.
 
-Likely question: "Then why does Java have them?" For the few things that really are one-per-class, and, combined with final, for constants, which is the last part of today. Timing: 3 minutes.
+Java has them for the few things that really are one-per-class, and, combined with final, for constants, which is the last part of today.
 -->
 
+---
+minutes: 2
 ---
 
 # Check: how many copies of each member exist?
@@ -650,15 +684,14 @@ Item c = new Item("Potion");
 </div>
 
 <!--
-Check for understanding. Three Item objects are created: Sword, Shield, and Potion. count is static and name is not. How many copies of each member exist?
+Three Item objects are created: Sword, Shield, and Potion. count is static and name is not. How many copies of each member exist?
 
-Give 30 seconds, then vote with fingers for A, B, or C. The answer is one count and three names. The single count is stored with the class and now equals 3. Each of the three objects has its own name.
-
-Follow-up to ask aloud: what does Item.getItemsInUniverse return now? 3. Timing: 2 minutes.
+The answer is one count and three names. The single count is stored with the class and now equals 3. Each of the three objects has its own name. Item.getItemsInUniverse now returns 3.
 -->
 
 ---
 layout: section
+minutes: 0.5
 ---
 
 <div class="kicker">Part 5</div>
@@ -668,9 +701,11 @@ layout: section
 Values that never change once they are set.
 
 <!--
-Part 5 of 5. The last keyword of the day: final. Timing: under 1 minute.
+Part 5 of 5. The last keyword of the day: final.
 -->
 
+---
+minutes: 2
 ---
 
 # The final keyword makes a member constant
@@ -699,9 +734,11 @@ Members can be constant. Sometimes a value will not change after an object has b
 
 You can enforce the fact that the value will not change with the final keyword. A member declared final can only be assigned a value once. Afterwards, it will never change.
 
-"Enforce" is the important word: without final, not changing the color is a promise. With final, the compiler checks it. Timing: 2 minutes.
+"Enforce" is the important word: without final, not changing the color is a promise. With final, the compiler checks it.
 -->
 
+---
+minutes: 3
 ---
 
 # A final member is set once, usually in the constructor
@@ -731,9 +768,11 @@ Using final, we can fix the value of a member. It will only be set once, usually
 
 Line 3: MAMMAL is declared private final boolean. Lines 4 to 7 are the constructor, which sets name, and sets MAMMAL from its parameter: that is the one assignment allowed. Lines 8 to 10 are a method called evolve that tries to flip MAMMAL. That line is a compile-time error: a final member cannot be assigned again.
 
-The error is the feature. A whole category of bug, changing something that should never change, is caught before the program runs. Timing: 3 minutes.
+The error is the feature. A whole category of bug, changing something that should never change, is caught before the program runs.
 -->
 
+---
+minutes: 2
 ---
 
 # A static final member is a constant for the whole class
@@ -760,9 +799,11 @@ It is possible to set a static member to be constant using the final keyword. Pu
 
 Making these values public is reasonable. Since they never change, we never have to worry about a user corrupting the data inside of the object.
 
-This is the exception to both of today's warnings: public data is normally risky, and static data is normally discouraged, but a value that cannot change is safe to share with everyone. Timing: 2 minutes.
+This is the exception to both of today's warnings: public data is normally risky, and static data is normally discouraged, but a value that cannot change is safe to share with everyone.
 -->
 
+---
+minutes: 3
 ---
 
 # Pentagon.SIDES works exactly like Math.PI
@@ -792,9 +833,11 @@ The number of sides of a pentagon is always 5. Line 4, highlighted, declares it:
 
 Other code can access this information by using the value Pentagon.SIDES. That is exactly like Math.PI or Math.E, which are public static final members of the Math class. You have been using static constants all semester.
 
-Likely question: "Why not just write 5?" A name says what the number means, and if the value is used in twenty places it is defined in one. Timing: 3 minutes.
+Why not just write 5? A name says what the number means, and if the value is used in twenty places it is defined in one.
 -->
 
+---
+minutes: 3
 ---
 
 # Check: which line does not compile?
@@ -832,13 +875,15 @@ public class Ball {
 </style>
 
 <!--
-Check for understanding. The Ball class has a public static final int MAX equal to 10 and a private final String COLOR. Line A, in the constructor, assigns COLOR from the parameter. Line B, in a method called paint, assigns COLOR the value "red". Which line does not compile?
+The Ball class has a public static final int MAX equal to 10 and a private final String COLOR. Line A, in the constructor, assigns COLOR from the parameter. Line B, in a method called paint, assigns COLOR the value "red". Which line does not compile?
 
-Give 45 seconds, then vote with fingers for A, B, or C. The answer is line B. COLOR is final, and it was already set once in the constructor, so it cannot be assigned again.
+The answer is line B. COLOR is final, and it was already set once in the constructor, so it cannot be assigned again.
 
-Line A is fine: a final member gets exactly one assignment, and the constructor is the usual place for it. Disposition practiced: meticulous. Timing: 3 minutes.
+Line A is fine: a final member gets exactly one assignment, and the constructor is the usual place for it.
 -->
 
+---
+minutes: 2
 ---
 
 # Five things to remember from today
@@ -850,11 +895,12 @@ Line A is fine: a final member gets exactly one assignment, and the constructor 
 - `final` means set once; `static final` is a shared constant
 
 <!--
-Summarize. One: members are an object's data, and they are usually private. Two: methods are how other code uses the object, and they are usually public. Three: a constructor creates an object, an accessor reads a member, and a mutator changes one. Four: a static member is stored once, with the class, and shared by all its objects. Five: final means a member is set once and never changes, and static final makes a constant shared by the whole class, like Math.PI.
-
-Timing: 2 minutes.
+In summary. One: members are an object's data, and they are usually private. Two: methods are how other code uses the object, and they are usually public. Three: a constructor creates an object, an accessor reads a member, and a mutator changes one. Four: a static member is stored once, with the class, and shared by all its objects. Five: final means a member is set once and never changes, and static final makes a constant shared by the whole class, like Math.PI.
 -->
 
+---
+hide: true
+minutes: 0
 ---
 
 # How this lecture connects to CS2023
@@ -873,13 +919,13 @@ Timing: 2 minutes.
 <p class="small">Indicative mapping. Introductory coverage; not full CS Core or KA Core treatment.</p>
 
 <!--
-Instructor-facing slide; skip it in class if short on time. It records how this lecture maps to Computer Science Curricula 2023 (CS2023), the ACM, IEEE Computer Society, and AAAI curricular guidelines.
+This slide records how this lecture maps to Computer Science Curricula 2023 (CS2023), the ACM, IEEE Computer Society, and AAAI curricular guidelines.
 
 The knowledge area mapping is indicative and has not been checked against the official Body of Knowledge at csed.acm.org. This lecture is introductory coverage and does not claim to satisfy CS Core or KA Core.
-
-Timing: skip, or 30 seconds.
 -->
 
+---
+minutes: 1
 ---
 
 # Next time: more class examples
@@ -907,12 +953,13 @@ Timing: skip, or 30 seconds.
 <!--
 Next time we work through more class examples. Reminders: work on Project 4, and keep reading Chapter 9.
 
-See also: Week 10 on objects and references, which is what a Student variable or a roster element really holds. Timing: 1 minute.
+See also: Week 10 on objects and references, which is what a Student variable or a roster element really holds.
 -->
 
 ---
 layout: center
 class: text-center
+minutes: 3
 ---
 
 # Exit ticket: scan before you leave
@@ -922,7 +969,5 @@ class: text-center
 <p class="small">If you cannot scan the code, ask for the link.</p>
 
 <!--
-Exit ticket. Students scan the QR code to open today's exit ticket form. Read the instruction aloud and offer the link directly to anyone who cannot scan the code; paste the form's address here in the notes before class so you can share it in the chat or on the board.
-
-Timing: 3 minutes.
+The exit ticket: scanning the QR code opens today's exit ticket form. If you cannot scan the code, ask for the link.
 -->

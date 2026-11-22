@@ -6,6 +6,7 @@ info: |
   moves every pixel. Then we compare the Big Oh classes from constant to
   factorial, and estimate how much memory Java arrays and Strings use.
 layout: cover
+minutes: 1
 ---
 
 <div class="cover-grid">
@@ -54,10 +55,10 @@ Welcome. Today has five parts. The first three change images by moving pixels: m
 CS2023 mapping (indicative, introductory coverage): primary knowledge areas are Software Development Fundamentals (SDF) and Algorithmic Foundations (AL); secondary are Graphics and Interactive Techniques (GIT) for image transforms and Architecture and Organization (AR) for the memory hierarchy and data sizes, with one Society, Ethics, and Professionalism (SEP) touchpoint on enlarged images.
 
 See also: Week 12 Lecture 3 (the Picture loop pattern), Week 12 Lectures 1 and 2 (Big Oh notation and examples), and Week 10 (references, which cost memory too).
-
-Delivery reminders: read on-screen text aloud, describe each diagram in words, repeat student questions, and turn on live captions. Timing: 1 minute.
 -->
 
+---
+minutes: 1
 ---
 
 # By the end of today, you can do four things
@@ -72,13 +73,13 @@ Delivery reminders: read on-screen text aloud, describe each diagram in words, r
 </div>
 
 <!--
-Read the four objectives aloud. The tags are CS2023 knowledge area codes: SDF is Software Development Fundamentals, GIT is Graphics and Interactive Techniques, AL is Algorithmic Foundations, and AR is Architecture and Organization.
+There are four objectives. The tags are CS2023 knowledge area codes: SDF is Software Development Fundamentals, GIT is Graphics and Interactive Techniques, AL is Algorithmic Foundations, and AR is Architecture and Organization.
 
-The first two are what Project 5 needs: knowing where each pixel goes, and writing the loops that put it there. The last two help you judge whether a program will be fast enough and small enough.
-
-Likely question: "Which of these is on the project?" Mirroring, rotation, and growing an image. Timing: 1 minute.
+The first two are what Project 5 needs: knowing where each pixel goes, and writing the loops that put it there. The last two help you judge whether a program will be fast enough and small enough. The parts on the project are mirroring, rotation, and growing an image.
 -->
 
+---
+minutes: 3
 ---
 
 # Predict first: where does the left edge go?
@@ -105,13 +106,13 @@ We mirror it left to right.
 </div>
 
 <!--
-Hook and think-pair-share. Give 45 seconds with a neighbor before anyone clicks. Low-tech alternative: one, two, or three fingers for A, B, or C.
+A picture is 3 pixels wide and we mirror it left to right. The pixel in column 0, the left edge, moves to column 2. The columns are numbered 0, 1, 2, so the last column is 2, not 3.
 
-A picture is 3 pixels wide and we mirror it left to right. The pixel in column 0, the left edge, moves to which column? The answer is column 2. The columns are numbered 0, 1, 2, so the last column is 2, not 3.
-
-Column 3 is the tempting answer and it is the same off-by-one mistake as last week: there is no column 3. Today's formulas all contain a "minus 1" for exactly this reason. Disposition practiced: collaborative. Timing: 3 minutes.
+Column 3 is the tempting answer and it is the same off-by-one mistake as last week: there is no column 3. Column 1 is the middle column, which a mirror leaves in place. Today's formulas all contain a "minus 1" for exactly this reason.
 -->
 
+---
+minutes: 2
 ---
 
 # Last time: get a pixel, compute, then set a pixel
@@ -138,24 +139,27 @@ For every `x`, for every `y`:
 <div class="callout">Today the pixel keeps its color but changes its <b>position</b>.</div>
 
 <!--
-What did we talk about last time? The Picture examples: filling a picture with blue, and darkening a picture by 50 percent.
+Last time we wrote two Picture examples: filling a picture with blue, and darkening a picture by 50 percent.
 
 Both used the same loop pattern, summarized in the card on the right: for every x, for every y, get the pixel, compute something, and set the pixel. Both changed each pixel in place, at the same x and y.
 
-Today is the other kind of image program. The color stays the same, but the pixel moves to a new position in a new picture. Likely question: "Why a new picture?" If we wrote into the same picture, we would overwrite pixels we still need to read. Timing: 2 minutes.
+Today is the other kind of image program. The color stays the same, but the pixel moves to a new position in a new picture. We need a new picture because, if we wrote into the same picture, we would overwrite pixels we still need to read.
 -->
 
 ---
 layout: center
 class: text-center
+minutes: 2
 ---
 
 # Questions before we move pixels?
 
 <!--
-Pause for questions about the Picture examples or work time. Repeat each student question aloud before answering so everyone, and the captions, can follow. Timing: 2 minutes.
+A chance for questions about the Picture examples or work time before we start moving pixels.
 -->
 
+---
+minutes: 1
 ---
 
 # Today's transforms use the same eight Picture methods
@@ -181,11 +185,12 @@ A reminder of everything a picture can do, in eight methods. Nothing new is need
 
 There are two constructors: Picture with a String creates a Picture from a file, and Picture with two ints creates a blank Picture with width w and height h. The methods width and height return the size. The method get returns the Color of the pixel at x, y, and set changes the pixel at x, y to a Color. The method show displays the image and save writes it to a file.
 
-Today we use both constructors in the same program: one to load the original, and one to make the blank picture we copy into. Timing: 1 minute.
+Today we use both constructors in the same program: one to load the original, and one to make the blank picture we copy into.
 -->
 
 ---
 layout: section
+minutes: 0.5
 ---
 
 <div class="kicker">Part 1</div>
@@ -195,9 +200,11 @@ layout: section
 Flip an image left to right, or top to bottom.
 
 <!--
-Part 1 of 5. Mirroring is the simplest transform: the picture keeps its size, and each pixel moves to the opposite side. Timing: under 1 minute.
+Part 1 of 5. Mirroring is the simplest transform: the picture keeps its size, and each pixel moves to the opposite side.
 -->
 
+---
+minutes: 2
 ---
 
 # A horizontal mirror flips an image around the y-axis
@@ -234,9 +241,11 @@ Mirroring an image horizontally is a straightforward idea: flip the image around
 
 The diagram shows the word CODE written normally, and below it the same word mirrored left to right, so the letters are reversed and each letter faces the other way.
 
-One use: maybe you want to decipher some of Leonardo da Vinci's writings. He wrote many of his notebooks in mirror script, and mirroring a photo of a page makes it readable. Likely question: "Is this the same as a selfie being flipped?" Yes, phone cameras do exactly this. Timing: 2 minutes.
+One use is deciphering some of Leonardo da Vinci's writings. He wrote many of his notebooks in mirror script, and mirroring a photo of a page makes it readable. Phone cameras do exactly this when they flip a selfie.
 -->
 
+---
+minutes: 4
 ---
 
 # Try it: column x moves to column w − x − 1
@@ -246,11 +255,13 @@ One use: maybe you want to decipher some of Leonardo da Vinci's writings. He wro
 <!--
 How to perform a horizontal mirror: given an image with width w and height h, move from left to right in the original image, copy each column, and store each column from right to left in the new image.
 
-The interactive shows a small picture, 3 pixels wide and 4 pixels high, with a letter in each pixel, and its mirror image beside it. The numbers along the top are x values and the numbers down the side are y values. Click any pixel: it is outlined in both pictures, and the box underneath works out the formula with the actual numbers.
+The interactive shows a small picture, 3 pixels wide and 4 pixels high, with a letter in each pixel, and its mirror image beside it. The numbers along the top are x values and the numbers down the side are y values. Clicking a pixel outlines it in both pictures, and the box underneath works out the formula with the actual numbers.
 
-Start with the pixel at x 0, y 1, the letter D. With w equal to 3 it goes to 3 minus 0 minus 1, which is 2, so it lands at x 2, y 1. Click a pixel in the middle column: it stays in the middle column. The y value never changes. Timing: 4 minutes.
+Take the pixel at x 0, y 1, the letter D. With w equal to 3 it goes to 3 minus 0 minus 1, which is 2, so it lands at x 2, y 1. A pixel in the middle column stays in the middle column. The y value never changes.
 -->
 
+---
+minutes: 4
 ---
 
 # The mirror code copies each pixel into a new picture
@@ -268,13 +279,15 @@ for (int x = 0; x < picture.width(); ++x) {
 ```
 
 <!--
-What would the code for mirroring look like? The highlighted lines move on each click.
+This is the code for mirroring, highlighted a few lines at a time.
 
 Line 1 loads the picture to be mirrored from a file. Lines 2 and 3 create a second, blank picture called mirrored, with the same width and height. Lines 4 and 5 are the usual loop pattern: for every x, for every y. Line 6 gets the Color of the pixel at x, y in the original. Line 7 sets a pixel in the mirrored picture: the column is the width minus x minus 1, and the row is the same y.
 
-Notice there are two pictures. We read from one and write to the other. Likely question: "Can we mirror inside one picture?" Yes, by swapping pairs of pixels and stopping halfway across, but two pictures is simpler and harder to get wrong. Timing: 4 minutes.
+Notice there are two pictures. We read from one and write to the other. It is possible to mirror inside one picture, by swapping pairs of pixels and stopping halfway across, but two pictures is simpler and harder to get wrong.
 -->
 
+---
+minutes: 2
 ---
 
 # Check: a picture is 10 wide. Where does x = 7 go?
@@ -302,13 +315,13 @@ mirrored.set(
 </div>
 
 <!--
-Check for understanding. The picture is 10 pixels wide and the loop is at x equals 7. Which column does the mirror code write to?
+The picture is 10 pixels wide and the loop is at x equals 7. The mirror code writes to column 2: 10 minus 7 minus 1.
 
-Give 30 seconds, then vote with fingers for A, B, or C. The answer is column 2: 10 minus 7 minus 1.
-
-Sanity check to say aloud: the columns are 0 through 9. Column 7 is the third from the right, counting 9, 8, 7. Column 2 is the third from the left, counting 0, 1, 2. Students who answered 3 forgot the minus 1. Disposition practiced: meticulous. Timing: 2 minutes.
+A sanity check: the columns are 0 through 9. Column 7 is the third from the right, counting 9, 8, 7. Column 2 is the third from the left, counting 0, 1, 2. The answer 3 comes from forgetting the minus 1, and column 7 is where the pixel started, not where it goes.
 -->
 
+---
+minutes: 3
 ---
 
 # A vertical mirror reverses the rows instead
@@ -318,13 +331,14 @@ Sanity check to say aloud: the columns are 0 through 9. Column 7 is the third fr
 <!--
 Mirroring vertically is pretty much the same thing. Instead of copying each column in reverse order, we copy each row in reverse order.
 
-The interactive shows the same 3 by 4 picture mirrored top to bottom. Click a pixel in the top row: it moves to the bottom row. With h equal to 4, the pixel at x 0, y 1 goes to row 4 minus 1 minus 1, which is 2. This time the x value never changes.
+The interactive shows the same 3 by 4 picture mirrored top to bottom. A pixel in the top row moves to the bottom row. With h equal to 4, the pixel at x 0, y 1 goes to row 4 minus 1 minus 1, which is 2. This time the x value never changes.
 
-Ask students to say the line of code before you point at the formula in the box: mirrored.set, x, the height minus y minus 1, color. Only one argument differs from the horizontal mirror. Timing: 3 minutes.
+The line of code is mirrored.set, with arguments x, the height minus y minus 1, and color. Only one argument differs from the horizontal mirror.
 -->
 
 ---
 layout: section
+minutes: 0.5
 ---
 
 <div class="kicker">Part 2</div>
@@ -334,9 +348,11 @@ layout: section
 Turn an image by 90 degrees.
 
 <!--
-Part 2 of 5. Rotation is the first transform where the new picture has a different shape from the original. Timing: under 1 minute.
+Part 2 of 5. Rotation is the first transform where the new picture has a different shape from the original.
 -->
 
+---
+minutes: 2
 ---
 
 # Rotating turns a landscape picture into a portrait one
@@ -381,9 +397,11 @@ Rotating an image is another straightforward idea. It is necessary if you are wr
 
 The important difference from mirroring is that the width and height swap. The diagram shows a wide rectangle, 4 wide and 3 high, an arrow labeled 90 degrees right, and a tall rectangle, 3 wide and 4 high.
 
-Likely question: "How does a phone know which way it was held?" A sensor records the orientation, and software rotates the pixels, or just records the orientation in the file. Timing: 2 minutes.
+A phone knows which way it was held because a sensor records the orientation, and software rotates the pixels, or just records the orientation in the file.
 -->
 
+---
+minutes: 4
 ---
 
 # Try it: a 90° right rotation turns each column into a row
@@ -393,11 +411,13 @@ Likely question: "How does a phone know which way it was held?" A sensor records
 <!--
 How to perform a 90 degree right rotation: given an image with width w and height h, create a new image with width h and height w. Then copy each column in the original image into a row in the new image, remembering to move back along the row.
 
-The interactive shows the 3 by 4 picture and its rotation, which is 4 wide and 3 high. Click the letters in the first column, A, D, G, J, top to bottom. They end up in the top row of the rotated picture, but in reverse: J, G, D, A, reading left to right. That is the "moving back along the row".
+The interactive shows the 3 by 4 picture and its rotation, which is 4 wide and 3 high. Follow the letters in the first column, A, D, G, J, top to bottom. They end up in the top row of the rotated picture, but in reverse: J, G, D, A, reading left to right. That is the "moving back along the row".
 
-The formula box shows it for one pixel: with h equal to 4, the pixel at x 0, y 1 goes to column 4 minus 1 minus 1, which is 2, and row 0. The old y decides the new column, and the old x becomes the new row. Timing: 4 minutes.
+The formula box shows it for one pixel: with h equal to 4, the pixel at x 0, y 1 goes to column 4 minus 1 minus 1, which is 2, and row 0. The old y decides the new column, and the old x becomes the new row.
 -->
 
+---
+minutes: 4
 ---
 
 # Rotation swaps the sizes and the coordinates
@@ -417,13 +437,15 @@ for (int x = 0; x < picture.width(); ++x) {
 <div class="callout">Two swaps: the size of the new picture, and the arguments to <code>set</code>.</div>
 
 <!--
-What would the code for a rotation look like? The highlighted lines move on each click.
+This is the code for a rotation, highlighted a few lines at a time.
 
 Line 1 loads the picture to be rotated. Lines 2 and 3 create the new picture, and here is the first swap: its width is the original's height and its height is the original's width. Lines 4 and 5 loop over the original as usual. Line 6 gets the Color at x, y. Line 7 sets a pixel in the rotated picture: the column is the height minus y minus 1, and the row is x. That is the second swap.
 
-Compare with the mirror code: the loops and the get are identical; only the size of the new picture and the arguments to set changed. Likely question: "What happens if I forget to swap the sizes?" For a non-square picture, set will try to write outside the new picture and the program stops with an error. Timing: 4 minutes.
+Compare with the mirror code: the loops and the get are identical; only the size of the new picture and the arguments to set changed. If you forget to swap the sizes, then for a non-square picture, set will try to write outside the new picture and the program stops with an error.
 -->
 
+---
+minutes: 2
 ---
 
 # Other right-angle rotations repeat the same move
@@ -452,13 +474,14 @@ Much trickier: the result is not a rectangle, and it needs trigonometry.
 <!--
 Rotating by 180 degrees, 270 degrees, minus 90, minus 180, or minus 270 degrees can be done using similar techniques, or simply by performing right rotations multiple times. For example, rotating left by 90 degrees is the same as rotating right three times.
 
-Rotations that are not multiples of 90 degrees are much trickier. They result in non-rectangular final images and need some trigonometry. Do not worry about rotations that are not multiples of 90 degrees.
+Rotations that are not multiples of 90 degrees are much trickier. They result in non-rectangular final images and need some trigonometry. They are not needed in this course.
 
-Likely question: "Is rotating three times slower than one direct formula?" Yes, about three times the work, but it is still the same Big Oh class, as we will see in Part 4. Timing: 2 minutes.
+Rotating three times is slower than one direct formula, about three times the work, but it is still the same Big Oh class, as we will see in Part 4.
 -->
 
 ---
 layout: section
+minutes: 0.5
 ---
 
 <div class="kicker">Part 3</div>
@@ -468,9 +491,11 @@ layout: section
 Make an image larger.
 
 <!--
-Part 3 of 5. Resizing changes the number of pixels. We focus on growing, because that is what the project needs. Timing: under 1 minute.
+Part 3 of 5. Resizing changes the number of pixels. We focus on growing, because that is what the project needs.
 -->
 
+---
+minutes: 3
 ---
 
 # Doubling builds a new image twice as wide and twice as high
@@ -499,9 +524,11 @@ You have seen resizing many times before: sometimes an image will not fit nicely
 
 Let's just focus on growing, because that is what you need to do in your project. If we are just doubling the image, we create a new image whose width and height are twice the original. Then we go through the new image, copying the pixels from the original, using pixels whose column and row are half as big as the ones we are putting into the new image.
 
-Notice the direction: this time the loops run over the new picture, and we ask "which old pixel do I copy?" The slide does not show the code, because writing it is part of Project 5. Timing: 3 minutes.
+Notice the direction: this time the loops run over the new picture, and we ask "which old pixel do I copy?" The slide does not show the code, because writing it is part of Project 5.
 -->
 
+---
+minutes: 3
 ---
 
 # Try it: each old pixel becomes four new ones
@@ -511,11 +538,13 @@ Notice the direction: this time the loops run over the new picture, and we ask "
 <!--
 The interactive shows a tiny original picture, 2 pixels wide and 2 pixels high, with the letters A, B, C, D, and the doubled picture, 4 wide and 4 high. Each old pixel maps to four new ones: the doubled picture has a 2 by 2 block of A, a block of B, a block of C, and a block of D.
 
-Click any pixel of the doubled picture. The box shows which old pixel it copies: the new column divided by 2 and the new row divided by 2, using integer division. For example, new pixel 3, 1 copies old pixel 3 divided by 2, which is 1, and 1 divided by 2, which is 0: that is B.
+Clicking any pixel of the doubled picture shows, in the box, which old pixel it copies: the new column divided by 2 and the new row divided by 2, using integer division. For example, new pixel 3, 1 copies old pixel 3 divided by 2, which is 1, and 1 divided by 2, which is 0: that is B.
 
-Click all four pixels of one block to show that they all give the same old pixel. This is where integer division, which drops the fraction, does exactly what we want. Timing: 3 minutes.
+All four pixels of one block give the same old pixel. This is where integer division, which drops the fraction, does exactly what we want.
 -->
 
+---
+minutes: 2
 ---
 
 # Simple resizing works, but better methods average and guess
@@ -544,9 +573,11 @@ This kind of resize works but is crude: a doubled image looks blocky, because ev
 
 To shrink an image, a clever resize might average together pixels, so that no detail is simply thrown away. When growing an image, different techniques can be used to fill in guesses for pixels that sit between pixels from the original image, instead of just duplicating them.
 
-People who program tools like Photoshop have thought long and hard about how to do these tasks better. Likely question: "Do we need the better methods for the project?" No. Simple duplication is what the project asks for. Timing: 2 minutes.
+People who program tools like Photoshop have thought long and hard about how to do these tasks better. The project does not need the better methods: simple duplication is what it asks for.
 -->
 
+---
+minutes: 3
 ---
 
 # Enlarging an image cannot add real detail
@@ -573,11 +604,12 @@ Society, ethics, and professionalism touchpoint. When we enlarge an image, every
 
 That matters because the result can look sharp and convincing and still be invented. The "enhance" button in films and television, which reveals a face or a number plate from a few pixels, is fiction.
 
-Discussion prompt, 90 seconds in pairs: an enlarged security photo shows a blurry face. Should it be used to identify someone? Listen for the idea that software which guesses pixels can produce a plausible face that is not the real person, and that people affected deserve to know how an image was processed. Dispositions practiced: responsible and collaborative. Timing: 3 minutes.
+The slide asks a question to discuss: an enlarged security photo shows a blurry face; should it be used to identify someone? A key point is that software which guesses pixels can produce a plausible face that is not the real person, and that people affected deserve to know how an image was processed.
 -->
 
 ---
 layout: section
+minutes: 0.5
 ---
 
 <div class="kicker">Part 4</div>
@@ -587,9 +619,11 @@ layout: section
 Which running times are practical?
 
 <!--
-Part 4 of 5. We return to Big Oh and line up the common classes side by side. Timing: under 1 minute.
+Part 4 of 5. We return to Big Oh and line up the common classes side by side.
 -->
 
+---
+minutes: 4
 ---
 
 # Eight complexity classes, from fastest to slowest
@@ -597,13 +631,15 @@ Part 4 of 5. We return to Big Oh and line up the common classes side by side. Ti
 <BigOhTable />
 
 <!--
-Here is a table of several different complexity measures, in ascending order, with their functions evaluated at the value of n chosen by the slider. It starts at n equals 100.
+Here is a table of several different complexity measures, in ascending order, with their functions evaluated at the value of n chosen by a slider. It starts at n equals 100.
 
 At n equals 100: constant is 1. Logarithmic, log base 2 of n, is 6.64. Linear is 100. Linearithmic, n log n, is 664.39. Quadratic, n squared, is 10,000. Cubic, n cubed, is 1,000,000. Exponential, 2 to the n, is about 1.27 times 10 to the 30. Factorial is about 9.33 times 10 to the 157.
 
-The bar in the last column shows roughly how many digits each number has, because the numbers themselves are too far apart to draw to scale. Drag the slider down to 10 and the classes look close together; drag it back up and the last two run away. Ask students to predict 2 to the n at n equals 20 before you move the slider: about a million. Timing: 4 minutes.
+The bar in the last column shows roughly how many digits each number has, because the numbers themselves are too far apart to draw to scale. With the slider at 10 the classes look close together; as n grows, the last two run away. At n equals 20, 2 to the n is about a million.
 -->
 
+---
+minutes: 3
 ---
 
 # Faster computers barely help the slowest classes
@@ -631,9 +667,11 @@ Computers get faster, but not in unlimited ways. If computers get 10 times faste
 
 For constant time, the growth is unlimited. For logarithmic time, about 1000 times. For linear and linearithmic time, about 10 times, matching the speed-up. For quadratic time, only 3 to 4 times. For cubic time, only 2 to 3 times. For exponential and factorial time, the problem size hardly changes at all.
 
-The practical implication: buying a faster computer does not rescue a slow algorithm. Choosing a better algorithm does. Likely question: "Why 3 to 4 for quadratic?" Because the square root of 10 is about 3.2: tripling n multiplies the work by about 10. Timing: 3 minutes.
+The practical implication: buying a faster computer does not rescue a slow algorithm. Choosing a better algorithm does. Quadratic gets 3 to 4 times because the square root of 10 is about 3.2: tripling n multiplies the work by about 10.
 -->
 
+---
+minutes: 3
 ---
 
 # Rules of thumb for each class
@@ -658,9 +696,11 @@ Some rules of thumb. There is nothing better than constant time. Logarithmic tim
 
 Quadratic time means that expanding the problem size significantly could make it impractical. Cubic time is about the reasonable maximum if we expect the problem to grow. Exponential and factorial time mean that we cannot solve anything but the most trivial problem instances.
 
-Connect to what we have written: finding the largest element was linear, and bubble sort was quadratic. Next time we meet sorting methods that are linearithmic. Timing: 3 minutes.
+In code we have already written, finding the largest element was linear, and bubble sort was quadratic. Next time we meet sorting methods that are linearithmic.
 -->
 
+---
+minutes: 3
 ---
 
 # Check: what is the running time of mirroring?
@@ -691,15 +731,14 @@ for (int x = 0; x < w; ++x)
 </div>
 
 <!--
-Check for understanding that ties the two halves of the lecture together. The code is the mirror loop, for a picture w wide and h high. What is its running time?
+This question ties the two halves of the lecture together. The code is the mirror loop, for a picture w wide and h high, and its running time is O of w times h. The inner loop body runs h times for each of the w columns, so once per pixel. O of w plus h would be right only if the loops ran one after the other instead of one inside the other, and O of 1 would mean the work does not depend on the picture's size at all.
 
-Give 45 seconds, then vote with fingers for A, B, or C. The answer is O of w times h. The inner loop body runs h times for each of the w columns, so once per pixel.
-
-In terms of the number of pixels, that is linear: every pixel is handled exactly once, and you cannot do better than looking at each pixel. Rotation and doubling are the same class. Timing: 3 minutes.
+In terms of the number of pixels, that is linear: every pixel is handled exactly once, and you cannot do better than looking at each pixel. Rotation and doubling are the same class.
 -->
 
 ---
 layout: section
+minutes: 0.5
 ---
 
 <div class="kicker">Part 5</div>
@@ -709,9 +748,11 @@ layout: section
 Running time is not the only cost.
 
 <!--
-Part 5 of 5. Programs use memory as well as time. This part covers where data lives and how to estimate how much space it takes. Timing: under 1 minute.
+Part 5 of 5. Programs use memory as well as time. This part covers where data lives and how to estimate how much space it takes.
 -->
 
+---
+minutes: 3
 ---
 
 # Each level of memory is about 500 times larger and slower
@@ -755,9 +796,11 @@ Remember, there are multiple levels of memory on a computer. Each next level is 
 
 The diagram shows three boxes in a row, growing in size from left to right. Cache, inside the processor, is the smallest and fastest. RAM, the main memory, is about 500 times larger and about 500 times slower than cache. The hard drive, which is storage, is about 500 times larger and about 500 times slower than RAM.
 
-These are rough orders of magnitude, not exact figures, and they vary between machines. The pattern is what matters: the more room a level has, the longer it takes to reach. Likely question: "Where do my variables live?" In RAM, with the most recently used ones copied into cache. Timing: 3 minutes.
+These are rough orders of magnitude, not exact figures, and they vary between machines. The pattern is what matters: the more room a level has, the longer it takes to reach. Your variables live in RAM, with the most recently used ones copied into cache.
 -->
 
+---
+minutes: 2
 ---
 
 # Programs run fastest when their data stays in fast memory
@@ -798,9 +841,11 @@ What does the hierarchy mean for speed? If you can do a lot of number crunching 
 
 Using the hard drive is unavoidable with large pieces of data like digital movies, which do not fit in RAM.
 
-This is one reason two programs with the same Big Oh can run at very different speeds: Big Oh counts steps, but not every step costs the same. Likely question: "Can I control what is in cache?" Not directly, but working through an array in order helps, because neighboring elements are loaded together. Timing: 2 minutes.
+This is one reason two programs with the same Big Oh can run at very different speeds: Big Oh counts steps, but not every step costs the same. You cannot control directly what is in cache, but working through an array in order helps, because neighboring elements are loaded together.
 -->
 
+---
+minutes: 2
 ---
 
 # Memory use can be counted
@@ -827,9 +872,11 @@ Memory can be easier to estimate than running time. Depending on your input, you
 
 Remember that a reference to an object or an array costs an additional 4 or 8 bytes on top of the size of the object. This is the arrow from Week 10: the variable that points at the object takes space too.
 
-Likely question: "4 or 8, which is it?" It depends on the Java virtual machine and its settings; the tables on the next slide use 8. Timing: 2 minutes.
+Whether it is 4 or 8 depends on the Java virtual machine and its settings; the tables on the next slide use 8.
 -->
 
+---
+minutes: 3
 ---
 
 # Java types have known memory footprints
@@ -883,9 +930,11 @@ Primitive types: a boolean is 1 byte, a char is 2 bytes, an int is 4 bytes, and 
 
 Object types: a reference is 8 bytes. A String is 40 plus 2N. An object is 8 bytes plus the size of its members. An array of objects is 16 plus N times the quantity 8 plus the size of the members.
 
-These are typical figures; the exact numbers depend on the Java virtual machine. Likely question: "Why 16 extra for an array?" The array stores its own length and some bookkeeping. Timing: 3 minutes.
+These are typical figures; the exact numbers depend on the Java virtual machine. The 16 extra bytes for an array are there because the array stores its own length and some bookkeeping.
 -->
 
+---
+minutes: 2
 ---
 
 # Check: how many bytes is an int array of 100 elements?
@@ -912,13 +961,13 @@ int[] scores = new int[100];
 </div>
 
 <!--
-Check for understanding. The code creates an int array with 100 elements. Using the formula 16 plus 4N, how many bytes does the array use?
+The code creates an int array with 100 elements. Using the formula 16 plus 4N, the array uses 416 bytes: 100 ints at 4 bytes each is 400, plus 16 bytes of overhead for the array itself. The answer 400 forgets that overhead, and 800 would be right only if each int took 8 bytes, as a double does.
 
-Give 30 seconds, then vote with fingers for A, B, or C. The answer is 416 bytes: 100 ints at 4 bytes each is 400, plus 16 bytes of overhead for the array itself.
-
-Follow-up to ask aloud: and the variable scores? It is a reference, so 8 more bytes. Timing: 2 minutes.
+The variable scores is a reference, so it costs 8 more bytes on top of the array.
 -->
 
+---
+minutes: 3
 ---
 
 # Try it: the array type and length decide the bytes
@@ -926,13 +975,15 @@ Follow-up to ask aloud: and the variable scores? It is a reference, so 8 more by
 <MemoryCalc />
 
 <!--
-This is a memory calculator. Choose a type with the buttons, boolean array, char array, int array, double array, or String, and set the number of elements N with the slider, from 0 to 1000. The box shows the formula for that type and the total number of bytes worked out.
+This is a memory calculator. Buttons choose a type, boolean array, char array, int array, double array, or String, and a slider sets the number of elements N, from 0 to 1000. The box shows the formula for that type and the total number of bytes worked out.
 
-It starts on an int array of 100 elements: 16 plus 4 times 100 is 416 bytes, matching the question we just answered. Switch to a double array: 16 plus 8 times 100 is 816 bytes, almost double. Switch to boolean: 116 bytes.
+It starts on an int array of 100 elements: 16 plus 4 times 100 is 416 bytes, matching the question we just answered. A double array of 100 elements is 16 plus 8 times 100, which is 816 bytes, almost double. A boolean array of 100 elements is 116 bytes.
 
-Set N to zero to show that an empty array still costs 16 bytes. Then connect to images: an 800 by 600 picture has 480,000 pixels, and at 4 bytes per pixel that is about 1.9 million bytes, before any overhead. Timing: 3 minutes.
+With N set to zero, an empty array still costs 16 bytes. For images, an 800 by 600 picture has 480,000 pixels, and at 4 bytes per pixel that is about 1.9 million bytes, before any overhead.
 -->
 
+---
+minutes: 2
 ---
 
 # Five things to remember from today
@@ -944,11 +995,12 @@ Set N to zero to show that an empty array still costs 16 bytes. Then connect to 
 - An array costs 16 bytes plus its elements
 
 <!--
-Summarize. One: in a horizontal mirror, column x moves to column w minus x minus 1. Two: in a 90 degree right rotation, the width and height swap, and the pixel at x, y moves to h minus y minus 1, x. Three: to double an image, each new pixel at x, y copies the old pixel at x divided by 2, y divided by 2. Four: a faster computer does not rescue an exponential or factorial algorithm; a better algorithm does. Five: an array costs 16 bytes plus the space for its elements.
-
-Timing: 2 minutes.
+Five things to remember. One: in a horizontal mirror, column x moves to column w minus x minus 1. Two: in a 90 degree right rotation, the width and height swap, and the pixel at x, y moves to h minus y minus 1, x. Three: to double an image, each new pixel at x, y copies the old pixel at x divided by 2, y divided by 2. Four: a faster computer does not rescue an exponential or factorial algorithm; a better algorithm does. Five: an array costs 16 bytes plus the space for its elements.
 -->
 
+---
+hide: true
+minutes: 0
 ---
 
 # How this lecture connects to CS2023
@@ -967,11 +1019,9 @@ Timing: 2 minutes.
 <p class="small">Indicative mapping. Introductory coverage; not full CS Core or KA Core treatment.</p>
 
 <!--
-Instructor-facing slide; skip it in class if short on time. It records how this lecture maps to Computer Science Curricula 2023 (CS2023), the ACM, IEEE Computer Society, and AAAI curricular guidelines.
+This slide records how this lecture maps to Computer Science Curricula 2023 (CS2023), the ACM, IEEE Computer Society, and AAAI curricular guidelines.
 
 The knowledge area mapping is indicative and has not been checked against the official Body of Knowledge at csed.acm.org. This lecture is introductory coverage and does not claim to satisfy CS Core or KA Core.
-
-Timing: skip, or 30 seconds.
 -->
 
 ---
@@ -999,10 +1049,14 @@ Timing: skip, or 30 seconds.
 
 <Credit />
 
+<!--
+Next time covers searching and sorting, and inheritance. Before then, read Chapter 11 and keep working on Project 5, which is challenging.
+-->
 
 ---
 layout: center
 class: text-center
+minutes: 3
 ---
 
 # Exit ticket: scan before you leave
@@ -1012,7 +1066,5 @@ class: text-center
 <p class="small">If you cannot scan the code, ask for the link.</p>
 
 <!--
-Exit ticket. Students scan the QR code to open today's exit ticket form. Read the instruction aloud and offer the link directly to anyone who cannot scan the code; paste the form's address here in the notes before class so you can share it in the chat or on the board.
-
-Timing: 3 minutes.
+The exit ticket: scanning the QR code opens today's exit ticket form, and the link is available for anyone who cannot scan the code.
 -->

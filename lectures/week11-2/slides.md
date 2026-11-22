@@ -6,6 +6,7 @@ info: |
   velocity. Each ball can draw itself and update its own position, so an
   array of Ball objects fills the screen with bouncing balls.
 layout: cover
+minutes: 1
 ---
 
 <div class="cover-grid">
@@ -49,10 +50,10 @@ Welcome. Today we go back to class examples and build one complete, visual class
 CS2023 mapping (indicative, introductory coverage): the primary knowledge area is Software Development Fundamentals (SDF); secondary are Graphics and Interactive Techniques (GIT) for animation and Mathematical and Statistical Foundations (MSF) for velocity as a change in position, with one Society, Ethics, and Professionalism (SEP) touchpoint on trusting simulations.
 
 See also: Week 11 Lecture 1 (members, methods, and constants) and Week 12 Lecture 1 (hunters and prey, which builds directly on today's balls).
-
-Delivery reminders: read on-screen text aloud, describe each diagram in words, repeat student questions, and turn on live captions. Timing: 1 minute.
 -->
 
+---
+minutes: 1
 ---
 
 # By the end of today, you can do three things
@@ -66,13 +67,15 @@ Delivery reminders: read on-screen text aloud, describe each diagram in words, r
 </div>
 
 <!--
-Read the three objectives aloud. The tags are CS2023 knowledge area codes: SDF is Software Development Fundamentals, MSF is Mathematical and Statistical Foundations, and GIT is Graphics and Interactive Techniques.
+These are the three objectives for today. The tags are CS2023 knowledge area codes: SDF is Software Development Fundamentals, MSF is Mathematical and Statistical Foundations, and GIT is Graphics and Interactive Techniques.
 
 All three are apply-level: by the end of class we have written the Ball class and a program that uses an array of balls. The same pattern, objects that update and draw themselves in a loop, is what Project 4 and the next lectures build on.
 
-Likely question: "Do we need StdDraw for this?" Yes, the same StdDraw library we used for the Game of Life. Timing: 1 minute.
+The drawing uses the same StdDraw library we used for the Game of Life.
 -->
 
+---
+minutes: 3
 ---
 
 # Predict first: what happens to vx?
@@ -99,13 +102,13 @@ The canvas runs from 0 to 1.
 </div>
 
 <!--
-Hook and think-pair-share. Give 60 seconds with a neighbor before anyone clicks. Low-tech alternative: one, two, or three fingers for A, B, or C.
-
 A ball's center is at x 0.97, its radius is 0.03, and its velocity in x is 0.01, so each step it moves 0.01 to the right. The canvas runs from 0 to 1. Before the step, its right edge is at 0.97 plus 0.03, exactly 1. After one step, x is 0.98, so its right edge, at 0.98 plus 0.03, is past the wall at 1. What should happen to vx?
 
-The answer is that vx becomes minus 0.01. Flipping the sign makes the ball move left, which is exactly a bounce. That one idea, flip the velocity when you hit a wall, is most of today's update method. Disposition practiced: collaborative. Timing: 3 minutes.
+The answer is that vx becomes minus 0.01. Flipping the sign makes the ball move left, which is exactly a bounce. That one idea, flip the velocity when you hit a wall, is most of today's update method.
 -->
 
+---
+minutes: 2
 ---
 
 # Last time: class examples, class variables, and constants
@@ -134,12 +137,13 @@ What did we talk about last time? Class examples, class variables, and class con
 
 We wrote a Student class and used an array of Student objects as a class roster. Then we met static members, one copy shared by the whole class, and constants declared with final, or static final for constants like Math.PI.
 
-Today we write another class from scratch, and this time its objects move. Timing: 2 minutes.
+Today we write another class from scratch, and this time its objects move.
 -->
 
 ---
 layout: center
 class: text-center
+minutes: 4
 ---
 
 # Project 4: where are you, and what is unclear?
@@ -147,11 +151,12 @@ class: text-center
 <p class="small">Questions about the project or about last time are welcome now.</p>
 
 <!--
-Project 4 check-in and questions. Ask for a show of hands on progress, and take questions about the project and about last lecture. Repeat each student question aloud before answering so everyone, and the captions, can follow. Timing: 4 minutes.
+A check-in on Project 4 and questions about last lecture.
 -->
 
 ---
 layout: section
+minutes: 0.5
 ---
 
 <div class="kicker">Part 1</div>
@@ -161,9 +166,11 @@ layout: section
 Designing and writing a Ball class.
 
 <!--
-Part 1 of 2. We design a Ball class: what each ball needs to know, and what it needs to be able to do. Timing: under 1 minute.
+Part 1 of 2. We design a Ball class: what each ball needs to know, and what it needs to be able to do.
 -->
 
+---
+minutes: 3
 ---
 
 # A Ball needs to know six things about itself
@@ -197,9 +204,11 @@ We can make a Ball class. Each Ball will have a color, which is a Color object; 
 
 We will need a constructor specifying these values, a method to draw the ball, and a method to update the position of the ball over time.
 
-Ask the class what the two velocities mean before the next slide: how far the ball moves in x and in y on each step. Likely question: "Why is color a Color and not a String?" Because StdDraw's setPenColor takes a Color object, the class from the Picture lectures to come, and from java.awt. Timing: 3 minutes.
+The two velocities say how far the ball moves in x and in y on each step. Color is a Color and not a String because StdDraw's setPenColor takes a Color object, the class from the Picture lectures to come, and from java.awt.
 -->
 
+---
+minutes: 4
 ---
 
 # The members are private; the constructor sets them
@@ -227,9 +236,11 @@ Here are the members and the constructor. The highlighted lines move on each cli
 
 Line 2: a private Color called color. Line 3: three private doubles, x and y for the location and radius for the size; Java lets us declare several variables of the same type on one line. Line 4: two private doubles, vx and vy, for the velocity: how much x and y change on each step.
 
-Lines 5 to 10 are the constructor. It takes six parameters, one for each member, and copies each into its member; two short assignments share each line to keep it on one slide. This is the same pattern as the Point class from last lecture, just with more members. Write it together as live coding. Likely question: "Why newX instead of x?" So the parameter does not hide the member with the same name. Timing: 4 minutes.
+Lines 5 to 10 are the constructor. It takes six parameters, one for each member, and copies each into its member; two short assignments share each line to keep it on one slide. This is the same pattern as the Point class from last lecture, just with more members. The parameters are called newX and so on instead of x so that the parameter does not hide the member with the same name.
 -->
 
+---
+minutes: 3
 ---
 
 # Velocity is how far the ball moves on each step
@@ -277,9 +288,11 @@ Velocity is how far the ball moves on each step. Each step, x increases by vx an
 
 The diagram shows a ball at position x, y, and a dashed outline of the same ball at its next position, x plus vx, y plus vy. A solid arrow joins them. Dashed lines split that movement into a horizontal part, labeled vx, and a vertical part, labeled vy.
 
-The signs give the direction: a positive vx moves right and a negative vx moves left; a positive vy moves up and a negative vy moves down. In StdDraw, y grows upward, unlike Picture, where y grows downward. Likely question: "Is velocity the same as speed?" Speed is how fast; velocity also includes the direction, which is why it can be negative. Timing: 3 minutes.
+The signs give the direction: a positive vx moves right and a negative vx moves left; a positive vy moves up and a negative vy moves down. In StdDraw, y grows upward, unlike Picture, where y grows downward. Velocity is not the same as speed: speed is how fast; velocity also includes the direction, which is why it can be negative.
 -->
 
+---
+minutes: 4
 ---
 
 # update moves the ball, then flips its velocity at a wall
@@ -302,9 +315,11 @@ The update method moves the ball and makes it bounce. The highlighted lines move
 
 Lines 2 and 3 move the ball by its velocity. Lines 4 and 5: if the left edge of the ball, x minus radius, has gone past 0, or its right edge, x plus radius, has gone past 1, the ball has hit a side wall, so we flip the sign of vx. Lines 6 and 7 do the same for the bottom and top walls with vy.
 
-The callout explains the 0 and 1: StdDraw's canvas runs from 0 to 1 in both directions unless you change its scale with setXscale and setYscale. A simplification worth mentioning: if a ball moves far past a wall in one step, this simple flip can leave it stuck jiggling at the edge. With small velocities it works well. Timing: 4 minutes.
+The callout explains the 0 and 1: StdDraw's canvas runs from 0 to 1 in both directions unless you change its scale with setXscale and setYscale. A simplification: if a ball moves far past a wall in one step, this simple flip can leave it stuck jiggling at the edge. With small velocities it works well.
 -->
 
+---
+minutes: 2
 ---
 
 # draw is two StdDraw calls
@@ -338,9 +353,11 @@ The draw method is just two StdDraw calls: set the pen color to this ball's colo
 
 The two cards make a design point: update changes the members and draws nothing; draw reads the members and changes nothing. Keeping the two jobs separate means we can update without drawing, for example to skip frames, or draw without moving, for example when paused.
 
-Likely question: "Where does StdDraw get the color?" From our Color member. That is why the member's type is Color. Timing: 2 minutes.
+StdDraw gets the color from our Color member. That is why the member's type is Color.
 -->
 
+---
+minutes: 2
 ---
 
 # Check: why compare x - radius with 0, and not x?
@@ -368,15 +385,14 @@ if (x - radius < 0 || x + radius > 1)
 </div>
 
 <!--
-Check for understanding. The update method tests x minus radius less than 0, or x plus radius greater than 1. What would be wrong with testing just x less than 0?
+The update method tests x minus radius less than 0, or x plus radius greater than 1. What would be wrong with testing just x less than 0?
 
-Give 45 seconds, then vote with fingers for A, B, or C. The answer is B. x is the center of the ball, not its edge. With x less than 0, the ball would only bounce once its center reached the wall, so half of the ball would already be off the screen. Subtracting and adding the radius tests the edges instead.
-
-Disposition practiced: meticulous, thinking about exactly where the boundary is. Timing: 2 minutes.
+The answer is B. x is the center of the ball, not its edge. With x less than 0, the ball would only bounce once its center reached the wall, so half of the ball would already be off the screen. Subtracting and adding the radius tests the edges instead.
 -->
 
 ---
 layout: section
+minutes: 0.5
 ---
 
 <div class="kicker">Part 2</div>
@@ -386,9 +402,11 @@ layout: section
 Many Ball objects, one loop.
 
 <!--
-Part 2 of 2. With the Ball class written, the program that uses it is short. Timing: under 1 minute.
+Part 2 of 2. With the Ball class written, the program that uses it is short.
 -->
 
+---
+minutes: 3
 ---
 
 # An array holds many Ball objects
@@ -410,9 +428,11 @@ With the Ball class created, it is easy to make a program that shows balls bounc
 
 Line 1 creates an array of 20 Ball references. Lines 2 to 7 fill it: for each index, pick a random velocity, then create a new Ball, blue, at a random position, with radius 0.05, and with random velocities between minus 0.01 and plus 0.01 in each direction. Math.random returns a number from 0 up to 1, so 0.02 times Math.random minus 0.01 is between minus 0.01 and 0.01.
 
-The callout connects to Week 10: new Ball 20 only makes 20 empty references, all null. The objects themselves are created by the 20 calls to new Ball inside the loop. A ball that starts overlapping a wall will just bounce on its first steps. Timing: 3 minutes.
+The callout connects to Week 10: new Ball 20 only makes 20 empty references, all null. The objects themselves are created by the 20 calls to new Ball inside the loop. A ball that starts overlapping a wall will just bounce on its first steps.
 -->
 
+---
+minutes: 4
 ---
 
 # The animation loop updates and draws every ball, again and again
@@ -435,9 +455,11 @@ Then we update the balls and draw them repeatedly. The highlighted lines move on
 
 Line 1 turns on double buffering: drawing happens off screen, and nothing appears until we call show, which stops the animation from flickering. Line 3 clears the canvas at the start of each frame. Lines 4 to 7 loop over the array; each ball updates its own position and then draws itself. Lines 8 and 9 show the finished frame and pause 20 milliseconds, giving about 50 frames per second.
 
-The loop never ends, so the program runs until you close the window. Notice how little this code knows about bouncing: all of that lives inside the Ball class. Likely question: "What if I forget clear?" Every ball leaves a trail, because the old frames are never erased. Timing: 4 minutes.
+The loop never ends, so the program runs until you close the window. Notice how little this code knows about bouncing: all of that lives inside the Ball class. If you forget clear, every ball leaves a trail, because the old frames are never erased.
 -->
 
+---
+minutes: 4
 ---
 
 # Try it: every ball runs its own update
@@ -445,13 +467,15 @@ The loop never ends, so the program runs until you close the window. Notice how 
 <BouncingBalls />
 
 <!--
-This interactive is the program we just wrote, on a canvas that runs from 0 to 1 in both directions, like StdDraw, with y growing upward. Each ball is numbered with its index in the array. The panel on the right lists the members of the selected ball: its color, x, y, radius, vx, and vy. Click any ball to select it. It starts paused with four balls.
+This interactive is the program we just wrote, on a canvas that runs from 0 to 1 in both directions, like StdDraw, with y growing upward. Each ball is numbered with its index in the array. The panel on the right lists the members of the selected ball: its color, x, y, radius, vx, and vy. Clicking any ball selects it. It starts paused with four balls.
 
-Press Step a few times and watch the selected ball's x and y change by exactly vx and vy each step. Then press Play. When a ball hits a side wall, the sign of its vx flips, and the label changes from "moving right" to "moving left"; the same happens to vy at the top and bottom.
+Each press of Step moves every ball once, and the selected ball's x and y change by exactly vx and vy. Play runs the animation continuously. When a ball hits a side wall, the sign of its vx flips, and the label changes from "moving right" to "moving left"; the same happens to vy at the top and bottom.
 
-Add ball creates another Ball object in the array, up to twelve, and Reset starts over. Every ball runs the same update method, but each one has its own members, so they all move differently. Timing: 4 minutes.
+Add ball creates another Ball object in the array, up to twelve, and Reset starts over. Every ball runs the same update method, but each one has its own members, so they all move differently.
 -->
 
+---
+minutes: 2
 ---
 
 # Check: what happens if the loop that creates the balls is missing?
@@ -478,13 +502,15 @@ balls[0].update();
 </div>
 
 <!--
-Check for understanding that links back to Week 10. The array is created with new Ball 20, but the loop that calls new Ball for each element is missing. Then the program calls balls 0 dot update. What happens?
+This question links back to Week 10. The array is created with new Ball 20, but the loop that calls new Ball for each element is missing. Then the program calls balls 0 dot update. What happens?
 
-Give 45 seconds, then vote with fingers for A, B, or C. The answer is a NullPointerException. new Ball 20 creates an array of 20 references, and every one of them is null. Calling a method on null crashes the program.
+The answer is a NullPointerException. new Ball 20 creates an array of 20 references, and every one of them is null. Calling a method on null crashes the program.
 
-This is one of the most common bugs with arrays of objects. The fix is the loop from two slides back. Timing: 2 minutes.
+This is one of the most common bugs with arrays of objects. The fix is the loop from two slides back.
 -->
 
+---
+minutes: 3
 ---
 
 # A simulation is only as good as its rules
@@ -511,9 +537,11 @@ Society, ethics, and professionalism touchpoint. Our bouncing balls look convinc
 
 Real simulations, built from objects that update in a loop just like ours, are used to plan traffic, forecast weather, and model the spread of disease, and their results guide real decisions.
 
-Discussion prompt, 90 seconds in pairs: a simulation looks realistic; how would you check whether its results can be trusted? Listen for: compare it with real measurements, state its simplifications openly, test cases with known answers, and let other people check the rules. Looking right is not the same as being right. Dispositions practiced: responsible and collaborative. Timing: 3 minutes.
+A question to consider: a simulation looks realistic; how would you check whether its results can be trusted? Good answers include: compare it with real measurements, state its simplifications openly, test cases with known answers, and let other people check the rules. Looking right is not the same as being right.
 -->
 
+---
+minutes: 2
 ---
 
 # Four things to remember from today
@@ -524,11 +552,12 @@ Discussion prompt, 90 seconds in pairs: a simulation looks realistic; how would 
 - An array of objects plus an update-and-draw loop makes an **animation**
 
 <!--
-Summarize. One: a Ball keeps its color, position, radius, and velocity as private members, set by its constructor. Two: update moves the ball by its velocity and flips the sign of vx or vy when an edge passes a wall. Three: draw only reads the members and draws the ball. Four: an array of objects, with a loop that updates and draws each one, again and again, makes an animation.
-
-Timing: 2 minutes.
+In summary. One: a Ball keeps its color, position, radius, and velocity as private members, set by its constructor. Two: update moves the ball by its velocity and flips the sign of vx or vy when an edge passes a wall. Three: draw only reads the members and draws the ball. Four: an array of objects, with a loop that updates and draws each one, again and again, makes an animation.
 -->
 
+---
+hide: true
+minutes: 0
 ---
 
 # How this lecture connects to CS2023
@@ -547,13 +576,13 @@ Timing: 2 minutes.
 <p class="small">Indicative mapping. Introductory coverage; not full CS Core or KA Core treatment.</p>
 
 <!--
-Instructor-facing slide; skip it in class if short on time. It records how this lecture maps to Computer Science Curricula 2023 (CS2023), the ACM, IEEE Computer Society, and AAAI curricular guidelines.
+This slide records how this lecture maps to Computer Science Curricula 2023 (CS2023), the ACM, IEEE Computer Society, and AAAI curricular guidelines.
 
 The knowledge area mapping is indicative and has not been checked against the official Body of Knowledge at csed.acm.org. This lecture is introductory coverage and does not claim to satisfy CS Core or KA Core.
-
-Timing: skip, or 30 seconds.
 -->
 
+---
+minutes: 1
 ---
 
 # Next time: more class examples
@@ -581,12 +610,13 @@ Timing: skip, or 30 seconds.
 <!--
 Next time we continue with class examples, building on today's balls. Reminders: work on Project 4, and keep reading Chapter 9.
 
-See also: Week 12 Lecture 1, where the balls become hunters and prey. Timing: 1 minute.
+See also: Week 12 Lecture 1, where the balls become hunters and prey.
 -->
 
 ---
 layout: center
 class: text-center
+minutes: 3
 ---
 
 # Exit ticket: scan before you leave
@@ -596,7 +626,5 @@ class: text-center
 <p class="small">If you cannot scan the code, ask for the link.</p>
 
 <!--
-Exit ticket. Students scan the QR code to open today's exit ticket form. Read the instruction aloud and offer the link directly to anyone who cannot scan the code; paste the form's address here in the notes before class so you can share it in the chat or on the board.
-
-Timing: 3 minutes.
+The exit ticket: scanning the QR code opens today's exit ticket form. If you cannot scan the code, ask for the link.
 -->

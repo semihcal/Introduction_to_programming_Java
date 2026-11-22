@@ -6,6 +6,7 @@ info: |
   program, Hello World, and learn the basic rules of Java syntax. We finish
   with what a computer is: hardware, software, the CPU, and memory.
 layout: cover
+minutes: 1
 ---
 
 <div class="cover-grid">
@@ -45,10 +46,11 @@ Welcome to COMP 1600. Today has three parts. First, how to succeed in this cours
 CS2023 mapping (indicative, introductory coverage): primary knowledge areas are Software Development Fundamentals (SDF) for the first program and Architecture and Organization (AR) for the CPU and memory; secondary are Foundations of Programming Languages (FPL) for syntax and Parallel and Distributed Computing (PDC) for multicore processors, with one Society, Ethics, and Professionalism (SEP) touchpoint on academic integrity and learning.
 
 See also: Week 1 Lecture 2 (software development and data representation) and Lab 1 (setting up IntelliJ and running Hello World yourself).
-
-Delivery reminders: read on-screen text aloud, describe each diagram in words, repeat student questions, and turn on live captions. Timing: 1 minute.
 -->
 
+---
+hide: true
+minutes: 1
 ---
 
 # By the end of today, you can do four things
@@ -63,13 +65,13 @@ Delivery reminders: read on-screen text aloud, describe each diagram in words, r
 </div>
 
 <!--
-Read the four objectives aloud. The tags are CS2023 knowledge area codes: SEP is Society, Ethics, and Professionalism, SDF is Software Development Fundamentals, FPL is Foundations of Programming Languages, and AR is Architecture and Organization.
+These are the four objectives for today. The tags are CS2023 knowledge area codes: SEP is Society, Ethics, and Professionalism, SDF is Software Development Fundamentals, FPL is Foundations of Programming Languages, and AR is Architecture and Organization.
 
-The second and third objectives are the apply-level skills: tomorrow in Lab 1 you write, compile, and run this program yourself.
-
-Likely question: "Do I need to have programmed before?" No. This course assumes no programming experience. Timing: 1 minute.
+The second and third objectives are the apply-level skills: tomorrow in Lab 1 you write, compile, and run this program yourself. No programming experience is assumed in this course.
 -->
 
+---
+minutes: 2
 ---
 
 # Predict first: does this compile?
@@ -96,15 +98,14 @@ system.Out.Println("Word!");
 </div>
 
 <!--
-Hook and think-pair-share. Give 45 seconds with a neighbor before anyone clicks. Low-tech alternative: one, two, or three fingers for A, B, or C.
-
 The line is system dot Out dot Println, "Word!", with a lowercase s, a capital O, and a capital P. The correct line, shown underneath, is System with a capital S, out lowercase, println lowercase. Does the first version compile?
 
-No. Java is case sensitive: system is not the same as System, and Println is not println. Many people expect a computer to be forgiving about capital letters, as search engines are; compilers are not. We come back to this in Part 3. Disposition practiced: collaborative. Timing: 2 minutes.
+No. Java is case sensitive: system is not the same as System, and Println is not println. Many people expect a computer to be forgiving about capital letters, as search engines are; compilers are not. The other two answers both assume Java ignores case, which it does not. We come back to this in Part 3.
 -->
 
 ---
 layout: section
+minutes: 0.5
 ---
 
 <div class="kicker">Part 1</div>
@@ -114,9 +115,11 @@ layout: section
 What the students who do well actually do.
 
 <!--
-Part 1 of 4. Before any code, how to get the most out of this course. Timing: under 1 minute.
+Part 1 of 4. Before any code, how to get the most out of this course.
 -->
 
+---
+minutes: 3
 ---
 
 # Good students treat learning as something they do, not something done to them
@@ -151,9 +154,11 @@ Two columns compare habits. Students who struggle don't ask questions, don't com
 
 Students who succeed ask questions, come to office hours, and ask for help. They actively pursue all the knowledge and skills they can, and they are angry when a class is easy, because an easy class means they are paying for something they are not getting.
 
-The original notes call these "bad students" and "good students"; the slide describes habits instead, because habits can change. Every column on the left can move to the right. Likely question: "Is it bad to ask a question that seems obvious?" No. If you are wondering, others are too. Timing: 3 minutes.
+The original notes call these "bad students" and "good students"; the slide describes habits instead, because habits can change. Every column on the left can move to the right. A question that seems obvious is still worth asking: if you are wondering, others are too.
 -->
 
+---
+minutes: 3
 ---
 
 # Success builds understanding at every step
@@ -220,9 +225,12 @@ The flowchart for success: read the textbook before class; participate in class 
 
 The flowchart for failure: come to class without reading anything; ask no questions in class; don't practice at home; finish the projects without understanding them; skim the chapters before the exam.
 
-Point out that the two paths take about the same time. The difference is when the effort happens and whether it builds understanding. Programming is a skill like a musical instrument: you learn it by practicing, not by watching. Disposition practiced: self-directed. Timing: 3 minutes.
+The two paths take about the same time. The difference is when the effort happens and whether it builds understanding. Programming is a skill like a musical instrument: you learn it by practicing, not by watching.
 -->
 
+---
+hide: true
+minutes: 3
 ---
 
 # Finishing a project is not the same as learning from it
@@ -249,11 +257,12 @@ Society, ethics, and professionalism touchpoint. One step in the failure flowcha
 
 Projects exist to build skills you will need later in this course and in your career. Exams, and later jobs, test what you can do yourself.
 
-Discussion prompt, 90 seconds in pairs: when is getting help with code fair, and when does it stop you from learning? Listen for: asking the instructor or a tutor, discussing ideas, and looking up how a method works are fair; submitting code you did not write or cannot explain is not. Refer students to the course policy on collaboration and AI tools. Dispositions practiced: responsible and self-directed. Timing: 3 minutes.
+So when is getting help with code fair, and when does it stop you from learning? Asking the instructor or a tutor, discussing ideas, and looking up how a method works are fair; submitting code you did not write or cannot explain is not. The course policy on collaboration and AI tools gives the details.
 -->
 
 ---
 layout: section
+minutes: 0.5
 ---
 
 <div class="kicker">Part 2</div>
@@ -263,9 +272,11 @@ layout: section
 From an empty file to Hello, world!
 
 <!--
-Part 2 of 4. We write our first program, one piece at a time. Timing: under 1 minute.
+Part 2 of 4. We write our first program, one piece at a time.
 -->
 
+---
+minutes: 1
 ---
 
 # A Java program is an ordinary text file
@@ -294,9 +305,11 @@ A Java program is stored as an ordinary text file. You can write a Java program 
 
 We will be editing, compiling, and executing all with IntelliJ, an integrated development environment, or IDE: one program that does all three steps. The card lists them: edit, which means writing the code; compile, which means translating it into a form the computer can run; and run, which means executing it.
 
-Likely question: "Can I use a different editor?" You can, but labs and help sessions assume IntelliJ, so please set it up before tomorrow's lab. Timing: 2 minutes.
+You can use a different editor, but labs and help sessions assume IntelliJ, so set it up before tomorrow's lab.
 -->
 
+---
+minutes: 1
 ---
 
 # Syntax is the set of rules for a meaningful statement
@@ -327,9 +340,11 @@ Every language has syntax. Syntax is the set of rules that govern how you can ma
 
 In English, the basic syntax for a sentence says that you must have a subject and a predicate: "The dog barks" has the subject "the dog" and the predicate "barks".
 
-Just like English, Java has many, many different rules you will need to learn. The difference is that a person can understand a sentence with a grammar mistake; the Java compiler refuses a program with a syntax mistake. Timing: 2 minutes.
+Just like English, Java has many, many different rules you will need to learn. The difference is that a person can understand a sentence with a grammar mistake; the Java compiler refuses a program with a syntax mistake.
 -->
 
+---
+minutes: 1
 ---
 
 # In Java, everything must be inside a class
@@ -354,11 +369,11 @@ A class called `Hello` goes in a file called `Hello.java`.
 <!--
 In Java, one of the most basic rules of syntax is that everything must be inside a class. For now, just think of a class as a way to organize things; we will see much more about classes later in the course.
 
-We are going to create a Java program called Hello. We must create a file called Hello.java and put a class called Hello inside it. The file name and the class name must match exactly, including capital letters.
-
-Likely question: "What happens if they don't match?" The compiler reports an error and refuses to compile. Timing: 2 minutes.
+We are going to create a Java program called Hello. We must create a file called Hello.java and put a class called Hello inside it. The file name and the class name must match exactly, including capital letters. If they don't match, the compiler reports an error and refuses to compile.
 -->
 
+---
+minutes: 4
 ---
 
 # Building Hello.java, one piece at a time
@@ -394,9 +409,11 @@ Step 1: public class Hello, followed by an opening brace and a closing brace. Ig
 
 Step 2: we need to give our class a starting point. The starting point for any Java program is a main method: public static void main, String square brackets args, with its own braces. This program will run, but it won't do anything.
 
-Step 3: we add a print statement inside main: System.out.println, "Hello, world!", followed by a semicolon. Now the program prints Hello, world! when it runs. Timing: 4 minutes.
+Step 3: we add a print statement inside main: System.out.println, "Hello, world!", followed by a semicolon. Now the program prints Hello, world! when it runs.
 -->
 
+---
+minutes: 3
 ---
 
 # The full Hello World program, line by line
@@ -419,9 +436,11 @@ A recap of the full Hello World program. The highlighted line moves on each clic
 
 Line 1: everything is in a class, and the class name must match the file name, Hello.java. Line 2: the main method is where the program starts. Line 3: the print statement outputs information on the screen. Lines 4 and 5 close main and the class; every opening brace needs a matching closing brace.
 
-You do not need to understand every word of line 2 yet; public, static, void, and String args will each make sense later in the course. For now, every program you write starts with these lines. Timing: 3 minutes.
+You do not need to understand every word of line 2 yet; public, static, void, and String args will each make sense later in the course. For now, every program you write starts with these lines.
 -->
 
+---
+minutes: 2
 ---
 
 # println prints a line; print stays on the same line
@@ -457,9 +476,12 @@ Basic output is done with System.out.println. You put what you want to print out
 
 You can use System.out.print instead if you don't want a newline after the output. The example's last two statements use print, so "No newline, " and "same line" end up on the same line of output. The card on the right shows the full output: three lines.
 
-Likely question: "What does ln mean?" Line: println prints, then moves to the next line. Timing: 2 minutes.
+The ln in println stands for line: println prints, then moves to the next line.
 -->
 
+---
+hide: true
+minutes: 2
 ---
 
 # Check: what is printed?
@@ -486,17 +508,16 @@ System.out.println("!");
 </div>
 
 <!--
-Check for understanding. The code is: print "Hi " with a space, then println "there", then println "!". What is printed?
+The code is: print "Hi " with a space, then println "there", then println "!". What is printed?
 
 Each option shows the exact output. A is "Hi there!" on one line. B is "Hi there" on one line and the exclamation mark on the next. C is "Hi", "there", and the exclamation mark on three lines.
 
-Give 30 seconds, then vote with fingers for A, B, or C. The answer is B: "Hi there" on one line, then the exclamation mark on the next line. print does not move to a new line, so "there" continues the same line; println then ends that line, so the exclamation mark starts a new one.
-
-Disposition practiced: meticulous. Timing: 2 minutes.
+The answer is B: "Hi there" on one line, then the exclamation mark on the next line. print does not move to a new line, so "there" continues the same line; println then ends that line, so the exclamation mark starts a new one. A is wrong because it forgets that println "there" ends the line. C is wrong because it treats the first print as if it were println.
 -->
 
 ---
 layout: section
+minutes: 0.5
 ---
 
 <div class="kicker">Part 3</div>
@@ -506,9 +527,11 @@ layout: section
 Five rules you will use in every program.
 
 <!--
-Part 3 of 4. Semicolons, sequencing, case, whitespace, and comments. Timing: under 1 minute.
+Part 3 of 4. Semicolons, sequencing, case, whitespace, and comments.
 -->
 
+---
+minutes: 1
 ---
 
 # Statements run in order, each ending with a semicolon
@@ -541,9 +564,11 @@ In Java, like C, C++, and many other languages, we separate different statements
 
 For example, instead of one print statement, we can have several, as in the code: "Hello, world!", "Hello, galaxy!", then "Goodbye, world!". Each statement is an instruction to the computer, and they are carried out in order, one by one: this is called sequencing.
 
-Likely question: "What if I forget a semicolon?" The program does not compile, and the error usually points at the line just after the missing semicolon. Timing: 2 minutes.
+If you forget a semicolon, the program does not compile, and the error usually points at the line just after the missing semicolon.
 -->
 
+---
+minutes: 2
 ---
 
 # Java is case sensitive
@@ -573,9 +598,11 @@ Java is a case sensitive language: Class with a capital C is not the same as cla
 
 The table shows the opening example. System.out.println, with a capital S and everything else lowercase, prints correctly. system.Out.Println, with the capitals in the wrong places, does not compile.
 
-This is the answer to the opening question. The convention to remember: class names such as System and String start with a capital letter, and method names such as println start with a lowercase letter. Timing: 2 minutes.
+This is the answer to the opening question. The convention to remember: class names such as System and String start with a capital letter, and method names such as println start with a lowercase letter.
 -->
 
+---
+minutes: 1
 ---
 
 # Java ignores extra whitespace, but people don't
@@ -611,9 +638,11 @@ Java generally ignores whitespace: tabs, newlines, and spaces. The two pieces of
 
 People do care. Use whitespace effectively to make your code readable: indent the inside of every pair of braces, as in Hello.java, and use blank lines to separate steps. IntelliJ can indent your code for you.
 
-One exception to mention: spaces inside the quotes are printed exactly as written. Timing: 2 minutes.
+One exception: spaces inside the quotes are printed exactly as written.
 -->
 
+---
+minutes: 1
 ---
 
 # Comments are notes for people; the compiler skips them
@@ -647,9 +676,12 @@ Programs can be confusing. Sometimes you want to leave notes for yourself or any
 
 There are two kinds of comments, actually three. Single-line comments start with two slashes and run to the end of the line. Multi-line comments start with slash star and end with star slash, and can cover several lines. The third kind, starting with slash star star, is a documentation comment, used to generate documentation like the Java API pages.
 
-Likely question: "How many comments should I write?" Enough that someone else, or you in a month, can understand why the code does what it does. Timing: 2 minutes.
+How many comments should you write? Enough that someone else, or you in a month, can understand why the code does what it does.
 -->
 
+---
+hide: true
+minutes: 2
 ---
 
 # Check: which line does not compile?
@@ -676,13 +708,13 @@ System.out.println( "B" );  // B
 </div>
 
 <!--
-Check for understanding that uses three of today's rules. Line A prints "A" but has no semicolon before its comment. Line B prints "B" with extra spaces inside the parentheses. Line C starts with two slashes. Which line does not compile?
+This check uses three of today's rules. Line A prints "A" but has no semicolon before its comment. Line B prints "B" with extra spaces inside the parentheses. Line C starts with two slashes. Which line does not compile?
 
-Give 45 seconds, then vote with fingers for A, B, or C. The answer is line A: it is missing its semicolon. Line B is fine, because Java ignores the extra whitespace. Line C is entirely a comment, so the compiler skips it, missing semicolon and all.
-
-Disposition practiced: meticulous. Timing: 2 minutes.
+The answer is line A: it is missing its semicolon. Line B is fine, because Java ignores the extra whitespace. Line C is entirely a comment, so the compiler skips it, missing semicolon and all.
 -->
 
+---
+minutes: 2
 ---
 
 # You already know two of Java's few kinds of task
@@ -716,11 +748,12 @@ Java is a large, complex language. Even so, there are only a few tasks that you 
 
 There are not that many other things you can tell Java to do: storing numbers and text, basic mathematical operations, choosing between several options, doing a task repetitively, storing lists of things, more complicated input and output, and naming a task so that you can use it over and over again. That is basically it.
 
-These map onto the rest of the course: variables, arithmetic, if statements, loops, arrays, files, and methods. Timing: 2 minutes.
+These map onto the rest of the course: variables, arithmetic, if statements, loops, arrays, files, and methods.
 -->
 
 ---
 layout: section
+minutes: 0.5
 ---
 
 <div class="kicker">Part 4</div>
@@ -730,9 +763,11 @@ layout: section
 What is actually running our program?
 
 <!--
-Part 4 of 4. We step back from code and look at the machine that runs it. Timing: under 1 minute.
+Part 4 of 4. We step back from code and look at the machine that runs it.
 -->
 
+---
+minutes: 1
 ---
 
 # A computer manipulates data according to a list of instructions
@@ -759,9 +794,11 @@ What is a computer? It is hard to define exactly. The term "computer" originally
 
 A useful definition: a computer is a machine that manipulates data according to a list of instructions. That list of instructions is a program, like the Hello.java program we just wrote.
 
-Likely question: "Is a calculator a computer?" A simple calculator follows fixed instructions built into it; a computer can run any program you give it. Timing: 2 minutes.
+By this definition, a simple calculator is not quite a computer: it follows fixed instructions built into it, while a computer can run any program you give it.
 -->
 
+---
+minutes: 1
 ---
 
 # Computers come in many sizes, and most are hidden
@@ -783,9 +820,11 @@ Kinds of computers. Supercomputers are extremely expensive and are often special
 
 Embedded computers focus on low power usage. They are tiny computers inside watches, phones, toasters, cars, and so on, and there are more embedded computers than any other kind.
 
-Ask the class: how many computers are in the room right now? Count phones, watches, laptops, the projector, and the building's systems. Timing: 2 minutes.
+A typical classroom holds many computers once you count phones, watches, laptops, the projector, and the building's systems.
 -->
 
+---
+minutes: 2
 ---
 
 # From counting aids to billions of operations per second
@@ -806,9 +845,11 @@ A short history of computers, in four eras.
 
 Mechanical calculation devices, from about 2400 BCE onward, such as the abacus, were aids to human calculation with no stored program. Mechanical computers, from 1725 onward, could be programmed with punch cards, like early looms, but had serious limitations. Early electronic computers, from 1941 onward, were electronic, using vacuum tubes, and became general purpose, stored-program computers. Microprocessors, from the 1970s onward, put a whole processor on one chip built from transistors, which had replaced vacuum tubes, and now do billions of computations per second with parts measured in nanometers.
 
-Simplification: the exact firsts and dates are debated by historians; the slide gives the broad sequence. Timing: 2 minutes.
+Simplification: the exact firsts and dates are debated by historians; the slide gives the broad sequence.
 -->
 
+---
+minutes: 1
 ---
 
 # Hardware is what you can touch; software is what runs on it
@@ -845,9 +886,11 @@ Hardware refers to the physical parts of the computer: the processor, memory, th
 
 Software refers to the programs and data that run on it: the operating system, such as Windows, macOS, Linux, or Unix; web browsers, such as Edge, Safari, Firefox, and Chrome; business applications, such as Word and PowerPoint; and games.
 
-In this course you write software. Your Hello.java program is software, and so is IntelliJ, which you use to write it. Timing: 2 minutes.
+In this course you write software. Your Hello.java program is software, and so is IntelliJ, which you use to write it.
 -->
 
+---
+minutes: 2
 ---
 
 # Every modern computer has a CPU, memory, and input and output
@@ -887,9 +930,11 @@ The von Neumann architecture is the basic layout of all modern computers. It has
 
 The diagram shows three boxes in a row. Memory, on the left, holds data and instructions. The CPU, in the middle, does the computing. Input and output, on the right, connects to the outside world: the keyboard, the screen, the disk. Two-way arrows connect the CPU with memory and with input and output, because data flows in both directions.
 
-The key idea, from John von Neumann and colleagues in the 1940s, is that the program's instructions are stored in memory alongside the data. Timing: 2 minutes.
+The key idea, from John von Neumann and colleagues in the 1940s, is that the program's instructions are stored in memory alongside the data.
 -->
 
+---
+minutes: 2
 ---
 
 # The CPU fetches instructions and data, and computes
@@ -917,9 +962,11 @@ The CPU is the "brains" of the computer. It fetches instructions and data from m
 
 A modern CPU is made of electronic circuitry embedded in a small silicon chip. The circuitry is built from billions of tiny electronic switches called transistors.
 
-The original slide showed photos of a processor; this version describes it in words. If you have a real CPU or a motherboard, passing it around works well here. Timing: 2 minutes.
+The original slide showed photos of a processor; this version describes it in words.
 -->
 
+---
+minutes: 1
 ---
 
 # A 1.7 GHz processor runs 1.7 billion cycles each second
@@ -947,9 +994,11 @@ How fast are computers? The original notes were typed on a computer running at 1
 
 Each cycle, a computer can do something like an addition, a subtraction, or a multiplication; usually not a division, which takes several cycles.
 
-The card puts the number in human terms: counting to 1.7 billion at one number per second would take a person about 54 years, and the processor does that many cycles every second. Modern processors also do several operations per cycle on each core, so the real count is even higher. Timing: 2 minutes.
+The card puts the number in human terms: counting to 1.7 billion at one number per second would take a person about 54 years, and the processor does that many cycles every second. Modern processors also do several operations per cycle on each core, so the real count is even higher.
 -->
 
+---
+minutes: 2
 ---
 
 # Moore's law: transistor counts double about every two years
@@ -977,9 +1026,11 @@ Moore's law, named after Gordon Moore, says that the density of transistors on a
 
 Historically, this meant that CPU speeds doubled too. But since the mid-2000s, clock speeds have not risen much, because faster chips produce too much heat and use too much power. We can still put more "stuff" onto a chip.
 
-The card asks the question for the next slide: if a chip can't get faster, what do we do with the extra transistors? Timing: 2 minutes.
+The card asks the question for the next slide: if a chip can't get faster, what do we do with the extra transistors?
 -->
 
+---
+minutes: 1
 ---
 
 # A multicore CPU has several processors inside
@@ -1006,9 +1057,11 @@ The answer: modern laptops and desktops are now almost all multicore. Multicore 
 
 A CPU with 4 cores can actually be computing 4 different things at the same time. This is called parallel processing.
 
-Likely question: "Does a 4-core computer run my program 4 times faster?" Only if the program is written to split its work into 4 parts, and only if the work can be split. The next two slides show when that works. Timing: 2 minutes.
+A 4-core computer does not automatically run your program 4 times faster. That happens only if the program is written to split its work into 4 parts, and only if the work can be split. The next two slides show when that works.
 -->
 
+---
+minutes: 3
 ---
 
 # Try it: more washers help only while there are loads to share
@@ -1016,13 +1069,15 @@ Likely question: "Does a 4-core computer run my program 4 times faster?" Only if
 <ParallelDemo />
 
 <!--
-Parallel processing works well for problems like washing loads of laundry in a laundromat. This interactive shows it. Use the sliders to set the number of loads of laundry and the number of washers, which stand for cores. The grid shows which washer washes which load in each round, and the sentence underneath gives the number of rounds and the speedup.
+Parallel processing works well for problems like washing loads of laundry in a laundromat. This interactive shows it. The sliders set the number of loads of laundry and the number of washers, which stand for cores. The grid shows which washer washes which load in each round, and the sentence underneath gives the number of rounds and the speedup.
 
-Start at 3 loads and 1 washer: 3 rounds. Move to 3 washers: 1 round, 3 times as fast. Now move to 4 washers. Still 1 round: if you have 3 loads of clothes, there is no way to wash them faster with 4 washers. The fourth washer sits idle, marked with a dashed border.
+With 3 loads and 1 washer, it takes 3 rounds. With 3 washers, it takes 1 round, 3 times as fast. With 4 washers, it is still 1 round: if you have 3 loads of clothes, there is no way to wash them faster with 4 washers. The fourth washer sits idle, marked with a dashed border.
 
-Try 8 loads with 3 washers: 3 rounds, because the last round has only 2 loads. Ask students to predict the rounds before you move a slider. Timing: 3 minutes.
+With 8 loads and 3 washers, it takes 3 rounds, because the last round has only 2 loads.
 -->
 
+---
+minutes: 1
 ---
 
 # Parallel work fails when workers must share the same thing
@@ -1050,9 +1105,11 @@ Parallel processing works very poorly when different processors have to work on 
 
 The card gives the classic example: brain surgery with 100 surgeons is not 20 times faster than brain surgery with 5. It is not safer, either. There is only one patient, and the surgeons get in each other's way.
 
-Compare with the laundry: each load is separate, so washers never conflict. Programs are the same; work that splits into independent pieces speeds up on more cores, and work on shared data often does not. Timing: 2 minutes.
+Compare with the laundry: each load is separate, so washers never conflict. Programs are the same; work that splits into independent pieces speeds up on more cores, and work on shared data often does not.
 -->
 
+---
+minutes: 3
 ---
 
 # Memory stores everything as bits: 0s and 1s
@@ -1082,9 +1139,12 @@ Memory is the storage for all the data and instructions on your computer. Modern
 
 The table gives the units. 1 byte is 8 bits. 1 kilobyte is 2 to the 10, which is 1,024 bytes. 1 megabyte is 2 to the 20 bytes, about a million. 1 gigabyte is 2 to the 30 bytes, about a billion. 1 terabyte is 2 to the 40 bytes, about a trillion.
 
-Simplification to mention: drive makers and some standards use powers of 10 instead, so 1 kilobyte means 1,000 bytes, and the powers-of-2 units are sometimes written KiB, MiB, and so on. That is why a "1 TB" drive shows up as about 931 GB on your computer. Next lecture covers how numbers become bits. Timing: 3 minutes.
+Simplification: drive makers and some standards use powers of 10 instead, so 1 kilobyte means 1,000 bytes, and the powers-of-2 units are sometimes written KiB, MiB, and so on. That is why a "1 TB" drive shows up as about 931 GB on your computer. Next lecture covers how numbers become bits.
 -->
 
+---
+hide: true
+minutes: 2
 ---
 
 # Check: how many bits are in one kilobyte?
@@ -1109,13 +1169,16 @@ Simplification to mention: drive makers and some standards use powers of 10 inst
 </div>
 
 <!--
-Check for understanding. One byte is 8 bits, and one kilobyte is 1,024 bytes. How many bits are in one kilobyte?
+One byte is 8 bits, and one kilobyte is 1,024 bytes. How many bits are in one kilobyte?
 
-Give 30 seconds, then vote with fingers for A, B, or C. The answer is 8,192 bits: 1,024 bytes times 8 bits per byte.
+The answer is 8,192 bits: 1,024 bytes times 8 bits per byte.
 
-The common mistake is answer A, which forgets to convert bytes to bits. Disposition practiced: meticulous. Timing: 2 minutes.
+The common mistake is answer A, 1,024 bits, which forgets to convert bytes to bits.
 -->
 
+---
+hide: true
+minutes: 2
 ---
 
 # Five things to remember from today
@@ -1127,11 +1190,12 @@ The common mistake is answer A, which forgets to convert bytes to bits. Disposit
 - More cores help only when work can be **split into independent pieces**
 
 <!--
-Summarize. One: success in this course comes from active habits: read before class, ask questions, and practice. Two: a Java program lives in a class, starts in the main method, and the class name must match the file name. Three: statements end with a semicolon, run in order, and Java is case sensitive. Four: a computer has a CPU, memory, and input and output. Five: more cores help only when the work can be split into independent pieces.
-
-Timing: 2 minutes.
+Summary. One: success in this course comes from active habits: read before class, ask questions, and practice. Two: a Java program lives in a class, starts in the main method, and the class name must match the file name. Three: statements end with a semicolon, run in order, and Java is case sensitive. Four: a computer has a CPU, memory, and input and output. Five: more cores help only when the work can be split into independent pieces.
 -->
 
+---
+hide: true
+minutes: 0
 ---
 
 # How this lecture connects to CS2023
@@ -1150,13 +1214,13 @@ Timing: 2 minutes.
 <p class="small">Indicative mapping. Introductory coverage; not full CS Core or KA Core treatment.</p>
 
 <!--
-Instructor-facing slide; skip it in class if short on time. It records how this lecture maps to Computer Science Curricula 2023 (CS2023), the ACM, IEEE Computer Society, and AAAI curricular guidelines.
+This slide records how this lecture maps to Computer Science Curricula 2023 (CS2023), the ACM, IEEE Computer Society, and AAAI curricular guidelines.
 
 The knowledge area mapping is indicative and has not been checked against the official Body of Knowledge at csed.acm.org. This lecture is introductory coverage and does not claim to satisfy CS Core or KA Core.
-
-Timing: skip, or 30 seconds.
 -->
 
+---
+minutes: 1
 ---
 
 # Next time: software development and data representation
@@ -1185,12 +1249,13 @@ Timing: skip, or 30 seconds.
 <!--
 Next time: Lab 1 is tomorrow, where you write and run Hello World yourself. On Friday we will talk about software development and data representation, which explains how numbers and text become the bits from today's last slides.
 
-Reminders: read Chapter 2 of the textbook, and come to lab ready to program in IntelliJ, installed and working. Timing: 1 minute.
+Reminders: read Chapter 2 of the textbook, and come to lab ready to program in IntelliJ, installed and working.
 -->
 
 ---
 layout: center
 class: text-center
+minutes: 3
 ---
 
 # Exit ticket: scan before you leave
@@ -1200,7 +1265,5 @@ class: text-center
 <p class="small">If you cannot scan the code, ask for the link.</p>
 
 <!--
-Exit ticket. Students scan the QR code to open today's exit ticket form. Read the instruction aloud and offer the link directly to anyone who cannot scan the code; paste the form's address here in the notes before class so you can share it in the chat or on the board.
-
-Timing: 3 minutes.
+The QR code opens today's exit ticket form.
 -->

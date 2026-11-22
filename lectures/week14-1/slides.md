@@ -6,6 +6,7 @@ info: |
   them with PrintWriter, and meet exceptions, Java's way of reporting errors
   such as a missing file.
 layout: cover
+minutes: 1
 ---
 
 <div class="cover-grid">
@@ -48,15 +49,15 @@ layout: cover
 </div>
 
 <!--
-Welcome. Today we finish inheritance with one more look at instanceof, and then start a new topic: files. We read from a text file, write to a text file, and meet exceptions, which is how Java reports that something went wrong.
+Welcome. This lecture finishes inheritance with one more look at instanceof, and then starts a new topic: files. We read from a text file, write to a text file, and meet exceptions, which is how Java reports that something went wrong.
 
 CS2023 mapping (indicative, introductory coverage): the primary knowledge area is Software Development Fundamentals (SDF); secondary are Foundations of Programming Languages (FPL) for exceptions and Operating Systems (OS) for files, with one Society, Ethics, and Professionalism (SEP) touchpoint on writing over other people's data.
 
 See also: Week 13 Lecture 3 (inheritance and instanceof), Week 12 (the Picture class, which read and wrote image files for us), and Week 13 Lecture 2 (sorting, used in today's example).
-
-Delivery reminders: read on-screen text aloud, describe each diagram in words, repeat student questions, and turn on live captions. Timing: 1 minute.
 -->
 
+---
+minutes: 1
 ---
 
 # By the end of today, you can do four things
@@ -71,13 +72,13 @@ Delivery reminders: read on-screen text aloud, describe each diagram in words, r
 </div>
 
 <!--
-Read the four objectives aloud. The tags are CS2023 knowledge area codes: FPL is Foundations of Programming Languages, SDF is Software Development Fundamentals, and OS is Operating Systems.
+By the end of this lecture you can test an object's type with instanceof, read values from a text file with Scanner, distinguish checked exceptions from unchecked ones, and write values to a text file and close it. The tags are CS2023 knowledge area codes: FPL is Foundations of Programming Languages, SDF is Software Development Fundamentals, and OS is Operating Systems.
 
-The second and fourth objectives are the apply-level skills: by the end of class we write one program that saves numbers to a file and another that reads them back.
-
-Likely question: "Do we need to catch exceptions?" Not today. We only need to recognize them and pass them on. Timing: 1 minute.
+The second and fourth objectives are the apply-level skills: by the end of class we write one program that saves numbers to a file and another that reads them back. Catching exceptions is not needed today; we only need to recognize them and pass them on.
 -->
 
+---
+minutes: 2
 ---
 
 # Predict first: where do the numbers go?
@@ -104,13 +105,13 @@ Then the program ends.
 </div>
 
 <!--
-Hook and think-pair-share. Give 45 seconds with a neighbor before anyone clicks. Low-tech alternative: one, two, or three fingers for A, B, or C.
+A program reads 10 numbers from the user into an array, and then ends. You run the program again. What is in the array? The answer: nothing. They are gone. Variables and arrays live in memory only while the program runs, so the same 10 numbers do not come back, and it does not depend on the computer.
 
-A program reads 10 numbers from the user into an array, and then ends. You run the program again. What is in the array? The answer: nothing. They are gone. Variables and arrays live in memory only while the program runs.
-
-That is the reason for today's topic. To keep data between runs, a program has to write it to a file. Disposition practiced: collaborative. Timing: 2 minutes.
+That is the reason for today's topic. To keep data between runs, a program has to write it to a file.
 -->
 
+---
+minutes: 2
 ---
 
 # Last time: subclasses, overriding, and a cost example
@@ -137,16 +138,17 @@ That is the reason for today's topic. To keep data between runs, a program has t
 </div>
 
 <!--
-What did we talk about last time? Inheritance examples.
+Last time we covered inheritance examples.
 
 We wrote subclasses with the extends keyword, and saw that a child class can override a method, in which case the object's own version runs. We designed a vehicle cost calculator with a Vehicle parent and Car and Truck children, each overriding calculateCost. And we met two ways to ask what kind of object we have: getClass and instanceof.
 
-We start today by finishing instanceof. Timing: 2 minutes.
+We start today by finishing instanceof.
 -->
 
 ---
 layout: center
 class: text-center
+minutes: 4
 ---
 
 # Project 5: where are you, and what is unclear?
@@ -154,13 +156,12 @@ class: text-center
 <p class="small">Questions about the project or about last time are welcome now.</p>
 
 <!--
-Project 5 check-in and questions. Ask for a show of hands on progress, and take questions about the project and about inheritance. Repeat each student question aloud before answering so everyone, and the captions, can follow.
-
-Fill in any project details you want to announce here. Timing: 4 minutes.
+This slide is a Project 5 check-in and a time for questions about the project and about inheritance.
 -->
 
 ---
 layout: section
+minutes: 0.5
 ---
 
 <div class="kicker">Part 1</div>
@@ -170,9 +171,11 @@ layout: section
 Finishing the instanceof keyword.
 
 <!--
-Part 1 of 4. A short part that completes last lecture. Timing: under 1 minute.
+Part 1 of 4. A short part that completes last lecture.
 -->
 
+---
+minutes: 3
 ---
 
 # instanceof is true for a type and for all its children
@@ -202,9 +205,11 @@ An alternative to the getClass method is the instanceof keyword. You can use it 
 
 The code will print "It's a mammal!" if dog is a Mammal or any child class of Mammal, including Dog.
 
-So instanceof asks an "is a kind of" question. A Dog is a kind of Mammal, so the test is true. Likely question: "What if dog is null?" Then instanceof is false, and no exception is thrown. Timing: 3 minutes.
+So instanceof asks an "is a kind of" question. A Dog is a kind of Mammal, so the test is true. If dog is null, instanceof is false, and no exception is thrown.
 -->
 
+---
+minutes: 3
 ---
 
 # Check: which test is true for a Dog object?
@@ -236,15 +241,14 @@ m.getClass() == Mammal.class
 </div>
 
 <!--
-Check for understanding. A new Dog is stored in a Mammal reference called m. Three tests are listed: A, m instanceof Mammal. B, m instanceof Cat. C, m.getClass equals Mammal.class. Which are true?
+A new Dog is stored in a Mammal reference called m. Three tests are listed: A, m instanceof Mammal. B, m instanceof Cat. C, m.getClass equals Mammal.class. Of these, only A is true.
 
-Give 45 seconds, then vote with fingers for A, B, or C. The answer is only A.
-
-A is true because a Dog is a kind of Mammal. B is false because a Dog is not a Cat. C is false because getClass gives the exact class of the object, which is Dog, even though the reference has type Mammal. Timing: 3 minutes.
+A is true because a Dog is a kind of Mammal. B is false because a Dog is not a Cat. C is false because getClass gives the exact class of the object, which is Dog, even though the reference has type Mammal.
 -->
 
 ---
 layout: section
+minutes: 0.5
 ---
 
 <div class="kicker">Part 2</div>
@@ -254,9 +258,11 @@ layout: section
 Data that outlives the program.
 
 <!--
-Part 2 of 4. A new topic: reading from and writing to files. Timing: under 1 minute.
+Part 2 of 4. A new topic: reading from and writing to files.
 -->
 
+---
+minutes: 3
 ---
 
 # A file exists after the program is done
@@ -298,9 +304,11 @@ In this course, you have already dealt with image and audio files, but you did n
 
 Files are great because they exist after the program is done. The diagram shows two bars over time, with a dashed line marking the moment the program ends. The bar for a variable stops at that line: the variable is gone. The bar for a file continues past it: the file is still there.
 
-Reading and writing to a file is very similar to reading and writing to the command line, using Scanner and System.out. So most of what you need, you already know. Timing: 3 minutes.
+Reading and writing to a file is very similar to reading and writing to the command line, using Scanner and System.out. So most of what you need, you already know.
 -->
 
+---
+minutes: 3
 ---
 
 # Reading a file uses the Scanner you already know
@@ -333,11 +341,12 @@ Reading from a text file is almost ridiculously easy. We use Scanner, just like 
 
 The code at the top reads from a file called input.txt, as if someone were typing its contents into the command line. The two cards compare the versions: for the keyboard we wrote new Scanner of System.in; for a file we write new Scanner of new File with the file name.
 
-After that line, nextInt, next, and nextLine work exactly the same as before. Likely question: "Where does the file have to be?" In the project folder, unless you give a full path. Both Scanner and File need imports: java.util.Scanner and java.io.File. Timing: 3 minutes.
+After that line, nextInt, next, and nextLine work exactly the same as before. The file has to be in the project folder, unless you give a full path. Both Scanner and File need imports: java.util.Scanner and java.io.File.
 -->
 
 ---
 layout: section
+minutes: 0.5
 ---
 
 <div class="kicker">Part 3</div>
@@ -347,9 +356,11 @@ layout: section
 What happens when the file is not there?
 
 <!--
-Part 3 of 4. The line we just wrote does not compile by itself. This part explains why. Timing: under 1 minute.
+Part 3 of 4. The line we just wrote does not compile by itself. This part explains why.
 -->
 
+---
+minutes: 3
 ---
 
 # A missing file is an error Java makes you plan for
@@ -378,9 +389,11 @@ Unfortunately, if you type that line into IntelliJ, you will get a red squiggle 
 
 This is an error situation, and Java uses something called exceptions to deal with errors. The card defines the term: an exception is an object that signals an error while the program runs. You can catch an exception and do something to recover from the situation, or pass it on.
 
-Likely question: "Why is it an error before I even run it?" Because Java can see that this line might fail, and insists that you decide what should happen. That is the next slide. Timing: 3 minutes.
+It is an error before the program even runs because Java can see that this line might fail, and insists that you decide what should happen. That is the next slide.
 -->
 
+---
+minutes: 3
 ---
 
 # Checked exceptions must be handled or the code will not compile
@@ -412,9 +425,11 @@ The error if the file is not there is called a FileNotFoundException, and it is 
 
 You have seen exceptions before: NullPointerException, ArrayIndexOutOfBoundsException, and others. These are called unchecked exceptions, because you do not have to deal with them. You usually cannot deal with them: they mean that your program has a bug.
 
-The difference in one sentence: a missing file is something a correct program must expect, so Java checks that you planned for it; an index out of bounds is a mistake in the program, so the fix is to correct the code. Timing: 3 minutes.
+The difference in one sentence: a missing file is something a correct program must expect, so Java checks that you planned for it; an index out of bounds is a mistake in the program, so the fix is to correct the code.
 -->
 
+---
+minutes: 3
 ---
 
 # throws passes the exception up to the caller
@@ -432,9 +447,11 @@ The alternative to catching an exception is throwing it up to the next level, ma
 
 We do this by putting "throws FileNotFoundException" on the declaration of main, or whatever method we are in. Lines 1 and 2 show main with the throws clause. Line 3 is the same Scanner line as before, now without the red squiggle.
 
-So today's rule is simple: any method that opens a file gets "throws FileNotFoundException" on its declaration. Catching exceptions with try and catch is a topic for a later course. FileNotFoundException needs an import from java.io. Timing: 3 minutes.
+So today's rule is simple: any method that opens a file gets "throws FileNotFoundException" on its declaration. Catching exceptions with try and catch is a topic for a later course. FileNotFoundException needs an import from java.io.
 -->
 
+---
+minutes: 3
 ---
 
 # Check: which exception does the compiler force you to handle?
@@ -465,15 +482,14 @@ new Scanner(new File("x.txt"));   // C
 </div>
 
 <!--
-Check for understanding. Three lines can each cause an exception. Line A stores into index 10 of an array of 5 elements. Line B calls length on a null String. Line C opens a file with a Scanner. Which one does the compiler force you to handle?
+Three lines can each cause an exception. Line A stores into index 10 of an array of 5 elements. Line B calls length on a null String. Line C opens a file with a Scanner. The one the compiler forces you to handle is line C: a missing file causes FileNotFoundException, which is a checked exception.
 
-Give 45 seconds, then vote with fingers for A, B, or C. The answer is line C: a missing file causes FileNotFoundException, which is checked.
-
-Lines A and B cause ArrayIndexOutOfBoundsException and NullPointerException. Both are unchecked: the program compiles, and stops when it reaches the line. They are bugs to fix, not situations to plan for. Timing: 3 minutes.
+Lines A and B cause ArrayIndexOutOfBoundsException and NullPointerException. Both are unchecked: the program compiles, and stops when it reaches the line. They are bugs to fix, not situations to plan for.
 -->
 
 ---
 layout: section
+minutes: 0.5
 ---
 
 <div class="kicker">Part 4</div>
@@ -483,9 +499,11 @@ layout: section
 Sending output to a file instead of the screen.
 
 <!--
-Part 4 of 4. Writing is the mirror image of reading. Timing: under 1 minute.
+Part 4 of 4. Writing is the mirror image of reading.
 -->
 
+---
+minutes: 3
 ---
 
 # Writing to a file takes a PrintWriter
@@ -517,9 +535,11 @@ Java loves objects. If you want to write to a file, you have got to create a Pri
 
 Once you have got a PrintWriter, you can use it just like System.out. The two cards compare them: to print to the screen we write System.out.println of x; to print to the file we write out.println of x. The methods print and println behave the same way.
 
-Both classes need imports from java.io: PrintWriter and FileOutputStream. Likely question: "What if output.txt already exists?" It is replaced. We come back to that at the end. Timing: 3 minutes.
+Both classes need imports from java.io: PrintWriter and FileOutputStream. If output.txt already exists, it is replaced; the end of the lecture comes back to that.
 -->
 
+---
+minutes: 2
 ---
 
 # Opening a file for writing can also throw FileNotFoundException
@@ -546,9 +566,11 @@ Just like making a Scanner from a File, making a PrintWriter from a FileOutputSt
 
 Weird, isn't it? You do not expect to find a file when you are about to write one. Sometimes Java's names do not match the situation. In practice it happens when the file cannot be created, for example because the folder does not exist or you are not allowed to write there.
 
-Anyway, adding "throws FileNotFoundException" to the method declaration will still solve the problem. Timing: 2 minutes.
+Anyway, adding "throws FileNotFoundException" to the method declaration will still solve the problem.
 -->
 
+---
+minutes: 3
 ---
 
 # Close every file when you are done with it
@@ -569,9 +591,11 @@ Unlike the command line, you should really close files when you are done reading
 
 If you forget to close a file you are writing to, everything you write might not show up. The reason is that output is collected in memory and written to the file in batches; close writes out whatever is still waiting.
 
-And for situations where you are accessing multiple files, it may be even more important to close them. Likely question: "Does the program close files when it ends?" Often, but not reliably for output. Call close yourself. Disposition practiced: meticulous. Timing: 3 minutes.
+And for situations where you are accessing multiple files, it may be even more important to close them. A program often closes files when it ends, but not reliably for output, so call close yourself.
 -->
 
+---
+minutes: 10
 ---
 
 # Example: save 10 numbers, then read and sort them
@@ -599,9 +623,9 @@ And for situations where you are accessing multiple files, it may be even more i
 </div>
 
 <!--
-Live coding. Let's write a program that prompts the user for 10 int values and then writes them to a file called numbers.txt. Then let's write another program that opens numbers.txt, reads all 10 numbers, sorts them, and prints them out in order.
+The task: write a program that prompts the user for 10 int values and then writes them to a file called numbers.txt. Then write another program that opens numbers.txt, reads all 10 numbers, sorts them, and prints them out in order.
 
-One solution for the writer, for the instructor:
+One solution for the writer:
 
 ```java
 Scanner in = new Scanner(System.in);
@@ -613,9 +637,11 @@ for (int i = 0; i < 10; i++) {
 out.close();
 ```
 
-And for the reader: open a Scanner on new File("numbers.txt"), read 10 values into an int array with nextInt, sort the array with bubble sort or selection sort from last week, print each element, and close the Scanner. Both main methods need "throws FileNotFoundException". Timing: 10 minutes.
+And for the reader: open a Scanner on new File("numbers.txt"), read 10 values into an int array with nextInt, sort the array with bubble sort or selection sort from last week, print each element, and close the Scanner. Both main methods need "throws FileNotFoundException".
 -->
 
+---
+minutes: 4
 ---
 
 # Try it: the file connects two separate programs
@@ -625,11 +651,13 @@ And for the reader: open a Scanner on new File("numbers.txt"), read 10 values in
 <!--
 This interactive simulates the two programs. On the left is the writer, with the 10 numbers the user types. In the middle is the file numbers.txt. On the right is the reader, which reads the file, sorts the numbers, and prints them.
 
-First press Run reader before anything else: the file does not exist, so the reader stops with a FileNotFoundException. Then press Run writer: the 10 numbers appear in numbers.txt, one per line. Press Run reader again: it prints the numbers in sorted order.
+If Run reader is used before anything else, the file does not exist, so the reader stops with a FileNotFoundException. Run writer puts the 10 numbers in numbers.txt, one per line. Running the reader after that prints the numbers in sorted order.
 
-Now untick "call out.close" and run the writer again. The file is created but empty, because the numbers were still waiting in memory when the program ended. Run the reader: it fails because there is nothing to read. Real programs may write some of the data or none; the point is that you cannot rely on it. The line of text at the bottom always says what just happened. Timing: 4 minutes.
+With the "call out.close" box unticked, running the writer creates the file but leaves it empty, because the numbers were still waiting in memory when the program ended. The reader then fails because there is nothing to read. Real programs may write some of the data or none; the point is that you cannot rely on it. The line of text at the bottom always says what just happened.
 -->
 
+---
+minutes: 8
 ---
 
 # More practice: write the first million primes to a file
@@ -653,13 +681,15 @@ A million lines would scroll past on the screen. In a file, they can be opened, 
 </div>
 
 <!--
-More file practice. Let's write a program that prints the first million prime numbers to a file.
+More file practice: a program that prints the first million prime numbers to a file.
 
 The steps: open a PrintWriter on a file. Test each number in turn to see whether it is prime. If it is, print it to the file and count it. Stop when the count reaches one million, and then close the file.
 
-The card explains why this is a file problem: a million lines would scroll past on the screen and be lost. In a file, they can be opened, searched, and reused by another program. Use this as live coding if time allows, or leave it as practice. Hint for the prime test: try dividing by every number from 2 up to the square root. Timing: 8 minutes if coded in class.
+The card explains why this is a file problem: a million lines would scroll past on the screen and be lost. In a file, they can be opened, searched, and reused by another program. A hint for the prime test: try dividing by every number from 2 up to the square root.
 -->
 
+---
+minutes: 3
 ---
 
 # Writing a file replaces whatever was there
@@ -684,9 +714,7 @@ Your program asks the user for an output file name. What should it do if that fi
 <!--
 Society, ethics, and professionalism touchpoint. Opening a file for writing with FileOutputStream erases its old contents immediately. There is no warning and no undo. The file might be someone's only copy of their work.
 
-Discussion prompt, 90 seconds in pairs: your program asks the user for an output file name. What should it do if that file already exists? Listen for options: ask before replacing, choose a new name, or add to the end of the file instead. There is no single right answer, but silently destroying data is the wrong one. Software that handles other people's files carries responsibility for them.
-
-Dispositions practiced: responsible and collaborative. Timing: 3 minutes.
+The discussion question: your program asks the user for an output file name. What should it do if that file already exists? Reasonable options include asking before replacing, choosing a new name, or adding to the end of the file instead. There is no single right answer, but silently destroying data is the wrong one. Software that handles other people's files carries responsibility for them.
 -->
 
 ---
@@ -699,9 +727,11 @@ class: text-center
 <p class="small">Put away your notes. Work on your own.</p>
 
 <!--
-In-class quiz. Hand out or open the quiz and give students the planned amount of time. Read the instructions aloud and say when the time starts and ends. Timing: as planned for the quiz.
+This slide marks the in-class quiz, done on your own without notes.
 -->
 
+---
+minutes: 2
 ---
 
 # Five things to remember from today
@@ -713,11 +743,12 @@ In-class quiz. Hand out or open the quiz and give students the planned amount of
 - Always `close()` a file, especially one you write
 
 <!--
-Summarize. One: instanceof is true for a type and all of its children. Two: to read a file, create a Scanner on a new File. Three: a checked exception, such as FileNotFoundException, must be handled, and adding throws to the method declaration passes it on. Four: to write a file, create a PrintWriter on a new FileOutputStream, and then use it like System.out. Five: always close a file, especially one you are writing, or the output may be lost.
-
-Timing: 2 minutes.
+Five things to remember. One: instanceof is true for a type and all of its children. Two: to read a file, create a Scanner on a new File. Three: a checked exception, such as FileNotFoundException, must be handled, and adding throws to the method declaration passes it on. Four: to write a file, create a PrintWriter on a new FileOutputStream, and then use it like System.out. Five: always close a file, especially one you are writing, or the output may be lost.
 -->
 
+---
+hide: true
+minutes: 0
 ---
 
 # How this lecture connects to CS2023
@@ -736,13 +767,13 @@ Timing: 2 minutes.
 <p class="small">Indicative mapping. Introductory coverage; not full CS Core or KA Core treatment.</p>
 
 <!--
-Instructor-facing slide; skip it in class if short on time. It records how this lecture maps to Computer Science Curricula 2023 (CS2023), the ACM, IEEE Computer Society, and AAAI curricular guidelines.
+This slide records how this lecture maps to Computer Science Curricula 2023 (CS2023), the ACM, IEEE Computer Society, and AAAI curricular guidelines.
 
 The knowledge area mapping is indicative and has not been checked against the official Body of Knowledge at csed.acm.org. This lecture is introductory coverage and does not claim to satisfy CS Core or KA Core.
-
-Timing: skip, or 30 seconds.
 -->
 
+---
+minutes: 1
 ---
 
 # Next time: review
@@ -773,13 +804,12 @@ Timing: skip, or 30 seconds.
 Next week we will review, and next Monday will be review of the material up to Exam 1.
 
 Reminders: keep working on Project 5. There is no class on Wednesday through Friday this week, but there is still lab tomorrow.
-
-Timing: 1 minute.
 -->
 
 ---
 layout: center
 class: text-center
+minutes: 3
 ---
 
 # Exit ticket: scan before you leave
@@ -789,7 +819,5 @@ class: text-center
 <p class="small">If you cannot scan the code, ask for the link.</p>
 
 <!--
-Exit ticket. Students scan the QR code to open today's exit ticket form. Read the instruction aloud and offer the link directly to anyone who cannot scan the code; paste the form's address here in the notes before class so you can share it in the chat or on the board.
-
-Timing: 3 minutes.
+This slide is the exit ticket: scanning the QR code opens the form for today's exit ticket, and the link is available for anyone who cannot scan it.
 -->
