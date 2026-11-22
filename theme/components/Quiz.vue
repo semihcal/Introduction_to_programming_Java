@@ -80,6 +80,8 @@ const letters = 'ABCDEF'
 .text {
   flex: 1;
   font-family: var(--slidev-font-mono, monospace);
+  /* An option may be several lines of program output. */
+  white-space: pre-line;
 }
 .mark {
   font-size: 18px;

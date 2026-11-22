@@ -1,6 +1,6 @@
 ---
 theme: ../../theme
-title: COMP 1600 – Week 10, Friday – Game of Life, Types and References
+title: COMP 1600 – Week 10, Lecture 1 – Game of Life, Types and References
 info: |
   We finish Conway's Game of Life, then look at how Java stores data. A
   primitive variable holds its own value, while an object variable is a
